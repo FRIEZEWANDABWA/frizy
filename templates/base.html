@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Frieze Kere Wandabwa - Regional IT Leader{% endblock %}</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="description" content="{% block description %}Frieze Kere Wandabwa - Regional IT Leader with 8+ years managing enterprise infrastructure across Africa. Trusted by AWS, Gates Foundation, and major organizations.{% endblock %}">
+    <meta name="keywords" content="IT Leadership, Network Infrastructure, Africa, Enterprise Solutions, AWS, Technology Management">
+    <meta name="author" content="Frieze Kere Wandabwa">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{% block og_title %}Frieze Kere Wandabwa - Regional IT Leader{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}Regional IT professional with 8+ years managing enterprise infrastructure across Africa{% endblock %}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ request.url }}">
+    <meta property="og:image" content="{{ url_for('static', filename='images/profile.jpg') }}">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}Frieze Kere Wandabwa - Regional IT Leader{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}Regional IT professional with 8+ years managing enterprise infrastructure across Africa{% endblock %}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='images/favicon.ico') }}">
+    <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/apple-touch-icon.png') }}">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
+    <!-- Additional CSS -->
+    {% block extra_css %}{% endblock %}
+</head>
+<body data-theme="light">
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="{{ url_for('home') }}" class="logo">
+                <i class="fas fa-code"></i> Frieze Kere
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+                <li><a href="{{ url_for('experience') }}" class="nav-link">Experience</a></li>
+                <li><a href="{{ url_for('achievements') }}" class="nav-link">Achievements</a></li>
+                <li><a href="{{ url_for('projects') }}" class="nav-link">Projects</a></li>
+                <li><a href="{{ url_for('resume') }}" class="nav-link">Resume</a></li>
+                <li><a href="{{ url_for('blog') }}" class="nav-link">Blog</a></li>
+                <li><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
+                <li>
+                    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Frieze Kere Wandabwa</h3>
+                    <p>Regional IT Leader specializing in enterprise infrastructure and digital transformation across Africa.</p>
+                    <div class="social-links mt-2">
+                        <a href="mailto:friezekw@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                        <a href="tel:+254718300236" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                        <a href="https://linkedin.com/in/frieze-kere" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://github.com/friezekere" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="{{ url_for('experience') }}">Experience</a></li>
+                        <li><a href="{{ url_for('achievements') }}">Achievements</a></li>
+                        <li><a href="{{ url_for('projects') }}">Projects</a></li>
+                        <li><a href="{{ url_for('resume') }}">Resume</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul style="list-style: none;">
+                        <li>IT Infrastructure Management</li>
+                        <li>Network Design & Implementation</li>
+                        <li>AV Systems Integration</li>
+                        <li>Team Leadership & Training</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p><i class="fas fa-envelope"></i> friezekw@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +254 718 300 236</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+                    <p><i class="fas fa-globe"></i> Available for global opportunities</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; {{ current_year or 2024 }} Frieze Kere Wandabwa. All rights reserved. | Built with Flask & Modern Web Technologies</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+    
+    <!-- Additional JavaScript -->
+    {% block extra_js %}{% endblock %}
+    
+    <!-- Google Analytics (Optional) -->
+    {% if config.GOOGLE_ANALYTICS_ID %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config.GOOGLE_ANALYTICS_ID }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ config.GOOGLE_ANALYTICS_ID }}');
+    </script>
+    {% endif %}
+</body>
+</html>

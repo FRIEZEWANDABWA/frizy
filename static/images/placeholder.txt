@@ -1,0 +1,9 @@
+# Image Placeholders
+
+Add your professional images here:
+- profile.jpg (300x300px) - Your professional headshot
+- hero-bg.jpg - Background image for hero section
+- favicon.ico - Website favicon
+- apple-touch-icon.png - iOS app icon
+
+For now, the site uses placeholder images that will work perfectly.
