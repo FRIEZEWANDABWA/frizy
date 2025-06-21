@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Resume - Frieze Kere Wandabwa{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title">Resume</h1>
+            <p class="section-subtitle">Regional IT Professional & Network Infrastructure Specialist</p>
+            <a href="{{ url_for('download_cv') }}" class="btn btn-primary">
+                <i class="fas fa-download"></i> Download PDF
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>Frieze Kere Wandabwa</h2>
+            <p><strong>Email:</strong> friezekw@gmail.com | <strong>Phone:</strong> +254 718 300 236</p>
+            <p><strong>Location:</strong> Nairobi, Kenya | <strong>Languages:</strong> English, Swahili</p>
+        </div>
+
+        <div class="card">
+            <h2>Professional Summary</h2>
+            <p>Regional IT professional with 8+ years of experience managing IT infrastructure and support across Africa. Expertise in network design, AV systems integration, vendor management, and end-user support. Successfully delivered solutions for major organizations including Bill & Melinda Gates Foundation, Amazon Web Services, GIZ, KfW, Bolt, and Athena.</p>
+        </div>
+
+        <div class="card">
+            <h2>Professional Experience</h2>
+            
+            <div style="margin-bottom: 2rem;">
+                <h3>IT Manager Kenya - KOFISI Africa (September 2022 - Present)</h3>
+                <ul>
+                    <li>Lead end-to-end IT operations across 15+ centers in multiple countries</li>
+                    <li>Manage complex network and AV systems for enterprise clients</li>
+                    <li>Oversee 40+ professional AV installations</li>
+                    <li>Lead technical support for major events including Amazon Launch</li>
+                    <li>Supervise cross-functional IT teams and mentor technical staff</li>
+                </ul>
+            </div>
+
+            <div style="margin-bottom: 2rem;">
+                <h3>Regional Network Engineer - Telesys Solutions Limited (January 2020 - August 2022)</h3>
+                <ul>
+                    <li>Supervised installation of 500+ network sites across various regions</li>
+                    <li>Led cross-functional team of 15+ technicians and engineers</li>
+                    <li>Managed 30+ concurrent projects ensuring on-time delivery</li>
+                    <li>Implemented Pre-PAT and OHS compliance standards</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Assistant IT Officer - Communication Authority of Kenya (January 2019 - December 2019)</h3>
+                <ul>
+                    <li>Processed license applications for communication service providers</li>
+                    <li>Maintained structured databases for 50,000+ files</li>
+                    <li>Supported ISO 27001 compliance and ISMS activities</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div class="card">
+                <h2>Education</h2>
+                <h3>Bachelor of Science (Telecommunication & Information Technology)</h3>
+                <p>Kenyatta University (September 2014 - July 2019)</p>
+                
+                <h3>Kenya Certificate of Secondary Education</h3>
+                <p>Friends School Kamusinga (January 2010 - November 2013)</p>
+            </div>
+
+            <div class="card">
+                <h2>Certifications</h2>
+                <ul>
+                    <li>Cisco Certified Network Associate (CCNA)</li>
+                    <li>5G Technologies & Protocols</li>
+                    <li>Fiber Optic Installation</li>
+                    <li>SQL Server DBA</li>
+                    <li>Cyber Security & Network Security</li>
+                    <li>ISO 27001 Compliance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
