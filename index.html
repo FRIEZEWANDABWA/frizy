@@ -265,7 +265,38 @@
             color: #a0aec0;
         }
 
+        /* Mobile Menu Styles */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-primary);
+        }
+
         @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--bg-primary);
+                flex-direction: column;
+                padding: 1rem;
+                border-top: 1px solid var(--border-color);
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
             .hero-content {
                 grid-template-columns: 1fr;
                 text-align: center;
@@ -287,6 +318,17 @@
             .nav-container {
                 padding: 1rem;
             }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -298,13 +340,18 @@
                 <i class="fas fa-code"></i> Frieze Kere
             </a>
             
-            <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Home</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="achievements.html" class="nav-link">Achievements</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
     </header>
 
@@ -321,10 +368,10 @@
                             8+ years of proven leadership in enterprise IT infrastructure, managing teams and delivering mission-critical solutions for global organizations including Amazon Web Services, Bill & Melinda Gates Foundation, and Fortune 500 companies across multiple African markets.
                         </p>
                         <div class="cta-buttons">
-                            <a href="#projects" class="btn btn-primary">
+                            <a href="projects.html" class="btn btn-primary">
                                 <i class="fas fa-rocket"></i> View My Work
                             </a>
-                            <a href="#contact" class="btn btn-secondary">
+                            <a href="contact.html" class="btn btn-secondary">
                                 <i class="fas fa-handshake"></i> Let's Connect
                             </a>
                             <a href="mailto:friezekw@gmail.com" class="btn btn-secondary">
@@ -333,7 +380,7 @@
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img src="https://via.placeholder.com/300x300/1a365d/ffffff?text=FK" 
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face" 
                              alt="Frieze Kere Wandabwa - Regional IT Leader" 
                              class="profile-image">
                     </div>
@@ -501,6 +548,14 @@
     </footer>
 
     <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -514,6 +569,34 @@
                 }
             });
         });
+
+        // Animate stats on scroll
+        const stats = document.querySelectorAll('.stat-item h3');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const target = parseInt(entry.target.textContent);
+                    animateCounter(entry.target, target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        });
+        
+        stats.forEach(stat => observer.observe(stat));
+        
+        function animateCounter(element, target) {
+            let current = 0;
+            const increment = target / 50;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    element.textContent = target + (target < 100 ? '+' : '+');
+                    clearInterval(timer);
+                } else {
+                    element.textContent = Math.floor(current) + (target < 100 ? '+' : '+');
+                }
+            }, 40);
+        }
     </script>
 </body>
 </html>

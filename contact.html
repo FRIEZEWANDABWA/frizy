@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Frieze Kere Wandabwa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-code"></i> Frieze Kere
+            </a>
+            
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="achievements.html" class="nav-link">Achievements</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact</a></li>
+            </ul>
+            
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h1 class="section-title">Let's Build Something Great Together</h1>
+                    <p class="section-subtitle">Ready to discuss your next IT infrastructure project or explore leadership opportunities?</p>
+                </div>
+
+                <!-- Hero Contact Section -->
+                <div style="background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=400&fit=crop') center/cover; border-radius: 12px; padding: 4rem 2rem; margin-bottom: 4rem; position: relative;">
+                    <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)); position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 12px;"></div>
+                    <div style="position: relative; z-index: 1; color: white; text-align: center;">
+                        <h2 style="font-size: 2.5rem; margin-bottom: 1rem; color: white;">Ready to Transform Your IT Infrastructure?</h2>
+                        <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9; max-width: 800px; margin-left: auto; margin-right: auto;">
+                            I'm available for consulting, full-time roles, and strategic partnerships. Let's discuss how my expertise can drive your organization's success.
+                        </p>
+                        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px;">IT Management</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px;">Network Engineering</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px;">Project Leadership</span>
+                            <span style="background: rgba(255,255,255,0.2); padding: 0.5rem 1rem; border-radius: 20px;">Consulting</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid-2" style="gap: 4rem;">
+                    <!-- Contact Form -->
+                    <div>
+                        <div class="card">
+                            <h2><i class="fas fa-envelope" style="color: var(--primary-color); margin-right: 0.5rem;"></i> Send a Message</h2>
+                            <form class="contact-form" id="contact-form">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">Full Name *</label>
+                                    <input type="text" id="name" name="name" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email" class="form-label">Email Address *</label>
+                                    <input type="email" id="email" name="email" class="form-input" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="company" class="form-label">Company/Organization</label>
+                                    <input type="text" id="company" name="company" class="form-input">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">Subject *</label>
+                                    <select id="subject" name="subject" class="form-input" required>
+                                        <option value="">Select a topic</option>
+                                        <option value="consulting">IT Consulting Project</option>
+                                        <option value="employment">Employment Opportunity</option>
+                                        <option value="partnership">Strategic Partnership</option>
+                                        <option value="speaking">Speaking Engagement</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="message" class="form-label">Message *</label>
+                                    <textarea id="message" name="message" class="form-textarea" rows="6" required placeholder="Tell me about your project, opportunity, or how I can help..."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                                    <i class="fas fa-paper-plane"></i> Send Message
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div>
+                        <!-- Direct Contact -->
+                        <div class="card" style="margin-bottom: 2rem;">
+                            <h2><i class="fas fa-phone" style="color: var(--primary-color); margin-right: 0.5rem;"></i> Direct Contact</h2>
+                            
+                            <div style="margin: 1.5rem 0;">
+                                <div style="background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=150&fit=crop') center/cover; border-radius: 8px; padding: 2rem; margin-bottom: 1rem; position: relative;">
+                                    <div style="background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9)); position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 8px;"></div>
+                                    <div style="position: relative; z-index: 1; color: white; text-align: center;">
+                                        <i class="fas fa-envelope" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                                        <h3 style="color: white; margin: 0 0 0.5rem 0;">Email</h3>
+                                        <a href="mailto:friezekw@gmail.com" style="color: white; text-decoration: none; font-size: 1.1rem;">
+                                            friezekw@gmail.com
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=150&fit=crop') center/cover; border-radius: 8px; padding: 2rem; margin-bottom: 1rem; position: relative;">
+                                    <div style="background: linear-gradient(135deg, rgba(17, 153, 142, 0.9), rgba(56, 239, 125, 0.9)); position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 8px;"></div>
+                                    <div style="position: relative; z-index: 1; color: white; text-align: center;">
+                                        <i class="fas fa-phone" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                                        <h3 style="color: white; margin: 0 0 0.5rem 0;">Phone</h3>
+                                        <a href="tel:+254718300236" style="color: white; text-decoration: none; font-size: 1.1rem;">
+                                            +254 718 300 236
+                                        </a>
+                                    </div>
+                                </div>
+                                
+                                <div style="background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=150&fit=crop') center/cover; border-radius: 8px; padding: 2rem; position: relative;">
+                                    <div style="background: linear-gradient(135deg, rgba(240, 147, 251, 0.9), rgba(245, 87, 108, 0.9)); position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 8px;"></div>
+                                    <div style="position: relative; z-index: 1; color: white; text-align: center;">
+                                        <i class="fas fa-map-marker-alt" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
+                                        <h3 style="color: white; margin: 0 0 0.5rem 0;">Location</h3>
+                                        <p style="margin: 0; font-size: 1.1rem;">
+                                            Nairobi, Kenya<br>
+                                            <small style="opacity: 0.9;">Available for global opportunities</small>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Services -->
+                        <div class="card">
+                            <h2><i class="fas fa-briefcase" style="color: var(--primary-color); margin-right: 0.5rem;"></i> Professional Services</h2>
+                            
+                            <div style="margin-top: 1.5rem;">
+                                <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;"><i class="fas fa-network-wired"></i> IT Infrastructure</h4>
+                                    <ul style="margin: 0; padding-left: 1.5rem;">
+                                        <li>Network design and implementation</li>
+                                        <li>Multi-site IT management</li>
+                                        <li>Infrastructure modernization</li>
+                                        <li>Security and compliance</li>
+                                    </ul>
+                                </div>
+                                
+                                <div style="margin-bottom: 1.5rem; padding: 1rem; background: var(--bg-secondary); border-radius: 8px; border-left: 4px solid var(--success-color);">
+                                    <h4 style="color: var(--success-color); margin-bottom: 0.5rem;"><i class="fas fa-video"></i> AV Systems</h4>
+                                    <ul style="margin: 0; padding-left: 1.5rem;">
+                                        <li>Professional AV installations</li>
+                                        <li>Meeting room technology</li>
+                                        <li>Video conferencing solutions</li>
+                                        <li>Live event technical support</li>
+                                    </ul>
+                                </div>
+                                
+                                <div style="padding: 1rem; background: var(--bg-secondary); border-radius: 8px; border-left: 4px solid #e91e63;">
+                                    <h4 style="color: #e91e63; margin-bottom: 0.5rem;"><i class="fas fa-users"></i> Leadership & Consulting</h4>
+                                    <ul style="margin: 0; padding-left: 1.5rem;">
+                                        <li>IT strategy and planning</li>
+                                        <li>Team leadership and training</li>
+                                        <li>Project management</li>
+                                        <li>Vendor management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Location Section -->
+                <div style="margin-top: 4rem;">
+                    <div class="card">
+                        <h2><i class="fas fa-map" style="color: var(--primary-color); margin-right: 0.5rem;"></i> Location & Availability</h2>
+                        <div style="background: url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=1200&h=400&fit=crop') center/cover; border-radius: 8px; padding: 4rem 2rem; margin: 2rem 0; position: relative;">
+                            <div style="background: rgba(0,0,0,0.7); position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 8px;"></div>
+                            <div style="position: relative; z-index: 1; color: white; text-align: center;">
+                                <i class="fas fa-map-marker-alt" style="font-size: 4rem; color: #ff6b6b; margin-bottom: 1rem;"></i>
+                                <h3 style="color: white; font-size: 2rem; margin-bottom: 1rem;">Nairobi, Kenya</h3>
+                                <p style="color: white; opacity: 0.9; font-size: 1.1rem; margin-bottom: 2rem;">East Africa's Technology Hub</p>
+                                <p style="color: white; max-width: 600px; margin: 0 auto;">Based in Nairobi with extensive experience across multiple African markets. Available for remote work and international travel for the right opportunities.</p>
+                            </div>
+                        </div>
+                        
+                        <div style="background: var(--success-color); color: white; padding: 2rem; border-radius: 8px; margin: 2rem 0; text-align: center;">
+                            <h3 style="color: white; margin: 0 0 1rem 0;"><i class="fas fa-check-circle"></i> Currently Available</h3>
+                            <p style="margin: 0; opacity: 0.9; font-size: 1.1rem;">
+                                Open for consulting projects and senior IT leadership roles across Africa and internationally.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Professional References -->
+                <div style="margin-top: 4rem;">
+                    <div class="section-header">
+                        <h2 class="section-title">Professional References</h2>
+                        <p class="section-subtitle">Available upon request - references from current and former colleagues</p>
+                    </div>
+                    
+                    <div class="grid-3">
+                        <div class="card" style="border-left: 5px solid var(--primary-color);">
+                            <div style="background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=100&fit=crop') center/cover; height: 80px; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                                <div style="background: rgba(26, 54, 93, 0.8); height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                                    <i class="fas fa-user-tie" style="color: white; font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">Mr. Derick Khamali</h4>
+                            <p style="margin: 0.25rem 0; color: var(--text-secondary); font-weight: 600;">Compliance & Enforcement Manager</p>
+                            <p style="margin: 0.25rem 0; color: var(--text-secondary);">Communication Authority of Kenya</p>
+                            <p style="margin: 0.5rem 0; color: var(--primary-color); font-weight: 600;">+254 729 411 845</p>
+                        </div>
+                        
+                        <div class="card" style="border-left: 5px solid var(--success-color);">
+                            <div style="background: url('https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=100&fit=crop') center/cover; height: 80px; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                                <div style="background: rgba(17, 153, 142, 0.8); height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                                    <i class="fas fa-user-tie" style="color: white; font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 style="color: var(--success-color); margin-bottom: 0.5rem;">Mr. Paul Lumara</h4>
+                            <p style="margin: 0.25rem 0; color: var(--text-secondary); font-weight: 600;">Director</p>
+                            <p style="margin: 0.25rem 0; color: var(--text-secondary);">Telesys Solutions Limited</p>
+                            <p style="margin: 0.5rem 0; color: var(--success-color); font-weight: 600;">+254 720 865 379</p>
+                        </div>
+                        
+                        <div class="card" style="border-left: 5px solid #e91e63;">
+                            <div style="background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=100&fit=crop') center/cover; height: 80px; border-radius: 8px; margin-bottom: 1rem; position: relative;">
+                                <div style="background: rgba(233, 30, 99, 0.8); height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
+                                    <i class="fas fa-user-tie" style="color: white; font-size: 2rem;"></i>
+                                </div>
+                            </div>
+                            <h4 style="color: #e91e63; margin-bottom: 0.5rem;">Miss Sharon Kalegi</h4>
+                            <p style="margin: 0.25rem 0; color: var(--text-secondary); font-weight: 600;">Operational Manager</p>
+                            <p style="margin: 0.25rem 0; color: var(--text-secondary);">KOFISI Africa</p>
+                            <p style="margin: 0.5rem 0; color: #e91e63; font-weight: 600;">+254 728 508 936</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2024 Frieze Kere Wandabwa. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navMenu = document.getElementById('nav-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Enhanced contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validation
+            if (!data.name || !data.email || !data.subject || !data.message) {
+                showNotification('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                showNotification('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate form submission
+            setTimeout(() => {
+                showNotification('Thank you for your message! I will get back to you within 24 hours.', 'success');
+                this.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+        });
+
+        function showNotification(message, type) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                color: white;
+                font-weight: 600;
+                z-index: 10000;
+                max-width: 400px;
+                animation: slideInRight 0.3s ease;
+            `;
+            
+            if (type === 'success') {
+                notification.style.background = 'var(--success-color)';
+                notification.innerHTML = `<i class="fas fa-check-circle"></i> ${message}`;
+            } else {
+                notification.style.background = '#e53e3e';
+                notification.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+            }
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.3s ease';
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
