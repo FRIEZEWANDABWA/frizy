@@ -88,8 +88,15 @@ body {
     position: relative;
 }
 
-.nav-link:hover, .nav-link.active {
+.nav-link:hover, .nav-link:focus, .nav-link.active {
     color: var(--primary-color);
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+.nav-link:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
 }
 
 .nav-link::after {

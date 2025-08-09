@@ -6,9 +6,12 @@
     <title>{% block title %}Frieze Kere Wandabwa - Regional IT Leader{% endblock %}</title>
     
     <!-- Meta Tags for SEO -->
-    <meta name="description" content="{% block description %}Frieze Kere Wandabwa - Regional IT Leader with 8+ years managing enterprise infrastructure across Africa. Trusted by AWS, Gates Foundation, and major organizations.{% endblock %}">
-    <meta name="keywords" content="IT Leadership, Network Infrastructure, Africa, Enterprise Solutions, AWS, Technology Management">
+    <meta name="description" content="{% block description %}Frieze Kere Wandabwa - Best tech network engineer and web design expert. Regional IT Leader with 8+ years managing enterprise infrastructure across Africa. Trusted by AWS, Gates Foundation, and major organizations.{% endblock %}">
+    <meta name="keywords" content="Frieze Wandabwa, Frieze Kere Wandabwa, best tech, network engineer, web design, IT leadership, enterprise infrastructure, Africa technology, AWS expert, network security, digital transformation">
     <meta name="author" content="Frieze Kere Wandabwa">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <link rel="canonical" href="https://www.friezewandabwa.it.com/">
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="{% block og_title %}Frieze Kere Wandabwa - Regional IT Leader{% endblock %}">
@@ -39,6 +42,54 @@
     
     <!-- Additional CSS -->
     {% block extra_css %}{% endblock %}
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Frieze Kere Wandabwa",
+        "alternateName": ["Frieze Wandabwa", "Frieze Kere"],
+        "jobTitle": "Regional IT Leader",
+        "description": "Best tech network engineer and web design expert with 8+ years managing enterprise infrastructure across Africa",
+        "url": "https://www.friezewandabwa.it.com",
+        "image": "https://www.friezewandabwa.it.com/static/images/profile.jpg",
+        "email": "friezekw@gmail.com",
+        "telephone": "+254718300236",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Nairobi",
+            "addressCountry": "Kenya"
+        },
+        "sameAs": [
+            "https://linkedin.com/in/frieze-kere",
+            "https://github.com/friezekere"
+        ],
+        "knowsAbout": [
+            "Network Engineering",
+            "Web Design",
+            "IT Infrastructure",
+            "Enterprise Technology",
+            "Team Leadership",
+            "AV Systems",
+            "Network Security",
+            "Digital Transformation"
+        ],
+        "hasOccupation": {
+            "@type": "Occupation",
+            "name": "IT Infrastructure Manager",
+            "occupationLocation": {
+                "@type": "Place",
+                "name": "Africa"
+            },
+            "skills": "Network Engineering, Web Design, IT Leadership, Enterprise Infrastructure"
+        },
+        "worksFor": {
+            "@type": "Organization",
+            "name": "Regional IT Consulting"
+        }
+    }
+    </script>
 </head>
 <body data-theme="light">
     <!-- Header -->
@@ -48,14 +99,14 @@
                 <i class="fas fa-code"></i> Frieze Kere
             </a>
             
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
-                <li><a href="{{ url_for('experience') }}" class="nav-link">Experience</a></li>
-                <li><a href="{{ url_for('achievements') }}" class="nav-link">Achievements</a></li>
-                <li><a href="{{ url_for('projects') }}" class="nav-link">Projects</a></li>
-                <li><a href="{{ url_for('resume') }}" class="nav-link">Resume</a></li>
-                <li><a href="{{ url_for('blog') }}" class="nav-link">Blog</a></li>
-                <li><a href="{{ url_for('contact') }}" class="nav-link">Contact</a></li>
+            <ul class="nav-menu" id="nav-menu" role="navigation" aria-label="Main navigation">
+                <li><a href="{{ url_for('home') }}" class="nav-link" aria-label="Go to home page">Home</a></li>
+                <li><a href="{{ url_for('experience') }}" class="nav-link" aria-label="View professional experience">Experience</a></li>
+                <li><a href="{{ url_for('achievements') }}" class="nav-link" aria-label="View achievements and certifications">Achievements</a></li>
+                <li><a href="{{ url_for('projects') }}" class="nav-link" aria-label="View portfolio projects">Projects</a></li>
+                <li><a href="{{ url_for('resume') }}" class="nav-link" aria-label="View resume">Resume</a></li>
+                <li><a href="{{ url_for('blog') }}" class="nav-link" aria-label="Read blog posts">Blog</a></li>
+                <li><a href="{{ url_for('contact') }}" class="nav-link" aria-label="Contact information">Contact</a></li>
                 <li>
                     <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                         <i class="fas fa-moon"></i>
