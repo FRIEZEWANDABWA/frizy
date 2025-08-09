@@ -932,9 +932,9 @@ body {
 
 /* Enhanced background image visibility and text contrast */
 .card-with-bg {
-    background-blend-mode: overlay;
-    transition: all 0.3s ease;
     position: relative;
+    transition: all 0.3s ease;
+    background-blend-mode: overlay;
 }
 
 .card-with-bg::before {
@@ -944,13 +944,14 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(255, 255, 255, 0.92);
+    background: rgba(255, 255, 255, 0.88);
     border-radius: inherit;
     z-index: 1;
+    pointer-events: none;
 }
 
 [data-theme="dark"] .card-with-bg::before {
-    background: rgba(26, 32, 44, 0.92);
+    background: rgba(26, 32, 44, 0.88);
 }
 
 .card-with-bg > * {
@@ -960,11 +961,15 @@ body {
 
 .card-with-bg h3,
 .card-with-bg h4,
-.card-with-bg h5,
+.card-with-bg h5 {
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
 .card-with-bg p,
 .card-with-bg li {
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
     font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme="dark"] .card-with-bg h3,
@@ -973,7 +978,7 @@ body {
 [data-theme="dark"] .card-with-bg p,
 [data-theme="dark"] .card-with-bg li {
     color: var(--text-primary) !important;
-    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 /* Blog specific styles */
