@@ -731,18 +731,20 @@ body {
 /* Enhanced Visual Elements */
 .hero-gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
     margin: 2rem 0;
+    max-width: 280px;
 }
 
 .gallery-item {
     position: relative;
     border-radius: 12px;
     overflow: hidden;
-    aspect-ratio: 1;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
+    width: 130px;
+    height: 130px;
 }
 
 .gallery-item:hover {
@@ -902,6 +904,12 @@ body {
     .hero-gallery {
         grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
+        max-width: 240px;
+    }
+    
+    .gallery-item {
+        width: 110px;
+        height: 110px;
     }
     
     .floating-circle {
