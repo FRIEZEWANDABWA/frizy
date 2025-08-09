@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Frieze Kere Wandabwa</title>
+    <meta name="description" content="Tech insights and AI innovations by Frieze Kere Wandabwa. Explore articles on AI in Africa, network technologies, automation, and emerging tech trends.">
+    <meta name="keywords" content="Frieze Wandabwa, tech blog, AI Africa, network technology, automation, artificial intelligence, Kenya tech">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body data-theme="light">
+    <header class="header">
+        <nav class="nav-container">
+            <a href="index.html" class="logo"><i class="fas fa-code"></i> Frieze Kere</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="experience.html" class="nav-link">Experience</a></li>
+                <li><a href="achievements.html" class="nav-link">Achievements</a></li>
+                <li><a href="projects.html" class="nav-link">Projects</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="resume.html" class="nav-link">Resume</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+                <li><button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="section section-bg-pattern" style="background: var(--bg-secondary); position: relative;">
+            <div class="container">
+                <header class="section-header">
+                    <h1 class="section-title">Tech Insights & AI Innovation</h1>
+                    <p class="section-subtitle">Exploring the future of technology, AI, and digital transformation in Africa and beyond</p>
+                </header>
+            </div>
+        </section>
+
+        <!-- Featured Articles -->
+        <section class="section">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title">Featured Articles</h2>
+                </header>
+                
+                <div class="grid-2">
+                    <article class="card card-with-bg blog-card" onclick="openArticle('ai-africa-kenya')" style="--bg-image: url('static/images/services/ai-7977960_1280.jpg'); background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), var(--bg-image); background-size: cover; background-position: center; cursor: pointer;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <i class="fas fa-globe-africa" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <span class="blog-category">AI & AFRICA</span>
+                        </div>
+                        <h3>AI in Africa: Kenya Leads the Charge into the Future</h3>
+                        <p>The continent isn't just adopting AI; it's actively shaping it, and at the epicenter of this rapid evolution stands Kenya...</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 2024</span>
+                            <span><i class="fas fa-clock"></i> 5 min read</span>
+                        </div>
+                    </article>
+                    
+                    <article class="card card-with-bg blog-card" onclick="openArticle('personal-ai')" style="--bg-image: url('static/images/services/robot-2301646_1920.jpg'); background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), var(--bg-image); background-size: cover; background-position: center; cursor: pointer;">
+                        <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <i class="fas fa-robot" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <span class="blog-category">AI INNOVATION</span>
+                        </div>
+                        <h3>Beyond the Chatbot: The Rise of Your Personal AI</h3>
+                        <p>We are moving beyond the chatbot and entering the era of the truly personal AI companion...</p>
+                        <div class="blog-meta">
+                            <span><i class="fas fa-calendar"></i> Dec 2024</span>
+                            <span><i class="fas fa-clock"></i> 4 min read</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Categories -->
+        <section class="section" style="background: var(--bg-secondary);">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title">Technology Categories</h2>
+                </header>
+                
+                <div class="grid-4">
+                    <article class="card card-with-bg blog-card" onclick="openArticle('5g-africa')" style="--bg-image: url('static/images/services/connection-technology-4878379_1920.png'); background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), var(--bg-image); background-size: cover; background-position: center; cursor: pointer;">
+                        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
+                            <i class="fas fa-signal" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <span class="blog-category">NETWORK</span>
+                        </div>
+                        <h4>5G Revolution in Africa</h4>
+                        <p>How next-generation networks are transforming connectivity across the continent...</p>
+                    </article>
+                    
+                    <article class="card card-with-bg blog-card" onclick="openArticle('ai-automation')" style="--bg-image: url('static/images/services/cyborg-8026949_1920.jpg'); background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), var(--bg-image); background-size: cover; background-position: center; cursor: pointer;">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
+                            <i class="fas fa-cogs" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <span class="blog-category">AUTOMATION</span>
+                        </div>
+                        <h4>AI Automation in Business</h4>
+                        <p>Streamlining operations with intelligent automation solutions...</p>
+                    </article>
+                    
+                    <article class="card card-with-bg blog-card" onclick="openArticle('tech-facts')" style="--bg-image: url('static/images/services/hangzhou-8398789_1920.jpg'); background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), var(--bg-image); background-size: cover; background-position: center; cursor: pointer;">
+                        <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
+                            <i class="fas fa-chart-line" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <span class="blog-category">TECH FACTS</span>
+                        </div>
+                        <h4>Amazing Tech Statistics</h4>
+                        <p>Mind-blowing facts about technology and digital transformation...</p>
+                    </article>
+                    
+                    <article class="card card-with-bg blog-card" onclick="openArticle('future-tech')" style="--bg-image: url('static/images/services/xr-7499160_1280.jpg'); background: linear-gradient(rgba(255,255,255,0.95), rgba(255,255,255,0.95)), var(--bg-image); background-size: cover; background-position: center; cursor: pointer;">
+                        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
+                            <i class="fas fa-rocket" style="font-size: 1.5rem; margin-bottom: 0.5rem;"></i>
+                            <span class="blog-category">FUTURE TECH</span>
+                        </div>
+                        <h4>Emerging Technologies</h4>
+                        <p>Exploring AR, VR, and the metaverse revolution...</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter -->
+        <section class="section">
+            <div class="container">
+                <div class="text-center">
+                    <div class="card" style="max-width: 600px; margin: 0 auto; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                        <h3 style="color: white; margin-bottom: 1rem;"><i class="fas fa-envelope"></i> Stay Updated</h3>
+                        <p style="margin-bottom: 2rem; opacity: 0.9;">Get the latest insights on AI, technology, and digital innovation delivered to your inbox.</p>
+                        <a href="contact.html" class="btn" style="background: white; color: var(--primary-color);">
+                            <i class="fas fa-bell"></i> Subscribe to Updates
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="static/js/main.js"></script>
+    <script>
+        function openArticle(articleId) {
+            const articles = {
+                'ai-africa-kenya': 'https://medium.com/@friezekw/ai-in-africa-kenya-leads-the-charge-into-the-future',
+                'personal-ai': 'https://medium.com/@friezekw/beyond-the-chatbot-the-rise-of-your-personal-ai',
+                '5g-africa': 'https://medium.com/@friezekw/5g-revolution-in-africa',
+                'ai-automation': 'https://medium.com/@friezekw/ai-automation-in-business',
+                'tech-facts': 'https://medium.com/@friezekw/amazing-tech-statistics',
+                'future-tech': 'https://medium.com/@friezekw/emerging-technologies'
+            };
+            
+            if (articles[articleId]) {
+                window.open(articles[articleId], '_blank');
+            }
+        }
+    </script>
+</body>
+</html>
