@@ -53,10 +53,12 @@
         <nav class="nav-container">
             <a href="#" class="logo"><i class="fas fa-code"></i> Frieze Kere</a>
             <ul class="nav-menu" id="nav-menu" role="navigation" aria-label="Main navigation">
-                <li><a href="#home" class="nav-link" aria-label="Go to home page">Home</a></li>
-                <li><a href="#about" class="nav-link" aria-label="View about section">About</a></li>
-                <li><a href="#projects" class="nav-link" aria-label="View portfolio projects">Projects</a></li>
-                <li><a href="#contact" class="nav-link" aria-label="Contact information">Contact</a></li>
+                <li><a href="index.html" class="nav-link" aria-label="Go to home page">Home</a></li>
+                <li><a href="experience.html" class="nav-link" aria-label="View professional experience">Experience</a></li>
+                <li><a href="achievements.html" class="nav-link" aria-label="View achievements and certifications">Achievements</a></li>
+                <li><a href="projects.html" class="nav-link" aria-label="View portfolio projects">Projects</a></li>
+                <li><a href="resume.html" class="nav-link" aria-label="View resume">Resume</a></li>
+                <li><a href="contact.html" class="nav-link" aria-label="Contact information">Contact</a></li>
                 <li><button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button></li>
             </ul>
             <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Toggle mobile menu">
@@ -330,5 +332,13 @@
     </footer>
 
     <script src="static/js/main.js"></script>
+    <script>
+        // Ensure chatbox is initialized on all pages
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typeof FriezeAI !== 'undefined') {
+                new FriezeAI();
+            }
+        });
+    </script>
 </body>
 </html>
