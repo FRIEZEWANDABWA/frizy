@@ -880,6 +880,24 @@ body {
 .delay-3 { animation-delay: 0.6s; }
 .delay-4 { animation-delay: 0.8s; }
 
+/* Background image cards */
+.card-with-bg {
+    background-blend-mode: overlay;
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .card-with-bg {
+    background: linear-gradient(rgba(26, 32, 44, 0.9), rgba(26, 32, 44, 0.9)), var(--bg-image) !important;
+}
+
+.card-with-bg:hover {
+    background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.9)), var(--bg-image) !important;
+}
+
+[data-theme="dark"] .card-with-bg:hover {
+    background: linear-gradient(rgba(26, 32, 44, 0.85), rgba(26, 32, 44, 0.85)), var(--bg-image) !important;
+}
+
 .image-overlay {
     position: absolute;
     top: 0;
