@@ -314,11 +314,188 @@ function debounce(func, wait) {
 // Apply debouncing to scroll events
 window.addEventListener('scroll', debounce(highlightActiveSection, 100));
 
+// AI Chatbox Functionality
+class FriezeAI {
+    constructor() {
+        this.chatbox = null;
+        this.messages = [];
+        this.isOpen = false;
+        this.autoHideTimer = null;
+        this.init();
+    }
+
+    init() {
+        this.createChatbox();
+        this.showChatbox();
+        this.startAutoHideTimer();
+    }
+
+    createChatbox() {
+        const chatboxHTML = `
+            <div class="ai-chatbox" id="ai-chatbox">
+                <div class="chatbox-header">
+                    <div class="chatbox-title">
+                        <i class="fas fa-robot"></i> Frieze AI
+                    </div>
+                    <button class="chatbox-close" id="chatbox-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="chatbox-messages" id="chatbox-messages">
+                    <div class="message ai">
+                        Hi, how can I help you?
+                    </div>
+                </div>
+                <div class="chatbox-input">
+                    <input type="text" id="chatbox-input" placeholder="Type your message..." maxlength="500">
+                    <button class="chatbox-send" id="chatbox-send">
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        document.body.insertAdjacentHTML('beforeend', chatboxHTML);
+        this.chatbox = document.getElementById('ai-chatbox');
+        this.bindEvents();
+    }
+
+    bindEvents() {
+        const closeBtn = document.getElementById('chatbox-close');
+        const sendBtn = document.getElementById('chatbox-send');
+        const input = document.getElementById('chatbox-input');
+        const messagesContainer = document.getElementById('chatbox-messages');
+
+        closeBtn.addEventListener('click', () => this.hideChatbox());
+        sendBtn.addEventListener('click', () => this.sendMessage());
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.sendMessage();
+        });
+
+        // Reset auto-hide timer on interaction
+        [input, sendBtn].forEach(element => {
+            element.addEventListener('click', () => this.resetAutoHideTimer());
+        });
+
+        input.addEventListener('input', () => this.resetAutoHideTimer());
+        messagesContainer.addEventListener('scroll', () => this.resetAutoHideTimer());
+    }
+
+    showChatbox() {
+        setTimeout(() => {
+            this.chatbox.classList.add('show');
+            this.isOpen = true;
+        }, 1000);
+    }
+
+    hideChatbox() {
+        this.chatbox.classList.remove('show');
+        this.chatbox.classList.add('hide');
+        this.isOpen = false;
+        this.clearAutoHideTimer();
+    }
+
+    startAutoHideTimer() {
+        this.autoHideTimer = setTimeout(() => {
+            if (this.isOpen) {
+                this.hideChatbox();
+            }
+        }, 5000);
+    }
+
+    resetAutoHideTimer() {
+        this.clearAutoHideTimer();
+        this.startAutoHideTimer();
+    }
+
+    clearAutoHideTimer() {
+        if (this.autoHideTimer) {
+            clearTimeout(this.autoHideTimer);
+            this.autoHideTimer = null;
+        }
+    }
+
+    sendMessage() {
+        const input = document.getElementById('chatbox-input');
+        const message = input.value.trim();
+        
+        if (!message) return;
+
+        this.addMessage(message, 'user');
+        input.value = '';
+        
+        // Simulate AI response
+        setTimeout(() => {
+            const response = this.generateResponse(message);
+            this.addMessage(response, 'ai');
+        }, 1000);
+
+        this.resetAutoHideTimer();
+    }
+
+    addMessage(text, sender) {
+        const messagesContainer = document.getElementById('chatbox-messages');
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${sender}`;
+        messageDiv.textContent = text;
+        
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    generateResponse(message) {
+        const responses = {
+            greeting: [
+                "Hello! I'm here to help you learn more about Frieze's experience and expertise.",
+                "Hi there! Feel free to ask me about Frieze's background, projects, or skills.",
+                "Welcome! I can help you navigate through Frieze's portfolio and achievements."
+            ],
+            experience: [
+                "Frieze has 8+ years of IT leadership experience across Africa, managing enterprise infrastructure for major organizations.",
+                "He's worked with prestigious clients including AWS, Gates Foundation, and various multinational corporations.",
+                "His expertise spans network infrastructure, AV systems, and team leadership across multiple countries."
+            ],
+            skills: [
+                "Frieze specializes in IT infrastructure management, network design, AV systems integration, and team leadership.",
+                "He's proficient in enterprise networking, cloud technologies, and has extensive experience with major tech vendors.",
+                "His technical skills include network architecture, system administration, and project management."
+            ],
+            contact: [
+                "You can reach Frieze at friezekw@gmail.com or +254 718 300 236.",
+                "Feel free to connect with him on LinkedIn or check out his projects on GitHub.",
+                "He's available for global opportunities and consulting engagements."
+            ],
+            default: [
+                "That's an interesting question! You can find more details in the relevant sections of the portfolio.",
+                "I'd recommend checking out the Experience or Projects sections for more specific information.",
+                "Feel free to contact Frieze directly for detailed discussions about your specific needs."
+            ]
+        };
+
+        const lowerMessage = message.toLowerCase();
+        let category = 'default';
+
+        if (lowerMessage.includes('hello') || lowerMessage.includes('hi') || lowerMessage.includes('hey')) {
+            category = 'greeting';
+        } else if (lowerMessage.includes('experience') || lowerMessage.includes('work') || lowerMessage.includes('background')) {
+            category = 'experience';
+        } else if (lowerMessage.includes('skill') || lowerMessage.includes('technical') || lowerMessage.includes('expertise')) {
+            category = 'skills';
+        } else if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('email')) {
+            category = 'contact';
+        }
+
+        const categoryResponses = responses[category];
+        return categoryResponses[Math.floor(Math.random() * categoryResponses.length)];
+    }
+}
+
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Professional Portfolio Loaded - Frieze Kere Wandabwa');
     
-    // Add any additional initialization code here
+    // Initialize AI Chatbox
+    new FriezeAI();
     
     // Preload critical images
     const criticalImages = [
