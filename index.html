@@ -69,7 +69,8 @@
 
     <main class="main-content">
         <!-- Hero Section -->
-        <section class="hero" id="home">
+        <section class="hero" id="home" style="position: relative; overflow: hidden;">
+            <div class="parallax-bg" style="opacity: 0.03;"></div>
             <div class="container">
                 <div class="hero-content">
                     <header class="hero-text">
@@ -90,11 +91,34 @@
                             </a>
                         </div>
                     </header>
-                    <div class="hero-image">
-                        <img src="static/images/profile photo.jpg" 
-                             alt="Frieze Kere Wandabwa - Best Tech Network Engineer and Web Design Expert, Regional IT Leader specializing in enterprise infrastructure across Africa" 
-                             class="profile-image"
-                             onerror="this.src='https://via.placeholder.com/300x300/1a365d/ffffff?text=FK'">
+                    <div class="hero-image" style="position: relative;">
+                        <div style="position: relative;">
+                            <img src="static/images/profile photo.jpg" 
+                                 alt="Frieze Kere Wandabwa - Best Tech Network Engineer and Web Design Expert, Regional IT Leader specializing in enterprise infrastructure across Africa" 
+                                 class="profile-image"
+                                 style="position: relative; z-index: 2;"
+                                 onerror="this.src='https://via.placeholder.com/300x300/1a365d/ffffff?text=FK'">
+                            
+                            <!-- Floating Elements around main profile -->
+                            <div class="floating-elements">
+                                <div class="floating-circle" style="width: 80px; height: 80px; top: 5%; right: 5%; animation-delay: 0s;"></div>
+                                <div class="floating-circle" style="width: 50px; height: 50px; bottom: 15%; left: 10%; animation-delay: 3s;"></div>
+                                <div class="floating-circle" style="width: 35px; height: 35px; top: 70%; right: 25%; animation-delay: 1.5s;"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mini gallery below main profile -->
+                        <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem;">
+                            <div class="gallery-item" style="width: 60px; height: 60px;">
+                                <img src="static/images/personal/5.jpeg" alt="Frieze Professional Moment">
+                            </div>
+                            <div class="gallery-item" style="width: 60px; height: 60px;">
+                                <img src="static/images/personal/6.jpeg" alt="Frieze Innovation">
+                            </div>
+                            <div class="gallery-item" style="width: 60px; height: 60px;">
+                                <img src="static/images/personal/7.jpeg" alt="Frieze Leadership">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -129,7 +153,7 @@
         </section>
 
         <!-- About Me Section -->
-        <section class="section" id="about-me" style="background: var(--bg-secondary);">
+        <section class="section section-bg-pattern" id="about-me" style="background: var(--bg-secondary); position: relative;">
             <div class="container">
                 <header class="section-header">
                     <h2 class="section-title">About Me</h2>
@@ -149,12 +173,12 @@
                         </div>
                         
                         <div class="grid-2" style="margin: 2rem 0;">
-                            <div class="card" style="text-align: center; padding: 1.5rem;">
+                            <div class="card animate-left delay-1" style="text-align: center; padding: 1.5rem;">
                                 <i class="fas fa-network-wired" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
                                 <h4>500+ Network Sites</h4>
                                 <p>Deployed across Africa, expanding connectivity to underserved regions</p>
                             </div>
-                            <div class="card" style="text-align: center; padding: 1.5rem;">
+                            <div class="card animate-right delay-2" style="text-align: center; padding: 1.5rem;">
                                 <i class="fas fa-building" style="font-size: 2.5rem; color: var(--accent-color); margin-bottom: 1rem;"></i>
                                 <h4>15+ Enterprise Centers</h4>
                                 <p>Managed with unified access control and 99%+ uptime</p>
@@ -181,15 +205,45 @@
                     </div>
                     
                     <div class="hero-image">
-                        <img src="static/images/about-photo.jpg" 
-                             alt="Frieze Kere Wandabwa - AI Enthusiast and IT Innovation Leader" 
-                             class="profile-image"
-                             style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);">
+                        <div style="position: relative;">
+                            <img src="static/images/about-photo.jpg" 
+                                 alt="Frieze Kere Wandabwa - AI Enthusiast and IT Innovation Leader" 
+                                 class="profile-image"
+                                 style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); position: relative; z-index: 2;">
+                            
+                            <!-- Floating Elements -->
+                            <div class="floating-elements">
+                                <div class="floating-circle" style="width: 60px; height: 60px; top: 10%; right: 10%; animation-delay: 0s;"></div>
+                                <div class="floating-circle" style="width: 40px; height: 40px; bottom: 20%; left: 15%; animation-delay: 2s;"></div>
+                                <div class="floating-circle" style="width: 30px; height: 30px; top: 60%; right: 20%; animation-delay: 4s;"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Personal Photo Gallery -->
+                        <div class="hero-gallery" style="margin-top: 2rem;">
+                            <div class="gallery-item">
+                                <img src="static/images/personal/1.jpeg" alt="Frieze Wandabwa Professional">
+                                <div class="image-overlay">Professional</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="static/images/personal/2.jpeg" alt="Frieze Wandabwa Innovation">
+                                <div class="image-overlay">Innovation</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="static/images/personal/3.jpeg" alt="Frieze Wandabwa Leadership">
+                                <div class="image-overlay">Leadership</div>
+                            </div>
+                            <div class="gallery-item">
+                                <img src="static/images/personal/4.jpeg" alt="Frieze Wandabwa Technology">
+                                <div class="image-overlay">Technology</div>
+                            </div>
+                        </div>
                         
                         <div style="text-align: center; margin-top: 2rem;">
-                            <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 1.5rem; border-radius: 12px;">
-                                <h4 style="color: white; margin: 0 0 1rem 0;">What I Do</h4>
-                                <ul style="list-style: none; padding: 0; margin: 0;">
+                            <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 1.5rem; border-radius: 12px; position: relative; overflow: hidden;">
+                                <div class="parallax-bg"></div>
+                                <h4 style="color: white; margin: 0 0 1rem 0; position: relative; z-index: 2;">What I Do</h4>
+                                <ul style="list-style: none; padding: 0; margin: 0; position: relative; z-index: 2;">
                                     <li style="margin: 0.5rem 0;"><i class="fas fa-check" style="margin-right: 0.5rem;"></i> Network Engineering</li>
                                     <li style="margin: 0.5rem 0;"><i class="fas fa-check" style="margin-right: 0.5rem;"></i> AI Solutions Development</li>
                                     <li style="margin: 0.5rem 0;"><i class="fas fa-check" style="margin-right: 0.5rem;"></i> Web Design & Development</li>
@@ -261,7 +315,7 @@
         </section>
 
         <!-- Featured Projects -->
-        <section class="section" id="projects" style="background: var(--bg-secondary);">
+        <section class="section section-bg-pattern" id="projects" style="background: var(--bg-secondary); position: relative;">
             <div class="container">
                 <header class="section-header">
                     <h2 class="section-title">Flagship Projects</h2>
@@ -347,7 +401,8 @@
         </section>
 
         <!-- Call to Action -->
-        <section class="section" id="contact" style="background: var(--primary-color); color: white;">
+        <section class="section" id="contact" style="background: var(--primary-color); color: white; position: relative; overflow: hidden;">
+            <div class="parallax-bg"></div>
             <div class="container text-center">
                 <h2 style="color: white; margin-bottom: 1rem;">Ready to Transform Your IT Infrastructure?</h2>
                 <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
