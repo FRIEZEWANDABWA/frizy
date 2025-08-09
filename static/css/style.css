@@ -15,16 +15,18 @@
 }
 
 [data-theme="dark"] {
-    --primary-color: #63b3ed;
+    --primary-color: #90cdf4;
     --secondary-color: #4a5568;
-    --accent-color: #90cdf4;
-    --text-primary: #f7fafc;
+    --accent-color: #63b3ed;
+    --text-primary: #ffffff;
     --text-secondary: #e2e8f0;
-    --text-light: #a0aec0;
+    --text-light: #cbd5e0;
     --bg-primary: #1a202c;
     --bg-secondary: #2d3748;
     --bg-dark: #171923;
     --border-color: #4a5568;
+    --success-color: #68d391;
+    --warning-color: #f6e05e;
 }
 
 * {
@@ -887,7 +889,7 @@ body {
 }
 
 [data-theme="dark"] .card-with-bg {
-    background: linear-gradient(rgba(26, 32, 44, 0.9), rgba(26, 32, 44, 0.9)), var(--bg-image) !important;
+    background: linear-gradient(rgba(26, 32, 44, 0.95), rgba(26, 32, 44, 0.95)), var(--bg-image) !important;
 }
 
 .card-with-bg:hover {
@@ -895,7 +897,50 @@ body {
 }
 
 [data-theme="dark"] .card-with-bg:hover {
-    background: linear-gradient(rgba(26, 32, 44, 0.85), rgba(26, 32, 44, 0.85)), var(--bg-image) !important;
+    background: linear-gradient(rgba(26, 32, 44, 0.9), rgba(26, 32, 44, 0.9)), var(--bg-image) !important;
+}
+
+/* Dark mode text visibility fixes */
+[data-theme="dark"] .card {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+[data-theme="dark"] .card h3,
+[data-theme="dark"] .card h4,
+[data-theme="dark"] .card h5 {
+    color: var(--text-primary);
+}
+
+[data-theme="dark"] .card p,
+[data-theme="dark"] .card li {
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .timeline-title {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .timeline-company {
+    color: var(--accent-color);
+}
+
+[data-theme="dark"] .experience-details h5 {
+    color: var(--primary-color);
+}
+
+/* Ensure background images work in dark mode */
+[data-theme="dark"] .card[style*="background:"] {
+    background: linear-gradient(rgba(26, 32, 44, 0.95), rgba(26, 32, 44, 0.95)), var(--bg-image) !important;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
+[data-theme="dark"] .card[style*="background:"] h3,
+[data-theme="dark"] .card[style*="background:"] p,
+[data-theme="dark"] .card[style*="background:"] li {
+    color: var(--text-primary) !important;
 }
 
 .image-overlay {
