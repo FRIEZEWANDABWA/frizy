@@ -34,9 +34,25 @@ themeToggle.addEventListener('click', () => {
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
 const navMenu = document.getElementById('nav-menu');
 
-mobileMenuBtn.addEventListener('click', () => {
-    navMenu.classList.toggle('active');
-});
+if (mobileMenuBtn && navMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+        const icon = mobileMenuBtn.querySelector('i');
+        if (navMenu.classList.contains('show')) {
+            icon.className = 'fas fa-times';
+        } else {
+            icon.className = 'fas fa-bars';
+        }
+    });
+    
+    // Close menu when clicking on a link
+    navMenu.addEventListener('click', function(e) {
+        if (e.target.classList.contains('nav-link')) {
+            navMenu.classList.remove('show');
+            mobileMenuBtn.querySelector('i').className = 'fas fa-bars';
+        }
+    });
+}
 
 // Smooth Scrolling for Navigation Links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -516,8 +532,10 @@ class FriezeAI {
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Professional Portfolio Loaded - Frieze Kere Wandabwa');
     
-    // Initialize AI Chatbox
-    new FriezeAI();
+    // Initialize AI Chatbox on all pages
+    if (typeof FriezeAI !== 'undefined') {
+        new FriezeAI();
+    }
     
     // Preload critical images
     const criticalImages = [
