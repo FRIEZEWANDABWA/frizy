@@ -930,17 +930,50 @@ body {
     color: var(--primary-color);
 }
 
-/* Ensure background images work in dark mode */
-[data-theme="dark"] .card[style*="background:"] {
-    background: linear-gradient(rgba(26, 32, 44, 0.95), rgba(26, 32, 44, 0.95)), var(--bg-image) !important;
-    background-size: cover !important;
-    background-position: center !important;
+/* Enhanced background image visibility and text contrast */
+.card-with-bg {
+    background-blend-mode: overlay;
+    transition: all 0.3s ease;
+    position: relative;
 }
 
-[data-theme="dark"] .card[style*="background:"] h3,
-[data-theme="dark"] .card[style*="background:"] p,
-[data-theme="dark"] .card[style*="background:"] li {
+.card-with-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.92);
+    border-radius: inherit;
+    z-index: 1;
+}
+
+[data-theme="dark"] .card-with-bg::before {
+    background: rgba(26, 32, 44, 0.92);
+}
+
+.card-with-bg > * {
+    position: relative;
+    z-index: 2;
+}
+
+.card-with-bg h3,
+.card-with-bg h4,
+.card-with-bg h5,
+.card-with-bg p,
+.card-with-bg li {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    font-weight: 500;
+}
+
+[data-theme="dark"] .card-with-bg h3,
+[data-theme="dark"] .card-with-bg h4,
+[data-theme="dark"] .card-with-bg h5,
+[data-theme="dark"] .card-with-bg p,
+[data-theme="dark"] .card-with-bg li {
     color: var(--text-primary) !important;
+    text-shadow: 0 1px 3px rgba(255, 255, 255, 0.2);
 }
 
 /* Blog specific styles */
