@@ -35,25 +35,122 @@
                 </header>
 
                 <div class="timeline">
+                    <!-- Current Role -->
                     <div class="timeline-item card">
                         <div class="timeline-date">September 2022 - Present</div>
                         <h2 class="timeline-title">IT Manager Kenya</h2>
                         <div class="timeline-company">KOFISI Africa</div>
                         <p>Leading end-to-end IT operations across 15+ premium office centers, supporting global organizations including AWS, Gates Foundation, and enterprise clients.</p>
+                        
+                        <div class="experience-preview">
+                            <div class="service-tags">
+                                <span class="tag">Network Infrastructure</span>
+                                <span class="tag">AV Systems Integration</span>
+                                <span class="tag">Website Design</span>
+                                <span class="tag">AI Automation</span>
+                                <span class="tag">Prompt Engineering</span>
+                            </div>
+                            <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                        
+                        <div class="experience-details" style="display: none;">
+                            <h4>Key Achievements & Services:</h4>
+                            <div class="grid-2">
+                                <div>
+                                    <h5><i class="fas fa-network-wired"></i> Network Infrastructure</h5>
+                                    <ul>
+                                        <li>Led 30+ high-profile network installations for Gates Foundation, Amazon, Bolt</li>
+                                        <li>Managed 40+ enterprise-grade networks with proactive monitoring</li>
+                                        <li>Designed centralized monitoring systems improving surveillance efficiency</li>
+                                        <li>Maintained 99%+ uptime for mission-critical environments</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5><i class="fas fa-video"></i> AV Systems Integration</h5>
+                                    <ul>
+                                        <li>Deployed 40+ professional AV installations using Logitech, Jabra, Kandao</li>
+                                        <li>Provided live technical support for Gates Foundation Africa OPS Summit</li>
+                                        <li>Configured Microsoft Teams, Zoom, Google Meet, Amazon Chime platforms</li>
+                                        <li>Specialized in Rally Bar, MeetUp, PanaCast, and Jamboard systems</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5><i class="fas fa-code"></i> Website Design & Development</h5>
+                                    <ul>
+                                        <li>Custom responsive website design for enterprise clients</li>
+                                        <li>Modern web technologies including HTML5, CSS3, JavaScript</li>
+                                        <li>SEO optimization and performance enhancement</li>
+                                        <li>Content management systems and e-commerce solutions</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <h5><i class="fas fa-robot"></i> AI Automation & Prompt Engineering</h5>
+                                    <ul>
+                                        <li>AI-powered workflow automation for business processes</li>
+                                        <li>Custom chatbot development and integration</li>
+                                        <li>Advanced prompt engineering for optimal AI responses</li>
+                                        <li>Machine learning solutions for data analysis and insights</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                    <!-- Network Engineer Role -->
                     <div class="timeline-item card">
                         <div class="timeline-date">January 2020 - August 2022</div>
                         <h2 class="timeline-title">Regional Network Engineer</h2>
                         <div class="timeline-company">Telesys Solutions Limited</div>
-                        <p>Supervised installation of 500+ network sites across Africa, leading teams and ensuring compliance with industry standards.</p>
+                        <p>Supervised installation of 500+ network sites across Africa, leading cross-functional teams and ensuring compliance with industry standards.</p>
+                        
+                        <div class="experience-preview">
+                            <div class="service-tags">
+                                <span class="tag">Team Leadership</span>
+                                <span class="tag">Project Management</span>
+                                <span class="tag">Network Deployment</span>
+                            </div>
+                            <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                        
+                        <div class="experience-details" style="display: none;">
+                            <h4>Major Accomplishments:</h4>
+                            <ul>
+                                <li>Successfully installed 500+ network sites bridging digital divide in rural communities</li>
+                                <li>Led cross-functional team of 15+ technicians across multiple locations</li>
+                                <li>Managed 30+ concurrent projects with 100% on-time delivery rate</li>
+                                <li>Worked with Nokia, Huawei, Cisco, and Ericsson equipment</li>
+                                <li>Implemented Pre-PAT and OHS compliance standards</li>
+                                <li>Reduced installation costs by 20% through process optimization</li>
+                            </ul>
+                        </div>
                     </div>
 
+                    <!-- Government Role -->
                     <div class="timeline-item card">
                         <div class="timeline-date">January 2019 - December 2019</div>
                         <h2 class="timeline-title">Assistant IT Officer</h2>
                         <div class="timeline-company">Communication Authority of Kenya</div>
-                        <p>Public sector regulatory compliance and IT support, managing national telecommunications licensing.</p>
+                        <p>Public sector regulatory compliance and IT support, managing national telecommunications licensing and digital transformation initiatives.</p>
+                        
+                        <div class="experience-preview">
+                            <div class="service-tags">
+                                <span class="tag">Regulatory Compliance</span>
+                                <span class="tag">Data Management</span>
+                                <span class="tag">ISO 27001</span>
+                            </div>
+                            <button class="read-more-btn" onclick="toggleReadMore(this)">Read More</button>
+                        </div>
+                        
+                        <div class="experience-details" style="display: none;">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li>Processed license applications for communication service providers</li>
+                                <li>Managed over 50,000 physical files with comprehensive digital filing system</li>
+                                <li>Supported ISO 27001 compliance and ISMS activities</li>
+                                <li>Maintained structured databases for licensing operations</li>
+                                <li>Provided network support and troubleshooting for government departments</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -61,5 +158,17 @@
     </main>
 
     <script src="static/js/main.js"></script>
+    <script>
+        function toggleReadMore(button) {
+            const details = button.parentElement.nextElementSibling;
+            if (details.style.display === 'none') {
+                details.style.display = 'block';
+                button.textContent = 'Read Less';
+            } else {
+                details.style.display = 'none';
+                button.textContent = 'Read More';
+            }
+        }
+    </script>
 </body>
 </html>

@@ -390,9 +390,31 @@ class FriezeAI {
 
     hideChatbox() {
         this.chatbox.classList.remove('show');
-        this.chatbox.classList.add('hide');
+        this.chatbox.classList.add('minimized');
         this.isOpen = false;
         this.clearAutoHideTimer();
+        this.createMinimizedButton();
+    }
+
+    createMinimizedButton() {
+        if (document.getElementById('chatbox-minimized')) return;
+        
+        const minimizedBtn = document.createElement('div');
+        minimizedBtn.id = 'chatbox-minimized';
+        minimizedBtn.className = 'chatbox-minimized';
+        minimizedBtn.innerHTML = '<i class="fas fa-robot"></i>';
+        minimizedBtn.addEventListener('click', () => this.showChatboxFromMinimized());
+        document.body.appendChild(minimizedBtn);
+    }
+
+    showChatboxFromMinimized() {
+        const minimizedBtn = document.getElementById('chatbox-minimized');
+        if (minimizedBtn) minimizedBtn.remove();
+        
+        this.chatbox.classList.remove('minimized');
+        this.chatbox.classList.add('show');
+        this.isOpen = true;
+        this.startAutoHideTimer();
     }
 
     startAutoHideTimer() {
