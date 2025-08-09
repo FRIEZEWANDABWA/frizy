@@ -723,6 +723,11 @@ body {
     margin-bottom: 0.5rem;
 }
 
+.website-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
 @media (max-width: 768px) {
     .ai-chatbox {
         width: calc(100vw - 40px);
