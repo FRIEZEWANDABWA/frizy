@@ -1147,6 +1147,60 @@ body {
     }
 }
 
+/* Social Media Links */
+.social-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.2rem;
+}
+
+.social-links a:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(49, 130, 206, 0.4);
+}
+
+.social-links a:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* LinkedIn specific styling */
+.social-links a[href*="linkedin"]:hover {
+    background: #0077b5;
+}
+
+/* GitHub specific styling */
+.social-links a[href*="github"]:hover {
+    background: #333;
+}
+
+/* Email specific styling */
+.social-links a[href^="mailto"]:hover {
+    background: #ea4335;
+}
+
+/* Phone specific styling */
+.social-links a[href^="tel"]:hover {
+    background: #34a853;
+}
+
 /* Utility Classes */
 .text-center { text-align: center; }
 .text-left { text-align: left; }

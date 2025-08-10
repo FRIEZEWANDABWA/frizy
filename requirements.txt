@@ -1,2 +1,5 @@
 Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-Mail==0.9.1
 gunicorn==21.2.0
+secrets

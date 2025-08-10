@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Resume - Frieze Kere Wandabwa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body data-theme="light">
+    <header class="header">
+        <nav class="nav-container">
+            <a href="../index.html" class="logo"><i class="fas fa-code"></i> Frieze Kere</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../experience.html" class="nav-link">Experience</a></li>
+                <li><a href="../achievements.html" class="nav-link">Achievements</a></li>
+                <li><a href="../projects.html" class="nav-link">Projects</a></li>
+                <li><a href="../services.html" class="nav-link">Services</a></li>
+                <li><a href="../resume.html" class="nav-link active">Resume</a></li>
+                <li><a href="../contact.html" class="nav-link">Contact</a></li>
+                <li><button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="container">
+                <header class="section-header">
+                    <h1 class="section-title">Request Resume Access</h1>
+                    <p class="section-subtitle">Please provide your details to request access to my professional resume</p>
+                </header>
+
+                <div class="text-center">
+                    <div class="card" style="max-width: 600px; margin: 0 auto;">
+                        <div id="success-message" style="display: none; background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                            <i class="fas fa-check-circle"></i> <span id="success-text"></span>
+                        </div>
+                        
+                        <div id="error-message" style="display: none; background: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+                            <i class="fas fa-exclamation-circle"></i> <span id="error-text"></span>
+                        </div>
+
+                        <form id="resume-request-form">
+                            <div style="margin-bottom: 20px; text-align: left;">
+                                <label for="name" style="display: block; margin-bottom: 5px; font-weight: 600;">Full Name *</label>
+                                <input type="text" id="name" name="name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+                            </div>
+
+                            <div style="margin-bottom: 20px; text-align: left;">
+                                <label for="email" style="display: block; margin-bottom: 5px; font-weight: 600;">Email Address *</label>
+                                <input type="email" id="email" name="email" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+                            </div>
+
+                            <div style="margin-bottom: 20px; text-align: left;">
+                                <label for="company" style="display: block; margin-bottom: 5px; font-weight: 600;">Company/Organization</label>
+                                <input type="text" id="company" name="company" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px;">
+                            </div>
+
+                            <div style="margin-bottom: 20px; text-align: left;">
+                                <label for="reason" style="display: block; margin-bottom: 5px; font-weight: 600;">Reason for Request</label>
+                                <textarea id="reason" name="reason" rows="4" placeholder="Please briefly explain why you need access to my resume..." style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; font-size: 16px; resize: vertical;"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary" id="submit-btn">
+                                <i class="fas fa-paper-plane"></i> Submit Request
+                            </button>
+                        </form>
+
+                        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px; text-align: left;">
+                            <h4><i class="fas fa-info-circle"></i> How it works:</h4>
+                            <ol style="margin: 10px 0; padding-left: 20px;">
+                                <li>Submit your request with your details</li>
+                                <li>I'll receive an email notification</li>
+                                <li>Once approved, you'll get a secure download link via email</li>
+                                <li>Use the link to download my resume</li>
+                            </ol>
+                            <p style="margin: 10px 0; font-size: 14px; color: #666;">
+                                <i class="fas fa-shield-alt"></i> Your information is kept secure and used only for this purpose.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('resume-request-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            submitBtn.disabled = true;
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                reason: document.getElementById('reason').value
+            };
+            
+            try {
+                const response = await fetch('/request-resume', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    document.getElementById('success-text').textContent = result.message;
+                    document.getElementById('success-message').style.display = 'block';
+                    document.getElementById('error-message').style.display = 'none';
+                    document.getElementById('resume-request-form').reset();
+                } else {
+                    document.getElementById('error-text').textContent = result.message;
+                    document.getElementById('error-message').style.display = 'block';
+                    document.getElementById('success-message').style.display = 'none';
+                }
+            } catch (error) {
+                document.getElementById('error-text').textContent = 'An error occurred. Please try again.';
+                document.getElementById('error-message').style.display = 'block';
+                document.getElementById('success-message').style.display = 'none';
+            }
+            
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
+    </script>
+</body>
+</html>
