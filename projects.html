@@ -74,7 +74,7 @@
                 </header>
                 
                 <div class="grid-3">
-                    <article class="card website-card card-with-bg" onclick="window.open('https://rahisisha.netlify.app/', '_blank')" style="cursor: pointer; transition: transform 0.3s ease; background-image: url('static/images/pexels-agk42-2599244.jpg'); background-size: cover; background-position: center;">
+                    <article class="card website-card card-with-bg" onclick="openSecureLink('https://rahisisha.netlify.app/')" style="cursor: pointer; transition: transform 0.3s ease; background-image: url('static/images/pexels-agk42-2599244.jpg'); background-size: cover; background-position: center;">
                         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
                             <i class="fas fa-globe" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
                             <h4 style="color: white; margin: 0;">Rahisisha</h4>
@@ -86,7 +86,7 @@
                         </div>
                     </article>
                     
-                    <article class="card website-card card-with-bg" onclick="window.open('https://quirk1.netlify.app/', '_blank')" style="cursor: pointer; transition: transform 0.3s ease; background-image: url('static/images/pexels-goumbik-574069.jpg'); background-size: cover; background-position: center;">
+                    <article class="card website-card card-with-bg" onclick="openSecureLink('https://quirk1.netlify.app/')" style="cursor: pointer; transition: transform 0.3s ease; background-image: url('static/images/pexels-goumbik-574069.jpg'); background-size: cover; background-position: center;">
                         <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
                             <i class="fas fa-palette" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
                             <h4 style="color: white; margin: 0;">Quirk1</h4>
@@ -98,7 +98,7 @@
                         </div>
                     </article>
                     
-                    <article class="card website-card card-with-bg" onclick="window.open('https://mariemwape.netlify.app/', '_blank')" style="cursor: pointer; transition: transform 0.3s ease; background-image: url('static/images/pexels-kindelmedia-8566474.jpg'); background-size: cover; background-position: center;">
+                    <article class="card website-card card-with-bg" onclick="openSecureLink('https://mariemwape.netlify.app/')" style="cursor: pointer; transition: transform 0.3s ease; background-image: url('static/images/pexels-kindelmedia-8566474.jpg'); background-size: cover; background-position: center;">
                         <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
                             <i class="fas fa-user" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
                             <h4 style="color: white; margin: 0;">Marie Mwape</h4>
@@ -110,7 +110,7 @@
                         </div>
                     </article>
                     
-                    <article class="card website-card" onclick="window.open('https://bungomacounty.netlify.app/', '_blank')" style="cursor: pointer; transition: transform 0.3s ease;">
+                    <article class="card website-card" onclick="openSecureLink('https://bungomacounty.netlify.app/')" style="cursor: pointer; transition: transform 0.3s ease;">
                         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
                             <i class="fas fa-landmark" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
                             <h4 style="color: white; margin: 0;">Bungoma County</h4>
@@ -122,7 +122,7 @@
                         </div>
                     </article>
                     
-                    <article class="card website-card" onclick="window.open('https://frelance.netlify.app/', '_blank')" style="cursor: pointer; transition: transform 0.3s ease;">
+                    <article class="card website-card" onclick="openSecureLink('https://frelance.netlify.app/')" style="cursor: pointer; transition: transform 0.3s ease;">
                         <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
                             <i class="fas fa-briefcase" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
                             <h4 style="color: white; margin: 0;">Freelance Platform</h4>
@@ -134,7 +134,7 @@
                         </div>
                     </article>
                     
-                    <article class="card website-card" onclick="window.open('https://friezewandabwa.github.io/connected-access-hubs/', '_blank')" style="cursor: pointer; transition: transform 0.3s ease;">
+                    <article class="card website-card" onclick="openSecureLink('https://friezewandabwa.github.io/connected-access-hubs/')" style="cursor: pointer; transition: transform 0.3s ease;">
                         <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1rem; text-align: center;">
                             <i class="fas fa-wifi" style="font-size: 2rem; margin-bottom: 0.5rem;"></i>
                             <h4 style="color: white; margin: 0;">Connected Access Hubs</h4>
@@ -164,5 +164,16 @@
     </main>
 
     <script src="static/js/main.js"></script>
+    <script>
+        function openSecureLink(url) {
+            if (typeof url === 'string' && url.startsWith('https://')) {
+                const link = document.createElement('a');
+                link.href = url;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.click();
+            }
+        }
+    </script>
 </body>
 </html>

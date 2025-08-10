@@ -154,8 +154,12 @@
                 'future-tech': 'https://medium.com/@friezekw/emerging-technologies'
             };
             
-            if (articles[articleId]) {
-                window.open(articles[articleId], '_blank');
+            if (articles[articleId] && typeof articles[articleId] === 'string') {
+                const link = document.createElement('a');
+                link.href = articles[articleId];
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.click();
             }
         }
     </script>

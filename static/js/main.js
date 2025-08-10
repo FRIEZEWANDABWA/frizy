@@ -283,26 +283,22 @@ images.forEach(img => imageObserver.observe(img));
 
 // Copy to Clipboard Functionality
 function copyToClipboard(text) {
+    if (typeof text !== 'string' || text.length > 1000) return;
+    
     navigator.clipboard.writeText(text).then(() => {
         // Show success message
         const toast = document.createElement('div');
         toast.textContent = 'Copied to clipboard!';
-        toast.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--success-color);
-            color: white;
-            padding: 1rem;
-            border-radius: 8px;
-            z-index: 10000;
-            animation: slideInRight 0.3s ease;
-        `;
+        toast.className = 'toast-message';
         document.body.appendChild(toast);
         
         setTimeout(() => {
-            toast.remove();
+            if (toast.parentNode) {
+                toast.remove();
+            }
         }, 3000);
+    }).catch(() => {
+        console.error('Failed to copy to clipboard');
     });
 }
 
@@ -457,11 +453,17 @@ class FriezeAI {
         const input = document.getElementById('chatbox-input');
         const message = input.value.trim();
         
-        if (!message) return;
+        if (!message || message.length > 500) return;
 
         this.addMessage(message, 'user');
         input.value = '';
         
+        // Rate limiting
+        if (this.messages.length > 50) {
+            this.addMessage('Chat limit reached. Please refresh to continue.', 'ai');
+            return;
+        }
+
         // Simulate AI response
         setTimeout(() => {
             const response = this.generateResponse(message);
@@ -474,11 +476,29 @@ class FriezeAI {
     addMessage(text, sender) {
         const messagesContainer = document.getElementById('chatbox-messages');
         const messageDiv = document.createElement('div');
-        messageDiv.className = `message ${sender}`;
-        messageDiv.textContent = text;
+        messageDiv.className = `message ${this.sanitizeClassName(sender)}`;
+        messageDiv.textContent = this.sanitizeText(text);
         
         messagesContainer.appendChild(messageDiv);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    sanitizeText(text) {
+        if (typeof text !== 'string') return '';
+        return text.replace(/[<>"'&]/g, function(match) {
+            const escapeMap = {
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#x27;',
+                '&': '&amp;'
+            };
+            return escapeMap[match];
+        }).substring(0, 500);
+    }
+
+    sanitizeClassName(className) {
+        return className.replace(/[^a-zA-Z0-9-_]/g, '');
     }
 
     generateResponse(message) {
