@@ -58,6 +58,147 @@ def contact():
 def blog():
     return render_template('blog.html')
 
+@app.route('/blog/<article_id>')
+def blog_article(article_id):
+    articles = {
+        'ai-africa-kenya': {
+            'title': 'AI in Africa: Kenya Leads the Charge into the Future',
+            'excerpt': 'The continent isn\'t just adopting AI; it\'s actively shaping it, and at the epicenter of this rapid evolution stands Kenya.',
+            'category': 'AI & AFRICA',
+            'date': 'December 2024',
+            'read_time': '5 min read',
+            'icon': 'fas fa-globe-africa',
+            'gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            'content': '''
+            <p>Africa is experiencing an unprecedented technological renaissance, and artificial intelligence sits at the heart of this transformation. The continent isn't just adopting AI; it's actively shaping it, and at the epicenter of this rapid evolution stands Kenya.</p>
+            
+            <h3>Kenya's AI Leadership</h3>
+            <p>From Nairobi's Silicon Savannah to rural farming communities, AI is revolutionizing how Kenyans work, learn, and live. The country has emerged as a continental leader in AI adoption, with initiatives spanning healthcare, agriculture, finance, and education.</p>
+            
+            <h3>Real-World Applications</h3>
+            <p>In healthcare, AI-powered diagnostic tools are helping doctors in remote areas identify diseases faster and more accurately. Agricultural AI systems are providing farmers with precise weather predictions and crop management advice, increasing yields and reducing waste.</p>
+            
+            <p>The financial sector has embraced AI for fraud detection and credit scoring, making financial services more accessible to previously underserved populations. Mobile money platforms like M-Pesa are integrating AI to enhance security and user experience.</p>
+            
+            <h3>The Future is Bright</h3>
+            <p>As Kenya continues to invest in AI infrastructure and education, the country is positioning itself as a global AI hub. With a young, tech-savvy population and supportive government policies, Kenya is not just participating in the AI revolution – it's leading it.</p>
+            '''
+        },
+        'personal-ai': {
+            'title': 'Beyond the Chatbot: The Rise of Your Personal AI',
+            'excerpt': 'We are moving beyond the chatbot and entering the era of the truly personal AI companion.',
+            'category': 'AI INNOVATION',
+            'date': 'December 2024',
+            'read_time': '4 min read',
+            'icon': 'fas fa-robot',
+            'gradient': 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+            'content': '''
+            <p>The age of generic chatbots is ending. We are moving beyond simple question-and-answer systems and entering the era of the truly personal AI companion – an intelligent assistant that knows you, understands your preferences, and adapts to your unique needs.</p>
+            
+            <h3>The Personal Touch</h3>
+            <p>Unlike traditional chatbots that provide the same responses to everyone, personal AI systems learn from your interactions, remember your preferences, and develop a deep understanding of your work style, communication patterns, and goals.</p>
+            
+            <h3>Transforming Productivity</h3>
+            <p>Imagine an AI that knows your schedule, understands your priorities, and can proactively suggest optimizations to your workflow. This isn't science fiction – it's happening now. Personal AI assistants are becoming sophisticated enough to handle complex tasks, manage projects, and even make decisions on your behalf.</p>
+            
+            <h3>The Human-AI Partnership</h3>
+            <p>The future isn't about AI replacing humans; it's about creating powerful partnerships where AI amplifies human capabilities. Your personal AI becomes an extension of yourself, handling routine tasks so you can focus on creativity, strategy, and meaningful connections.</p>
+            
+            <p>As we move forward, the question isn't whether you'll have a personal AI – it's how quickly you'll embrace this transformative technology to unlock your full potential.</p>
+            '''
+        },
+        '5g-africa': {
+            'title': '5G Revolution in Africa: Connecting the Unconnected',
+            'excerpt': 'How next-generation networks are transforming connectivity across the continent.',
+            'category': 'NETWORK TECHNOLOGY',
+            'date': 'December 2024',
+            'read_time': '6 min read',
+            'icon': 'fas fa-signal',
+            'gradient': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+            'content': '''
+            <p>The 5G revolution is sweeping across Africa, promising to bridge the digital divide and unlock unprecedented opportunities for economic growth and social development.</p>
+            
+            <h3>Infrastructure Transformation</h3>
+            <p>African countries are investing heavily in 5G infrastructure, with South Africa, Kenya, and Nigeria leading the charge. These networks offer speeds up to 100 times faster than 4G, enabling new applications and services that were previously impossible.</p>
+            
+            <h3>Economic Impact</h3>
+            <p>5G technology is expected to contribute billions to African economies through improved productivity, new business models, and enhanced digital services. From smart cities to precision agriculture, 5G is the foundation for Africa's digital future.</p>
+            
+            <h3>Challenges and Opportunities</h3>
+            <p>While the rollout faces challenges including infrastructure costs and regulatory frameworks, the opportunities far outweigh the obstacles. 5G will enable telemedicine in remote areas, smart farming solutions, and immersive educational experiences.</p>
+            '''
+        },
+        'ai-automation': {
+            'title': 'AI Automation in Business: The New Competitive Advantage',
+            'excerpt': 'Streamlining operations with intelligent automation solutions.',
+            'category': 'BUSINESS AUTOMATION',
+            'date': 'December 2024',
+            'read_time': '5 min read',
+            'icon': 'fas fa-cogs',
+            'gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            'content': '''
+            <p>Artificial Intelligence is revolutionizing business operations through intelligent automation, creating new levels of efficiency and competitive advantage.</p>
+            
+            <h3>Beyond Simple Automation</h3>
+            <p>While traditional automation handles repetitive tasks, AI automation brings intelligence to the process. It can make decisions, adapt to changing conditions, and continuously improve performance.</p>
+            
+            <h3>Real-World Applications</h3>
+            <p>From customer service chatbots that understand context and emotion to supply chain systems that predict and prevent disruptions, AI automation is transforming every aspect of business operations.</p>
+            
+            <h3>The Strategic Advantage</h3>
+            <p>Companies that embrace AI automation gain significant advantages: reduced costs, improved accuracy, faster response times, and the ability to scale operations without proportional increases in staff.</p>
+            '''
+        },
+        'tech-facts': {
+            'title': 'Amazing Tech Statistics That Will Blow Your Mind',
+            'excerpt': 'Mind-blowing facts about technology and digital transformation.',
+            'category': 'TECH FACTS',
+            'date': 'December 2024',
+            'read_time': '3 min read',
+            'icon': 'fas fa-chart-line',
+            'gradient': 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)',
+            'content': '''
+            <p>The world of technology is full of incredible statistics that showcase just how rapidly our digital world is evolving.</p>
+            
+            <h3>Internet and Connectivity</h3>
+            <p>Every minute, over 500 hours of video are uploaded to YouTube, 6 million searches are performed on Google, and 350,000 tweets are sent.</p>
+            
+            <h3>Mobile Revolution</h3>
+            <p>There are more mobile phones than people on Earth, with over 8 billion mobile subscriptions globally.</p>
+            
+            <h3>Data Explosion</h3>
+            <p>We create 2.5 quintillion bytes of data every day. 90% of all data in the world was created in just the last two years.</p>
+            '''
+        },
+        'future-tech': {
+            'title': 'Emerging Technologies: AR, VR, and the Metaverse Revolution',
+            'excerpt': 'Exploring AR, VR, and the metaverse revolution.',
+            'category': 'FUTURE TECH',
+            'date': 'December 2024',
+            'read_time': '6 min read',
+            'icon': 'fas fa-rocket',
+            'gradient': 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+            'content': '''
+            <p>We stand at the threshold of a new digital frontier where the boundaries between physical and virtual worlds are dissolving.</p>
+            
+            <h3>The AR Revolution</h3>
+            <p>Augmented Reality is transforming industries from retail to healthcare. The AR market is expected to reach $198 billion by 2025.</p>
+            
+            <h3>VR's Immersive Future</h3>
+            <p>Virtual Reality is moving beyond gaming into education, training, and therapy.</p>
+            
+            <h3>The Metaverse Emergence</h3>
+            <p>The metaverse represents a persistent, shared virtual world where people can work, socialize, and create.</p>
+            '''
+        }
+    }
+    
+    article = articles.get(article_id)
+    if not article:
+        abort(404)
+    
+    return render_template('blog_article.html', article=article)
+
 @app.route('/request-resume', methods=['GET', 'POST'])
 def request_resume():
     if request.method == 'POST':

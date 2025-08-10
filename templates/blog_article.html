@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ article.title }} - Frieze Kere Wandabwa</title>
+    <meta name="description" content="{{ article.excerpt }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body data-theme="light">
+    <header class="header">
+        <nav class="nav-container">
+            <a href="../index.html" class="logo"><i class="fas fa-code"></i> Frieze Kere</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../experience.html" class="nav-link">Experience</a></li>
+                <li><a href="../achievements.html" class="nav-link">Achievements</a></li>
+                <li><a href="../projects.html" class="nav-link">Projects</a></li>
+                <li><a href="../services.html" class="nav-link">Services</a></li>
+                <li><a href="../blog.html" class="nav-link active">Blog</a></li>
+                <li><a href="../resume.html" class="nav-link">Resume</a></li>
+                <li><a href="../contact.html" class="nav-link">Contact</a></li>
+                <li><button class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></button></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <section class="section">
+            <div class="container">
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div style="margin-bottom: 2rem;">
+                        <a href="../blog.html" class="btn btn-secondary" style="margin-bottom: 2rem; display: inline-flex;">
+                            <i class="fas fa-arrow-left"></i> Back to Blog
+                        </a>
+                    </div>
+                    
+                    <article class="card">
+                        <div style="background: {{ article.gradient }}; color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 2rem;">
+                            <i class="{{ article.icon }}" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <span class="blog-category">{{ article.category }}</span>
+                        </div>
+                        
+                        <header style="margin-bottom: 2rem;">
+                            <h1 style="font-size: 2.5rem; margin-bottom: 1rem;">{{ article.title }}</h1>
+                            <div class="blog-meta" style="font-size: 1rem;">
+                                <span><i class="fas fa-calendar"></i> {{ article.date }}</span>
+                                <span><i class="fas fa-clock"></i> {{ article.read_time }}</span>
+                                <span><i class="fas fa-user"></i> Frieze Kere Wandabwa</span>
+                            </div>
+                        </header>
+                        
+                        <div style="line-height: 1.8; font-size: 1.1rem;">
+                            {{ article.content | safe }}
+                        </div>
+                        
+                        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                            <h3>About the Author</h3>
+                            <div style="display: flex; gap: 1rem; align-items: center; margin-top: 1rem;">
+                                <img src="../static/images/profile photo.jpg" alt="Frieze Kere Wandabwa" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover;">
+                                <div>
+                                    <h4 style="margin: 0;">Frieze Kere Wandabwa</h4>
+                                    <p style="margin: 0; color: var(--text-secondary);">Regional IT Leader & AI Enthusiast</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="../static/js/main.js"></script>
+</body>
+</html>

@@ -145,22 +145,7 @@
     <script src="static/js/main.js"></script>
     <script>
         function openArticle(articleId) {
-            const articles = {
-                'ai-africa-kenya': 'https://medium.com/@friezekw/ai-in-africa-kenya-leads-the-charge-into-the-future',
-                'personal-ai': 'https://medium.com/@friezekw/beyond-the-chatbot-the-rise-of-your-personal-ai',
-                '5g-africa': 'https://medium.com/@friezekw/5g-revolution-in-africa',
-                'ai-automation': 'https://medium.com/@friezekw/ai-automation-in-business',
-                'tech-facts': 'https://medium.com/@friezekw/amazing-tech-statistics',
-                'future-tech': 'https://medium.com/@friezekw/emerging-technologies'
-            };
-            
-            if (articles[articleId] && typeof articles[articleId] === 'string') {
-                const link = document.createElement('a');
-                link.href = articles[articleId];
-                link.target = '_blank';
-                link.rel = 'noopener noreferrer';
-                link.click();
-            }
+            window.location.href = '/blog/' + articleId;
         }
     </script>
 </body>
