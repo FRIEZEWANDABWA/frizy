@@ -141,14 +141,14 @@ if (contactForm) {
         
         // Simple validation
         if (!data.name || !data.email || !data.message) {
-            alert('Please fill in all required fields.');
+            this.showMessage('Please fill in all required fields.', 'error');
             return;
         }
         
         // Email validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(data.email)) {
-            alert('Please enter a valid email address.');
+            this.showMessage('Please enter a valid email address.', 'error');
             return;
         }
         
@@ -159,7 +159,7 @@ if (contactForm) {
         submitBtn.disabled = true;
         
         setTimeout(() => {
-            alert('Thank you for your message! I will get back to you soon.');
+            this.showMessage('Thank you for your message! I will get back to you soon.', 'success');
             this.reset();
             submitBtn.textContent = originalText;
             submitBtn.disabled = false;
@@ -174,7 +174,7 @@ function typeWriter(element, text, speed = 100) {
     
     function type() {
         if (i < text.length) {
-            element.innerHTML += text.charAt(i);
+            element.textContent += text.charAt(i);
             i++;
             setTimeout(type, speed);
         }
@@ -484,14 +484,15 @@ class FriezeAI {
     }
 
     sanitizeText(text) {
-        if (typeof text !== 'string') return '';
-        return text.replace(/[<>"'&]/g, function(match) {
+        if (typeof text !== 'string' || !text) return '';
+        return text.replace(/[<>"'&\/]/g, function(match) {
             const escapeMap = {
                 '<': '&lt;',
                 '>': '&gt;',
                 '"': '&quot;',
                 "'": '&#x27;',
-                '&': '&amp;'
+                '&': '&amp;',
+                '/': '&#x2F;'
             };
             return escapeMap[match];
         }).substring(0, 500);

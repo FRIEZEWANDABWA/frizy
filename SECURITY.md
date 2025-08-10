@@ -1,113 +1,65 @@
-# Security Implementation Report
+# Security Policy
 
-## Overview
-This document outlines the security vulnerabilities that were identified and the fixes implemented to secure the Frieze Wandabwa portfolio website.
+## Supported Versions
 
-## Critical Vulnerabilities Fixed
+| Version | Supported          |
+| ------- | ------------------ |
+| 1.0.x   | :white_check_mark: |
 
-### 1. XSS (Cross-Site Scripting) Vulnerabilities
-**Location**: `static/js/main.js` - AI Chatbox functionality
-**Risk Level**: Critical
-**Issue**: User input was not sanitized before being displayed in the chatbox
-**Fix Implemented**:
-- Added `sanitizeText()` function to escape HTML characters
-- Added `sanitizeClassName()` function to clean CSS class names
-- Implemented input length validation (500 character limit)
-- Added rate limiting (50 messages max)
+## Security Features
 
-### 2. Flask Server Security Issues
-**Location**: `app.py`
-**Risk Level**: Critical
-**Issues**: 
-- Debug mode enabled in production
-- Server exposed on all network interfaces (0.0.0.0)
-- Missing security headers
-**Fixes Implemented**:
-- Disabled debug mode by default
-- Changed host to localhost (127.0.0.1) by default
-- Added comprehensive security headers:
-  - X-Content-Type-Options: nosniff
-  - X-Frame-Options: DENY
-  - X-XSS-Protection: 1; mode=block
-  - Strict-Transport-Security
-  - Content-Security-Policy
-- Added file size limits (16MB max)
-- Added file existence validation for downloads
+### Implemented Security Measures
 
-### 3. Reverse Tabnabbing Vulnerabilities
-**Location**: Multiple HTML files
-**Risk Level**: Medium
-**Issue**: External links opened without `rel="noopener noreferrer"`
-**Fixes Implemented**:
-- Added `rel="noopener noreferrer"` to all external links
-- Created secure link opening functions in JavaScript
-- Implemented URL validation before opening links
+- **Input Validation**: All user inputs are validated and sanitized
+- **CSRF Protection**: Cross-Site Request Forgery protection enabled
+- **XSS Prevention**: HTML escaping and content sanitization
+- **SQL Injection Prevention**: Parameterized queries via SQLAlchemy ORM
+- **Secure Headers**: Security headers implemented
+- **Email Validation**: Proper email format validation
+- **Rate Limiting**: Basic rate limiting on forms
+- **Secure Configuration**: No hardcoded credentials
 
-### 4. Code Injection Prevention
-**Location**: `static/js/main.js`
-**Risk Level**: High
-**Issues**:
-- Dynamic style injection in toast messages
-- Unsafe clipboard operations
-**Fixes Implemented**:
-- Replaced inline styles with CSS classes
-- Added input validation for clipboard operations
-- Implemented safe DOM manipulation methods
+### Environment Variables Required
 
-## Additional Security Measures
+The following environment variables must be set:
 
-### Environment Configuration
-- Created `.env.example` file with secure defaults
-- Implemented environment-based configuration
-- Added session security settings
+- `SECRET_KEY`: Flask secret key for sessions
+- `MAIL_USERNAME`: Email username for notifications
+- `MAIL_PASSWORD`: Email password (use app passwords)
+- `ADMIN_PASSWORD`: Admin panel password
+- `ADMIN_EMAIL`: Admin email address
 
-### Input Validation
-- Added comprehensive input sanitization
-- Implemented length limits on user inputs
-- Added type checking for all user-provided data
+### Security Best Practices
 
-### Error Handling
-- Added proper error handling for clipboard operations
-- Implemented graceful failure modes
-- Added logging for security events
+1. **Never commit `.env` files** to version control
+2. **Use strong passwords** for admin access
+3. **Enable HTTPS** in production
+4. **Regular security updates** of dependencies
+5. **Monitor logs** for suspicious activity
 
-## Security Headers Implemented
+## Reporting a Vulnerability
 
-```
-X-Content-Type-Options: nosniff
-X-Frame-Options: DENY
-X-XSS-Protection: 1; mode=block
-Strict-Transport-Security: max-age=31536000; includeSubDomains
-Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'
-```
+If you discover a security vulnerability, please send an email to friezekw@gmail.com.
 
-## Deployment Recommendations
+**Please do not report security vulnerabilities through public GitHub issues.**
 
-### Production Environment
-1. Set `FLASK_DEBUG=False`
-2. Use environment variables for sensitive configuration
-3. Implement HTTPS with valid SSL certificates
-4. Set up proper logging and monitoring
-5. Regular security updates for dependencies
+### What to Include
 
-### Monitoring
-- Monitor for unusual chatbox activity
-- Log all external link clicks
-- Track failed authentication attempts
-- Monitor file upload attempts
+- Description of the vulnerability
+- Steps to reproduce
+- Potential impact
+- Suggested fix (if any)
 
-## Testing Performed
-- XSS payload testing in chatbox
-- External link security validation
-- Input sanitization verification
-- Error handling validation
+### Response Timeline
 
-## Conclusion
-All critical and high-risk vulnerabilities have been addressed. The website now implements industry-standard security practices including input sanitization, secure headers, and proper link handling. Regular security audits are recommended to maintain security posture.
+- **Initial Response**: Within 48 hours
+- **Status Update**: Within 7 days
+- **Resolution**: Varies based on complexity
 
-## Next Steps
-1. Implement Content Security Policy monitoring
-2. Add rate limiting for API endpoints
-3. Implement user session management if needed
-4. Regular dependency updates
-5. Penetration testing for comprehensive validation
+## Security Updates
+
+Security updates will be released as patch versions and documented in the changelog.
+
+## Contact
+
+For security-related questions: friezekw@gmail.com

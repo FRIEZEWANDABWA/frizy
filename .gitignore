@@ -29,4 +29,13 @@ Thumbs.db
 
 # Environment variables
 .env
-.env.local
+.env.*
+!.env.example
+!.env.secure
+
+# Database
+*.db
+resume_requests.db
+
+# Security
+config_local.py

@@ -1,8 +1,14 @@
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 import uuid
+import enum
 
 db = SQLAlchemy()
+
+class RequestStatus(enum.Enum):
+    PENDING = 'pending'
+    APPROVED = 'approved'
+    REJECTED = 'rejected'
 
 class ResumeRequest(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -11,7 +17,7 @@ class ResumeRequest(db.Model):
     email = db.Column(db.String(120), nullable=False)
     company = db.Column(db.String(100))
     reason = db.Column(db.Text)
-    status = db.Column(db.String(20), default='pending')  # pending, approved, rejected
+    status = db.Column(db.Enum(RequestStatus), default=RequestStatus.PENDING)
     requested_at = db.Column(db.DateTime, default=datetime.utcnow)
     approved_at = db.Column(db.DateTime)
     download_token = db.Column(db.String(100))
@@ -25,7 +31,7 @@ class ResumeRequest(db.Model):
             'email': self.email,
             'company': self.company,
             'reason': self.reason,
-            'status': self.status,
+            'status': self.status.value if self.status else 'pending',
             'requested_at': self.requested_at.isoformat() if self.requested_at else None,
             'approved_at': self.approved_at.isoformat() if self.approved_at else None,
             'download_count': self.download_count

@@ -22,7 +22,7 @@ def create_env_file():
             # Replace placeholder values
             content = content.replace('your-secret-key-here', generate_secret_key())
             content = content.replace('your-jwt-secret-key', generate_secret_key())
-            content = content.replace('your-secure-admin-password', 'admin123')  # Change this!
+            content = content.replace('your-secure-admin-password', generate_secret_key()[:16])
             
             with open('.env', 'w') as env_file:
                 env_file.write(content)
@@ -63,6 +63,7 @@ def main():
     print("2. Change the admin password in the .env file")
     print("3. Run: python app.py")
     print("4. Visit: http://localhost:5000/admin to manage resume requests")
+    print("\n⚠️  IMPORTANT: Check your .env file for the generated admin password!")
     print("\n🔗 Social Media Links:")
     print("- LinkedIn: https://www.linkedin.com/in/frieze-wandabwa-224383178/")
     print("- GitHub: https://github.com/FRIEZEWANDABWA")

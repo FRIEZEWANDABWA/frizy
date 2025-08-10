@@ -1,24 +1,40 @@
 from flask import Flask, render_template, send_from_directory, request, abort, jsonify, redirect, url_for, flash, session
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
+from flask_wtf.csrf import CSRFProtect
+from email_validator import validate_email, EmailNotValidError
 import os
 import secrets
-from datetime import datetime
+import re
+from datetime import datetime, timezone
 from werkzeug.utils import secure_filename
+from markupsafe import escape
 from config import Config
-from models import db, ResumeRequest
+from models import db, ResumeRequest, RequestStatus
+from validation import validate_and_sanitize_input, validate_email_input, sanitize_html
 
 app = Flask(__name__)
 app.config.from_object(Config)
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB max file size
 
+# Validate configuration
+try:
+    Config.validate_config()
+except ValueError as e:
+    print(f"Configuration error: {e}")
+    exit(1)
+
 # Initialize extensions
 db.init_app(app)
 mail = Mail(app)
+csrf = CSRFProtect(app)
 
 # Create tables
 with app.app_context():
     db.create_all()
+
+# Rate limiting storage
+request_counts = {}
 
 # Security headers
 @app.after_request
@@ -27,8 +43,32 @@ def add_security_headers(response):
     response.headers['X-Frame-Options'] = 'DENY'
     response.headers['X-XSS-Protection'] = '1; mode=block'
     response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
-    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'"
+    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:;"
+    response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
+    response.headers['Permissions-Policy'] = 'geolocation=(), microphone=(), camera=()'
     return response
+
+# Rate limiting decorator
+def rate_limit(max_requests=5, window=300):
+    def decorator(f):
+        def wrapper(*args, **kwargs):
+            client_ip = request.environ.get('HTTP_X_FORWARDED_FOR', request.remote_addr)
+            current_time = datetime.now().timestamp()
+            
+            if client_ip not in request_counts:
+                request_counts[client_ip] = []
+            
+            # Clean old requests
+            request_counts[client_ip] = [req_time for req_time in request_counts[client_ip] if current_time - req_time < window]
+            
+            if len(request_counts[client_ip]) >= max_requests:
+                return jsonify({'success': False, 'message': 'Rate limit exceeded. Please try again later.'}), 429
+            
+            request_counts[client_ip].append(current_time)
+            return f(*args, **kwargs)
+        wrapper.__name__ = f.__name__
+        return wrapper
+    return decorator
 
 @app.route('/')
 def home():
@@ -200,44 +240,67 @@ def blog_article(article_id):
     return render_template('blog_article.html', article=article)
 
 @app.route('/request-resume', methods=['GET', 'POST'])
+@rate_limit(max_requests=3, window=3600)  # 3 requests per hour
 def request_resume():
     if request.method == 'POST':
-        data = request.get_json()
-        
-        # Create new resume request
-        resume_request = ResumeRequest(
-            name=data.get('name'),
-            email=data.get('email'),
-            company=data.get('company', ''),
-            reason=data.get('reason', '')
-        )
-        
-        db.session.add(resume_request)
-        db.session.commit()
-        
-        # Send notification email to admin
         try:
-            send_admin_notification(resume_request)
-            return jsonify({'success': True, 'message': 'Request submitted successfully. You will receive an email once approved.'})
+            data = request.get_json()
+            
+            # Validate input
+            name = validate_and_sanitize_input(data.get('name'), 'name', max_length=100)
+            email = validate_email_input(data.get('email'))
+            company = validate_and_sanitize_input(data.get('company', ''), 'company', max_length=100, required=False)
+            reason = validate_and_sanitize_input(data.get('reason', ''), 'reason', max_length=500, required=False)
+            
+            # Create new resume request
+            resume_request = ResumeRequest(
+                name=name,
+                email=email,
+                company=company,
+                reason=reason
+            )
+            
+            db.session.add(resume_request)
+            db.session.commit()
+            
+            # Send notification email to admin
+            try:
+                send_admin_notification(resume_request)
+                return jsonify({'success': True, 'message': 'Request submitted successfully. You will receive an email once approved.'})
+            except Exception as e:
+                app.logger.error(f'Email notification failed: {str(e)}')
+                return jsonify({'success': False, 'message': 'Request submitted but email notification failed.'})
+                
+        except ValueError as e:
+            return jsonify({'success': False, 'message': str(e)}), 400
         except Exception as e:
-            return jsonify({'success': False, 'message': 'Request submitted but email notification failed.'})
+            app.logger.error(f'Request processing failed: {str(e)}')
+            return jsonify({'success': False, 'message': 'An error occurred processing your request.'}), 500
     
     return render_template('request_resume.html')
 
 @app.route('/download-resume/<token>')
 def download_resume(token):
-    resume_request = ResumeRequest.query.filter_by(download_token=token, status='approved').first()
-    if not resume_request:
+    # Validate token format
+    if not token or not re.match(r'^[a-zA-Z0-9_-]+$', token):
         abort(404)
     
-    # Increment download count
-    resume_request.download_count += 1
-    db.session.commit()
-    
-    filename = 'Frieze_Kere_Wandabwa_CV.pdf'
-    if not os.path.exists(os.path.join('static', filename)):
-        abort(404)
-    return send_from_directory('static', filename, as_attachment=True)
+    try:
+        resume_request = ResumeRequest.query.filter_by(download_token=token, status=RequestStatus.APPROVED).first()
+        if not resume_request:
+            abort(404)
+        
+        # Increment download count
+        resume_request.download_count += 1
+        db.session.commit()
+        
+        filename = 'Frieze_Kere_Wandabwa_CV.pdf'
+        if not os.path.exists(os.path.join('static', filename)):
+            abort(404)
+        return send_from_directory('static', filename, as_attachment=True)
+    except Exception as e:
+        app.logger.error(f'Download failed: {str(e)}')
+        abort(500)
 
 @app.route('/admin')
 def admin_login():
@@ -268,19 +331,24 @@ def approve_request(request_id):
     if not session.get('admin_logged_in'):
         return redirect(url_for('admin_login'))
     
-    resume_request = ResumeRequest.query.get_or_404(request_id)
-    resume_request.status = 'approved'
-    resume_request.approved_at = datetime.utcnow()
-    resume_request.download_token = secrets.token_urlsafe(32)
-    
-    db.session.commit()
-    
-    # Send approval email
     try:
-        send_approval_email(resume_request)
-        flash('Request approved and email sent', 'success')
+        resume_request = ResumeRequest.query.get_or_404(request_id)
+        resume_request.status = RequestStatus.APPROVED
+        resume_request.approved_at = datetime.now(timezone.utc)
+        resume_request.download_token = secrets.token_urlsafe(32)
+        
+        db.session.commit()
+        
+        # Send approval email
+        try:
+            send_approval_email(resume_request)
+            flash('Request approved and email sent', 'success')
+        except Exception as e:
+            app.logger.error(f'Approval email failed: {str(e)}')
+            flash('Request approved but email failed to send', 'warning')
     except Exception as e:
-        flash('Request approved but email failed to send', 'warning')
+        app.logger.error(f'Approval failed: {str(e)}')
+        flash('Failed to approve request', 'error')
     
     return redirect(url_for('admin_dashboard'))
 
@@ -289,11 +357,15 @@ def reject_request(request_id):
     if not session.get('admin_logged_in'):
         return redirect(url_for('admin_login'))
     
-    resume_request = ResumeRequest.query.get_or_404(request_id)
-    resume_request.status = 'rejected'
-    
-    db.session.commit()
-    flash('Request rejected', 'info')
+    try:
+        resume_request = ResumeRequest.query.get_or_404(request_id)
+        resume_request.status = RequestStatus.REJECTED
+        
+        db.session.commit()
+        flash('Request rejected', 'info')
+    except Exception as e:
+        app.logger.error(f'Rejection failed: {str(e)}')
+        flash('Failed to reject request', 'error')
     
     return redirect(url_for('admin_dashboard'))
 
@@ -303,41 +375,50 @@ def admin_logout():
     return redirect(url_for('admin_login'))
 
 def send_admin_notification(resume_request):
-    msg = Message(
-        subject='New Resume Download Request',
-        recipients=[app.config['ADMIN_EMAIL']],
-        html=f'''
-        <h3>New Resume Download Request</h3>
-        <p><strong>Name:</strong> {resume_request.name}</p>
-        <p><strong>Email:</strong> {resume_request.email}</p>
-        <p><strong>Company:</strong> {resume_request.company or 'Not provided'}</p>
-        <p><strong>Reason:</strong> {resume_request.reason or 'Not provided'}</p>
-        <p><strong>Requested at:</strong> {resume_request.requested_at}</p>
-        
-        <p><a href="{request.url_root}admin/dashboard" style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Review Request</a></p>
-        '''
-    )
-    mail.send(msg)
+    try:
+        msg = Message(
+            subject='New Resume Download Request',
+            recipients=[app.config['ADMIN_EMAIL']],
+            html=f'''
+            <h3>New Resume Download Request</h3>
+            <p><strong>Name:</strong> {escape(resume_request.name)}</p>
+            <p><strong>Email:</strong> {escape(resume_request.email)}</p>
+            <p><strong>Company:</strong> {escape(resume_request.company or 'Not provided')}</p>
+            <p><strong>Reason:</strong> {escape(resume_request.reason or 'Not provided')}</p>
+            <p><strong>Requested at:</strong> {resume_request.requested_at}</p>
+            
+            <p><a href="{request.url_root}admin/dashboard" style="background: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Review Request</a></p>
+            '''
+        )
+        mail.send(msg)
+    except Exception as e:
+        app.logger.error(f'Failed to send admin notification: {str(e)}')
+        raise
 
 def send_approval_email(resume_request):
-    download_url = url_for('download_resume', token=resume_request.download_token, _external=True)
-    
-    msg = Message(
-        subject='Resume Download Approved - Frieze Kere Wandabwa',
-        recipients=[resume_request.email],
-        html=f'''
-        <h3>Your Resume Download Request has been Approved!</h3>
-        <p>Dear {resume_request.name},</p>
-        <p>Thank you for your interest in my professional background. Your request to download my resume has been approved.</p>
+    try:
+        download_url = url_for('download_resume', token=resume_request.download_token, _external=True)
         
-        <p><a href="{download_url}" style="background: #28a745; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 20px 0;">Download Resume</a></p>
-        
-        <p>This download link is unique to you and will track when the resume is downloaded.</p>
-        
-        <p>Best regards,<br>Frieze Kere Wandabwa<br>Regional IT Leader</p>
-        '''
-    )
-    mail.send(msg)
+        msg = Message(
+            subject='Resume Download Approved - Frieze Kere Wandabwa',
+            recipients=[resume_request.email],
+            html=f'''
+            <h3>Your Resume Download Request has been Approved!</h3>
+            <p>Dear {escape(resume_request.name)},</p>
+            <p>Thank you for your interest in my professional background. Your request to download my resume has been approved.</p>
+            
+            <p><a href="{download_url}" style="background: #28a745; color: white; padding: 15px 30px; text-decoration: none; border-radius: 5px; display: inline-block; margin: 20px 0;">Download Resume</a></p>
+            
+            <p>This download link is unique to you and will track when the resume is downloaded.</p>
+            
+            
+            <p>Best regards,<br>Frieze Kere Wandabwa<br>Regional IT Leader</p>
+            '''
+        )
+        mail.send(msg)
+    except Exception as e:
+        app.logger.error(f'Failed to send approval email: {str(e)}')
+        raise
 
 if __name__ == '__main__':
     # Production settings
