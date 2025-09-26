@@ -6,7 +6,7 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="hero" id="home">
+<section class="hero section-with-bg" id="home" style="background-image: linear-gradient(rgba(26, 54, 93, 0.8), rgba(26, 54, 93, 0.8)), url('{{ url_for('static', filename='../photos/christopher-gower-m_HRfLhgABo-unsplash.jpg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
     <div class="container">
         <div class="hero-content">
             <header class="hero-text">
@@ -38,7 +38,7 @@
 </section>
 
 <!-- Stats Section -->
-<section class="stats">
+<section class="stats section-with-bg" style="background-image: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.9)), url('{{ url_for('static', filename='../photos/pexels-pixabay-373543.jpg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
     <div class="container">
         <div class="stats-grid">
             <div class="stat-item">
@@ -66,7 +66,7 @@
 </section>
 
 <!-- About Section -->
-<section class="section" id="about">
+<section class="section section-with-bg" id="about" style="background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('{{ url_for('static', filename='../photos/pexels-thisisengineering-3861969.jpg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
     <div class="container">
         <header class="section-header">
             <h2 class="section-title">Strategic IT Leadership That Delivers Results</h2>
@@ -76,7 +76,7 @@
         </header>
         
         <div class="grid-2">
-            <div class="card">
+            <div class="card card-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('{{ url_for('static', filename='../photos/pexels-markusspiske-177598.jpg') }}'); background-size: cover; background-position: center;">
                 <h3><i class="fas fa-network-wired"></i> Enterprise Infrastructure</h3>
                 <p>Led deployment of 500+ network sites across Africa, bridging the digital divide and enabling connectivity in underserved regions. Specialized in Cisco, Nokia, Huawei, and Ericsson enterprise equipment.</p>
                 <ul>
@@ -87,7 +87,7 @@
                 </ul>
             </div>
             
-            <div class="card">
+            <div class="card card-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('{{ url_for('static', filename='../photos/pexels-thisisengineering-3913025.jpg') }}'); background-size: cover; background-position: center;">
                 <h3><i class="fas fa-users"></i> Team Leadership & Strategy</h3>
                 <p>Built and mentored high-performing technical teams of 15+ engineers across multiple countries. Developed SOPs and training programs that improved delivery efficiency by 40%.</p>
                 <ul>
@@ -98,7 +98,7 @@
                 </ul>
             </div>
             
-            <div class="card">
+            <div class="card card-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('{{ url_for('static', filename='../photos/pexels-cottonbro-6153343.jpg') }}'); background-size: cover; background-position: center;">
                 <h3><i class="fas fa-video"></i> AV Systems Integration</h3>
                 <p>Deployed 40+ professional AV installations for enterprise clients, including advanced conferencing solutions for global organizations and high-profile events.</p>
                 <ul>
@@ -109,7 +109,7 @@
                 </ul>
             </div>
             
-            <div class="card">
+            <div class="card card-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('{{ url_for('static', filename='../photos/pexels-pixabay-270637.jpg') }}'); background-size: cover; background-position: center;">
                 <h3><i class="fas fa-shield-alt"></i> Compliance & Security</h3>
                 <p>Ensured ISO 27001 compliance and ISMS standards across government and enterprise environments. Maintained 99%+ uptime for mission-critical systems.</p>
                 <ul>
@@ -124,7 +124,7 @@
 </section>
 
 <!-- Featured Projects -->
-<section class="section" style="background: var(--bg-secondary);">
+<section class="section section-with-bg" style="background-image: linear-gradient(rgba(247, 250, 252, 0.95), rgba(247, 250, 252, 0.95)), url('{{ url_for('static', filename='../photos/nasa-Q1p7bh3SHj8-unsplash.jpg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Flagship Projects</h2>
@@ -171,7 +171,7 @@
 </section>
 
 <!-- Trusted By Section -->
-<section class="section">
+<section class="section section-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('{{ url_for('static', filename='../photos/pexels-googledeepmind-25626428.jpg') }}'); background-size: cover; background-position: center; background-attachment: fixed;">
     <div class="container">
         <div class="section-header">
             <h2 class="section-title">Trusted by Global Organizations</h2>
@@ -219,7 +219,7 @@
 </section>
 
 <!-- Call to Action -->
-<section class="section" style="background: var(--primary-color); color: white;">
+<section class="section section-with-bg" style="background-image: linear-gradient(rgba(26, 54, 93, 0.9), rgba(26, 54, 93, 0.9)), url('{{ url_for('static', filename='../photos/pexels-tara-winstead-8386364.jpg') }}'); background-size: cover; background-position: center; background-attachment: fixed; color: white;">
     <div class="container text-center">
         <h2 style="color: white; margin-bottom: 1rem;">Ready to Transform Your IT Infrastructure?</h2>
         <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
@@ -268,6 +268,58 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }, 40);
     }
+    
+    // Handle background image adjustments for theme switching
+    function adjustBackgroundsForTheme() {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        const sectionsWithBg = document.querySelectorAll('.section-with-bg');
+        const cardsWithBg = document.querySelectorAll('.card-with-bg');
+        
+        sectionsWithBg.forEach(section => {
+            const style = section.getAttribute('style');
+            if (style) {
+                if (isDark) {
+                    // Adjust overlay for dark mode
+                    if (style.includes('rgba(255,255,255')) {
+                        section.style.backgroundImage = style.replace(/rgba\(255,255,255,[^)]+\)/g, 'rgba(26,32,44,0.9)');
+                    } else if (style.includes('rgba(247,250,252')) {
+                        section.style.backgroundImage = style.replace(/rgba\(247,250,252,[^)]+\)/g, 'rgba(45,55,72,0.9)');
+                    }
+                } else {
+                    // Reset to light mode
+                    if (style.includes('rgba(26,32,44')) {
+                        section.style.backgroundImage = style.replace(/rgba\(26,32,44,[^)]+\)/g, 'rgba(255,255,255,0.95)');
+                    } else if (style.includes('rgba(45,55,72')) {
+                        section.style.backgroundImage = style.replace(/rgba\(45,55,72,[^)]+\)/g, 'rgba(247,250,252,0.95)');
+                    }
+                }
+            }
+        });
+        
+        cardsWithBg.forEach(card => {
+            const style = card.getAttribute('style');
+            if (style && isDark) {
+                if (style.includes('rgba(255,255,255')) {
+                    card.style.backgroundImage = style.replace(/rgba\(255,255,255,[^)]+\)/g, 'rgba(26,32,44,0.85)');
+                }
+            } else if (style && !isDark) {
+                if (style.includes('rgba(26,32,44')) {
+                    card.style.backgroundImage = style.replace(/rgba\(26,32,44,[^)]+\)/g, 'rgba(255,255,255,0.9)');
+                }
+            }
+        });
+    }
+    
+    // Listen for theme changes
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            setTimeout(adjustBackgroundsForTheme, 100);
+        });
+    }
+    
+    // Initial adjustment
+    adjustBackgroundsForTheme();
 });
 </script>
 {% endblock %}

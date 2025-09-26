@@ -28,7 +28,48 @@ themeToggle.addEventListener('click', () => {
     body.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
+    
+    // Adjust background overlays for theme
+    adjustBackgroundOverlays(newTheme);
 });
+
+// Function to adjust background overlays for theme changes
+function adjustBackgroundOverlays(theme) {
+    const sectionsWithBg = document.querySelectorAll('.section-with-bg');
+    const cardsWithBg = document.querySelectorAll('.card-with-bg');
+    
+    sectionsWithBg.forEach(section => {
+        const style = section.getAttribute('style');
+        if (style && style.includes('background-image')) {
+            let newStyle = style;
+            if (theme === 'dark') {
+                // Change to dark overlays - more transparent
+                newStyle = newStyle.replace(/rgba\(255,\s*255,\s*255,\s*[0-9.]+\)/g, 'rgba(26, 32, 44, 0.6)');
+                newStyle = newStyle.replace(/rgba\(247,\s*250,\s*252,\s*[0-9.]+\)/g, 'rgba(26, 32, 44, 0.6)');
+                newStyle = newStyle.replace(/rgba\(26,\s*54,\s*93,\s*[0-9.]+\)/g, 'rgba(26, 32, 44, 0.7)');
+            } else {
+                // Change to light overlays - more transparent
+                newStyle = newStyle.replace(/rgba\(26,\s*32,\s*44,\s*[0-9.]+\)/g, 'rgba(255, 255, 255, 0.7)');
+            }
+            section.setAttribute('style', newStyle);
+        }
+    });
+    
+    cardsWithBg.forEach(card => {
+        const style = card.getAttribute('style');
+        if (style && style.includes('background-image')) {
+            let newStyle = style;
+            if (theme === 'dark') {
+                newStyle = newStyle.replace(/rgba\(255,\s*255,\s*255,\s*[0-9.]+\)/g, 'rgba(26, 32, 44, 0.3)');
+            } else {
+                newStyle = newStyle.replace(/rgba\(26,\s*32,\s*44,\s*[0-9.]+\)/g, 'rgba(255, 255, 255, 0.7)');
+            }
+            card.setAttribute('style', newStyle);
+        }
+    });
+}
+
+
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -120,14 +161,16 @@ const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in-up');
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
 // Observe all cards and timeline items
-document.querySelectorAll('.card, .timeline-item, .stat-item').forEach(el => {
-    observer.observe(el);
-});
+const elementsToObserve = document.querySelectorAll('.card, .timeline-item, .stat-item');
+if (elementsToObserve.length > 0) {
+    elementsToObserve.forEach(el => observer.observe(el));
+}
 
 // Contact Form Handling
 const contactForm = document.getElementById('contact-form');
@@ -324,7 +367,17 @@ function debounce(func, wait) {
 }
 
 // Apply debouncing to scroll events
-window.addEventListener('scroll', debounce(highlightActiveSection, 100));
+let ticking = false;
+function updateOnScroll() {
+    if (!ticking) {
+        requestAnimationFrame(() => {
+            highlightActiveSection();
+            ticking = false;
+        });
+        ticking = true;
+    }
+}
+window.addEventListener('scroll', updateOnScroll, { passive: true });
 
 // AI Chatbox Functionality
 class FriezeAI {
@@ -551,21 +604,29 @@ class FriezeAI {
 
 // Initialize all functionality when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('Professional Portfolio Loaded - Frieze Kere Wandabwa');
-    
-    // Initialize AI Chatbox on all pages
-    if (typeof FriezeAI !== 'undefined') {
-        new FriezeAI();
+    // Apply initial theme to background overlays
+    const currentTheme = body.getAttribute('data-theme');
+    if (typeof adjustBackgroundOverlays === 'function') {
+        adjustBackgroundOverlays(currentTheme);
     }
     
-    // Preload critical images
-    const criticalImages = [
-        '/static/images/profile.jpg',
-        '/static/images/hero-bg.jpg'
-    ];
+    // Initialize AI Chatbox on all pages (lazy load)
+    setTimeout(() => {
+        if (typeof FriezeAI !== 'undefined') {
+            new FriezeAI();
+        }
+    }, 1000);
     
-    criticalImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
+    // Preload critical images (lazy)
+    setTimeout(() => {
+        const criticalImages = [
+            'static/images/profile photo.jpg',
+            'static/images/about-photo.jpg'
+        ];
+        
+        criticalImages.forEach(src => {
+            const img = new Image();
+            img.src = src;
+        });
+    }, 2000);
 });

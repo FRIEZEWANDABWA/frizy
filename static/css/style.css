@@ -158,6 +158,39 @@ body {
 .hero {
     padding: 4rem 0;
     background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.hero.section-with-bg {
+    color: white;
+}
+
+.hero.section-with-bg .hero-text h1 {
+    color: white !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    background: none;
+    -webkit-text-fill-color: white;
+    font-weight: 800 !important;
+}
+
+[data-theme="dark"] .hero.section-with-bg .hero-text h1 {
+    color: var(--text-primary) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+.hero.section-with-bg .hero-subtitle,
+.hero.section-with-bg .hero-description {
+    color: rgba(255, 255, 255, 0.98) !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    font-weight: 600 !important;
+}
+
+[data-theme="dark"] .hero.section-with-bg .hero-subtitle,
+[data-theme="dark"] .hero.section-with-bg .hero-description {
+    color: var(--text-secondary) !important;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .hero-content {
@@ -256,6 +289,23 @@ body {
     padding: 4rem 0;
     background: var(--primary-color);
     color: white;
+}
+
+.stats.section-with-bg {
+    color: white;
+}
+
+.stats.section-with-bg .stat-item h3,
+.stats.section-with-bg .stat-item p {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    color: white !important;
+    font-weight: 800 !important;
+}
+
+[data-theme="dark"] .stats.section-with-bg .stat-item h3,
+[data-theme="dark"] .stats.section-with-bg .stat-item p {
+    color: var(--text-primary) !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
 }
 
 .stats-grid {
@@ -504,16 +554,17 @@ body {
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translate3d(0, 30px, 0);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
+        transform: translate3d(0, 0, 0);
     }
 }
 
 .fade-in-up {
     animation: fadeInUp 0.6s ease-out;
+    will-change: transform, opacity;
 }
 
 /* AI Chatbox */
@@ -885,7 +936,8 @@ body {
 /* Background image cards */
 .card-with-bg {
     background-blend-mode: overlay;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
+    will-change: transform;
 }
 
 [data-theme="dark"] .card-with-bg {
@@ -902,20 +954,36 @@ body {
 
 /* Dark mode text visibility fixes */
 [data-theme="dark"] .card {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
+    background: var(--bg-secondary) !important;
+    color: var(--text-primary) !important;
+    border: 1px solid var(--border-color) !important;
 }
 
 [data-theme="dark"] .card h3,
 [data-theme="dark"] .card h4,
 [data-theme="dark"] .card h5 {
-    color: var(--text-primary);
+    color: var(--text-primary) !important;
 }
 
 [data-theme="dark"] .card p,
 [data-theme="dark"] .card li {
-    color: var(--text-secondary);
+    color: var(--text-secondary) !important;
+}
+
+/* Force card backgrounds in dark mode */
+[data-theme="dark"] .card:not(.card-with-bg) {
+    background: var(--bg-secondary) !important;
+}
+
+/* Ensure gradient cards maintain readability */
+[data-theme="dark"] .card[style*="linear-gradient"] {
+    background: var(--bg-secondary) !important;
+}
+
+[data-theme="dark"] .card[style*="linear-gradient"] h3,
+[data-theme="dark"] .card[style*="linear-gradient"] p {
+    color: white !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
 
 [data-theme="dark"] .timeline-title {
@@ -935,10 +1003,42 @@ body {
     background-color: rgba(255, 255, 255, 0.9);
     background-blend-mode: normal;
     transition: all 0.3s ease;
+    backdrop-filter: blur(2px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 [data-theme="dark"] .card-with-bg {
-    background-color: rgba(26, 32, 44, 0.9);
+    background-color: rgba(26, 32, 44, 0.5) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-theme="dark"] .card-with-bg:hover {
+    background-color: rgba(26, 32, 44, 0.6) !important;
+}
+
+/* Make timeline cards more transparent in dark mode */
+[data-theme="dark"] .timeline-item.card-with-bg {
+    background-color: rgba(26, 32, 44, 0.3) !important;
+    backdrop-filter: none !important;
+}
+
+[data-theme="dark"] .timeline-item.card-with-bg:hover {
+    background-color: rgba(26, 32, 44, 0.4) !important;
+}
+
+/* Force background images to show through in dark mode */
+[data-theme="dark"] .timeline-item.card-with-bg[style*="background-image"] {
+    background-blend-mode: normal !important;
+    background-color: rgba(26, 32, 44, 0.3) !important;
+}
+
+/* Override any conflicting styles for timeline cards */
+[data-theme="dark"] .timeline-item[style*="linear-gradient"] {
+    background-color: transparent !important;
+}
+
+[data-theme="dark"] .card[style*="linear-gradient"] {
+    background-color: transparent !important;
 }
 
 .card-with-bg h3,
@@ -946,9 +1046,9 @@ body {
 .card-with-bg h5,
 .card-with-bg p,
 .card-with-bg li {
-    font-weight: 600;
-    color: var(--text-primary);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
+    font-weight: 700 !important;
+    color: var(--text-primary) !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 [data-theme="dark"] .card-with-bg h3,
@@ -957,12 +1057,209 @@ body {
 [data-theme="dark"] .card-with-bg p,
 [data-theme="dark"] .card-with-bg li {
     color: var(--text-primary) !important;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    font-weight: 700 !important;
+}
+
+.card-with-bg:hover {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+[data-theme="dark"] .card-with-bg:hover {
+    background-color: rgba(26, 32, 44, 0.95);
+}
+
+/* Section with background images */
+.section-with-bg {
+    position: relative;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    will-change: transform;
+}
+
+/* Dark mode section backgrounds - more specific selectors */
+[data-theme="dark"] .section-with-bg {
+    background-color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .section-with-bg[style*="rgba(255,255,255"] {
+    background-image: linear-gradient(rgba(26, 32, 44, 0.9), rgba(26, 32, 44, 0.9)), var(--bg-image) !important;
+}
+
+[data-theme="dark"] .section-with-bg[style*="rgba(247,250,252"] {
+    background-image: linear-gradient(rgba(26, 32, 44, 0.9), rgba(26, 32, 44, 0.9)), var(--bg-image) !important;
+}
+
+[data-theme="dark"] .section-with-bg[style*="rgba(26,54,93"] {
+    background-image: linear-gradient(rgba(26, 32, 44, 0.95), rgba(26, 32, 44, 0.95)), var(--bg-image) !important;
+}
+
+/* Force dark mode colors for all sections */
+[data-theme="dark"] .section {
+    background-color: var(--bg-primary) !important;
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] .section-bg-pattern {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* Force all sections without background images to use dark theme */
+[data-theme="dark"] .section:not(.section-with-bg) {
+    background: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .section:not(.section-with-bg).section-bg-pattern {
+    background: var(--bg-secondary) !important;
+}
+
+/* Override any inline styles that might prevent dark mode */
+[data-theme="dark"] section[style*="background:"] {
+    background: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] section[style*="background-color:"] {
+    background-color: var(--bg-primary) !important;
+}
+
+/* Ensure footer follows dark theme */
+[data-theme="dark"] .footer {
+    background: var(--bg-dark) !important;
+    color: var(--text-primary) !important;
 }
 
 /* Dark mode background override */
 [data-theme="dark"] .card-with-bg[style*="linear-gradient(rgba(255,255,255"] {
     background: linear-gradient(rgba(26, 32, 44, 0.85), rgba(26, 32, 44, 0.85)), var(--bg-image) !important;
+}
+
+/* Enhanced text visibility on background images */
+.section-with-bg .section-title,
+.section-with-bg .section-subtitle,
+.section-with-bg h1,
+.section-with-bg h2,
+.section-with-bg h3,
+.section-with-bg h4,
+.section-with-bg p,
+.section-with-bg li {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+[data-theme="dark"] .section-with-bg .section-title,
+[data-theme="dark"] .section-with-bg .section-subtitle,
+[data-theme="dark"] .section-with-bg h1,
+[data-theme="dark"] .section-with-bg h2,
+[data-theme="dark"] .section-with-bg h3,
+[data-theme="dark"] .section-with-bg h4,
+[data-theme="dark"] .section-with-bg p,
+[data-theme="dark"] .section-with-bg li {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    color: var(--text-primary) !important;
+    font-weight: 600;
+}
+
+/* Ensure all text elements follow theme colors */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: var(--text-primary) !important;
+}
+
+[data-theme="dark"] p,
+[data-theme="dark"] li,
+[data-theme="dark"] span {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .hero-subtitle,
+[data-theme="dark"] .hero-description {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .section-subtitle {
+    color: var(--text-light) !important;
+}
+
+/* Additional dark mode fixes */
+[data-theme="dark"] .footer-section h3 {
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .footer-section p,
+[data-theme="dark"] .footer-section li {
+    color: var(--text-secondary) !important;
+}
+
+[data-theme="dark"] .footer-bottom {
+    color: var(--text-light) !important;
+}
+
+/* Ensure buttons maintain proper colors */
+[data-theme="dark"] .btn-primary {
+    background: var(--primary-color) !important;
+    color: var(--bg-primary) !important;
+}
+
+[data-theme="dark"] .btn-secondary {
+    border-color: var(--primary-color) !important;
+    color: var(--primary-color) !important;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background: var(--primary-color) !important;
+    color: var(--bg-primary) !important;
+}
+
+/* Mobile optimization for background images */
+@media (max-width: 768px) {
+    .section-with-bg {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center !important;
+        will-change: auto;
+    }
+    
+    .hero.section-with-bg {
+        min-height: 60vh;
+        padding: 2rem 0;
+    }
+    
+    .hero.section-with-bg .hero-text h1 {
+        font-size: 2rem;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    }
+    
+    .hero.section-with-bg .hero-subtitle,
+    .hero.section-with-bg .hero-description {
+        text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    }
+    
+    .card-with-bg {
+        background-color: rgba(255, 255, 255, 0.95) !important;
+        backdrop-filter: blur(3px);
+    }
+    
+    [data-theme="dark"] .card-with-bg {
+        background-color: rgba(26, 32, 44, 0.95) !important;
+    }
+    
+    .section-with-bg .section-title,
+    .section-with-bg .section-subtitle {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    
+    [data-theme="dark"] .section-with-bg .section-title,
+    [data-theme="dark"] .section-with-bg .section-subtitle {
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+    }
 }
 
 /* Blog specific styles */
