@@ -71,7 +71,7 @@
 
     <main class="main-content">
         <!-- Hero Section -->
-        <section class="hero section-with-bg" id="home" style="background-image: linear-gradient(rgba(26, 54, 93, 0.6), rgba(26, 54, 93, 0.6)), url('photos/christopher-gower-m_HRfLhgABo-unsplash.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative; overflow: hidden;">
+        <section class="hero" id="home" style="position: relative; overflow: hidden;">
             <div class="parallax-bg" style="opacity: 0.03;"></div>
             <div class="container">
                 <div class="hero-content">
@@ -79,7 +79,7 @@
                         <h1>Frieze Kere Wandabwa</h1>
                         <p class="hero-subtitle">Regional IT Leader | Network Engineer | Web Design Specialist</p>
                         <p class="hero-description">
-                            8+ years of proven leadership in enterprise IT infrastructure, managing teams and delivering mission-critical solutions for global organizations including Amazon Web Services, Bill & Melinda Gates Foundation, and Fortune 500 companies across multiple African markets.
+                            8+ years of proven leadership in enterprise IT infrastructure and AI integration, managing teams and delivering mission-critical solutions for global cloud providers, international development organizations, and Fortune 500 companies across multiple African markets.
                         </p>
                         <div class="cta-buttons">
                             <a href="#projects" class="btn btn-primary">
@@ -96,8 +96,6 @@
                                  alt="Frieze Kere Wandabwa - Best Tech Network Engineer and Web Design Expert, Regional IT Leader specializing in enterprise infrastructure across Africa" 
                                  class="profile-image"
                                  style="position: relative; z-index: 2;"
-                                 loading="eager"
-                                 decoding="async"
                                  onerror="this.src='https://via.placeholder.com/300x300/1a365d/ffffff?text=FK'">
                             
                             <!-- Floating Elements around main profile -->
@@ -111,13 +109,13 @@
                         <!-- Mini gallery below main profile -->
                         <div style="display: flex; gap: 0.5rem; justify-content: center; margin-top: 1rem;">
                             <div class="gallery-item" style="width: 60px; height: 60px;">
-                                <img src="static/images/personal/5.jpeg" alt="Frieze Professional Moment" loading="lazy" decoding="async">
+                                <img src="static/images/personal/5.jpeg" alt="Frieze Professional Moment">
                             </div>
                             <div class="gallery-item" style="width: 60px; height: 60px;">
-                                <img src="static/images/personal/6.jpeg" alt="Frieze Innovation" loading="lazy" decoding="async">
+                                <img src="static/images/personal/6.jpeg" alt="Frieze Innovation">
                             </div>
                             <div class="gallery-item" style="width: 60px; height: 60px;">
-                                <img src="static/images/personal/7.jpeg" alt="Frieze Leadership" loading="lazy" decoding="async">
+                                <img src="static/images/personal/7.jpeg" alt="Frieze Leadership">
                             </div>
                         </div>
                     </div>
@@ -126,7 +124,7 @@
         </section>
 
         <!-- Stats Section -->
-        <section class="stats section-with-bg" style="background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), url('photos/pexels-pixabay-373543.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <section class="stats">
             <div class="container">
                 <div class="stats-grid">
                     <div class="stat-item">
@@ -154,7 +152,7 @@
         </section>
 
         <!-- About Me Section -->
-        <section class="section section-with-bg section-bg-pattern" id="about-me" style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('photos/andras-vas-Bd7gNnWJBkU-unsplash.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+        <section class="section section-bg-pattern" id="about-me" style="background: var(--bg-secondary); position: relative;">
             <div class="container">
                 <header class="section-header">
                     <h2 class="section-title">About Me</h2>
@@ -210,9 +208,7 @@
                             <img src="static/images/about-photo.jpg" 
                                  alt="Frieze Kere Wandabwa - AI Enthusiast and IT Innovation Leader" 
                                  class="profile-image"
-                                 style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); position: relative; z-index: 2;"
-                                 loading="lazy"
-                                 decoding="async">
+                                 style="border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); position: relative; z-index: 2;">
                             
                             <!-- Floating Elements -->
                             <div class="floating-elements">
@@ -259,18 +255,64 @@
             </div>
         </section>
 
-        <!-- Services Section -->
-        <section class="section section-with-bg" id="about" style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('photos/pexels-thisisengineering-3913025.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <!-- AI Innovation & Research Focus Section -->
+        <section class="section" id="ai-innovation">
             <div class="container">
                 <header class="section-header">
-                    <h2 class="section-title">Strategic IT Leadership That Delivers Results</h2>
+                    <h2 class="section-title">AI Innovation & Research Focus</h2>
                     <p class="section-subtitle">
-                        Transforming enterprise technology infrastructure across Africa with proven expertise in network design, team leadership, and high-stakes project delivery.
+                        Currently pursuing a Master's in Artificial Intelligence, with a strong focus on integrating AI solutions into enterprise IT ecosystems. My work explores practical applications of machine learning, intelligent automation, and predictive analytics to enhance infrastructure performance and user experience.
                     </p>
                 </header>
                 
                 <div class="grid-2">
-                    <article class="card card-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('photos/pexels-markusspiske-177598.jpg'); background-size: cover; background-position: center;">
+                    <article class="card">
+                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <i class="fas fa-brain" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <h3 style="color: white; margin: 0;">AI-Driven Infrastructure</h3>
+                        </div>
+                        <p>Developing AI-driven monitoring and support frameworks for enterprise environments, leveraging machine learning to predict system failures and optimize performance.</p>
+                    </article>
+                    
+                    <article class="card">
+                        <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <i class="fas fa-robot" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <h3 style="color: white; margin: 0;">Intelligent Automation</h3>
+                        </div>
+                        <p>Exploring generative AI for IT service automation and knowledge management, creating intelligent systems that enhance operational efficiency.</p>
+                    </article>
+                    
+                    <article class="card">
+                        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <i class="fas fa-eye" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <h3 style="color: white; margin: 0;">Computer Vision & NLP</h3>
+                        </div>
+                        <p>Applying computer vision and NLP models to optimize operations, from automated network monitoring to intelligent document processing.</p>
+                    </article>
+                    
+                    <article class="card">
+                        <div style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <i class="fas fa-chart-line" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                            <h3 style="color: white; margin: 0;">Predictive Analytics</h3>
+                        </div>
+                        <p>Implementing predictive analytics models to enhance infrastructure performance, enabling proactive maintenance and resource optimization.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section" id="about">
+            <div class="container">
+                <header class="section-header">
+                    <h2 class="section-title">Strategic IT Leadership & AI Innovation That Delivers Results</h2>
+                    <p class="section-subtitle">
+                        Leading end-to-end IT operations and AI integration initiatives across 15+ premium office centers, supporting global enterprises and international development organizations. Driving digital transformation through intelligent automation, data-driven systems, and next-generation infrastructure solutions.
+                    </p>
+                </header>
+                
+                <div class="grid-2">
+                    <article class="card card-with-bg" style="background-image: url('static/images/pexels-rahulp9800-1933900.jpg'); background-size: cover; background-position: center;">
                         <h3><i class="fas fa-network-wired"></i> Enterprise Infrastructure</h3>
                         <p>Led deployment of 500+ network sites across Africa, bridging the digital divide and enabling connectivity in underserved regions. Specialized in Cisco, Nokia, Huawei, and Ericsson enterprise equipment.</p>
                         <ul>
@@ -281,7 +323,7 @@
                         </ul>
                     </article>
                     
-                    <article class="card card-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('photos/pexels-thisisengineering-3913025.jpg'); background-size: cover; background-position: center;">
+                    <article class="card card-with-bg" style="background-image: url('static/images/pexels-cottonbro-6153354.jpg'); background-size: cover; background-position: center;">
                         <h3><i class="fas fa-users"></i> Team Leadership & Strategy</h3>
                         <p>Built and mentored high-performing technical teams of 15+ engineers across multiple countries. Developed SOPs and training programs that improved delivery efficiency by 40%.</p>
                         <ul>
@@ -292,7 +334,7 @@
                         </ul>
                     </article>
                     
-                    <article class="card card-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('photos/pexels-cottonbro-6153343.jpg'); background-size: cover; background-position: center;">
+                    <article class="card card-with-bg" style="background-image: url('static/images/pexels-tara-winstead-8386440.jpg'); background-size: cover; background-position: center;">
                         <h3><i class="fas fa-video"></i> AV Systems Integration</h3>
                         <p>Deployed 40+ professional AV installations for enterprise clients, including advanced conferencing solutions for global organizations and high-profile events.</p>
                         <ul>
@@ -303,7 +345,7 @@
                         </ul>
                     </article>
                     
-                    <article class="card card-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('photos/pexels-pixabay-270637.jpg'); background-size: cover; background-position: center;">
+                    <article class="card card-with-bg" style="background-image: url('static/images/pexels-thngocbich-1714341.jpg'); background-size: cover; background-position: center;">
                         <h3><i class="fas fa-shield-alt"></i> Compliance & Security</h3>
                         <p>Ensured ISO 27001 compliance and ISMS standards across government and enterprise environments. Maintained 99%+ uptime for mission-critical systems.</p>
                         <ul>
@@ -318,7 +360,7 @@
         </section>
 
         <!-- Featured Projects -->
-        <section class="section section-with-bg section-bg-pattern" id="projects" style="background-image: linear-gradient(rgba(247, 250, 252, 0.7), rgba(247, 250, 252, 0.7)), url('photos/nasa-Q1p7bh3SHj8-unsplash.jpg'); background-size: cover; background-position: center; background-attachment: fixed; position: relative;">
+        <section class="section section-bg-pattern" id="projects" style="background: var(--bg-secondary); position: relative;">
             <div class="container">
                 <header class="section-header">
                     <h2 class="section-title">Flagship Projects</h2>
@@ -331,9 +373,9 @@
                     <article class="card">
                         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1.5rem; border-radius: 8px; margin-bottom: 1.5rem;">
                             <i class="fas fa-rocket" style="font-size: 2rem; margin-bottom: 1rem;"></i>
-                            <h3 style="color: white; margin: 0;">Amazon Launch Event - Kenya</h3>
+                            <h3 style="color: white; margin: 0;">Multinational Event Launch - Kenya</h3>
                         </div>
-                        <p>Led technical team for high-profile Amazon Launch in Kenya, ensuring flawless technology deployment and real-time support for international stakeholders.</p>
+                        <p>Led technical team for high-profile multinational corporate event launch in Kenya, orchestrating seamless technology deployment and real-time support for international executives and stakeholders.</p>
                     </article>
                     
                     <article class="card">
@@ -356,34 +398,34 @@
         </section>
 
         <!-- Trusted By Section -->
-        <section class="section section-with-bg" style="background-image: linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)), url('photos/pexels-googledeepmind-25626428.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+        <section class="section">
             <div class="container">
                 <header class="section-header">
                     <h2 class="section-title">Trusted by Global Organizations</h2>
                     <p class="section-subtitle">
-                        Delivering enterprise-grade IT solutions for industry leaders and international organizations
+                        Delivering enterprise-grade IT and AI-driven solutions for leading global enterprises and international development partners
                     </p>
                 </header>
                 
                 <div class="grid-2">
                     <article class="card">
-                        <h3><i class="fas fa-handshake"></i> Enterprise Clients</h3>
+                        <h3><i class="fas fa-handshake"></i> Enterprise & Technology Clients</h3>
                         <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1rem;">
                             <div style="text-align: center; padding: 1rem; background: var(--bg-secondary); border-radius: 8px;">
-                                <i class="fab fa-aws" style="font-size: 2rem; color: #ff9900; margin-bottom: 0.5rem;"></i>
-                                <p style="margin: 0; font-weight: 600;">Amazon Web Services</p>
+                                <i class="fas fa-cloud" style="font-size: 2rem; color: #ff9900; margin-bottom: 0.5rem;"></i>
+                                <p style="margin: 0; font-weight: 600;">Global Cloud Providers</p>
                             </div>
                             <div style="text-align: center; padding: 1rem; background: var(--bg-secondary); border-radius: 8px;">
-                                <i class="fas fa-heart" style="font-size: 2rem; color: #e74c3c; margin-bottom: 0.5rem;"></i>
-                                <p style="margin: 0; font-weight: 600;">Gates Foundation</p>
+                                <i class="fas fa-robot" style="font-size: 2rem; color: #e74c3c; margin-bottom: 0.5rem;"></i>
+                                <p style="margin: 0; font-weight: 600;">AI Technology Firms</p>
                             </div>
                             <div style="text-align: center; padding: 1rem; background: var(--bg-secondary); border-radius: 8px;">
-                                <i class="fas fa-bolt" style="font-size: 2rem; color: #34d058; margin-bottom: 0.5rem;"></i>
-                                <p style="margin: 0; font-weight: 600;">Bolt</p>
+                                <i class="fas fa-car" style="font-size: 2rem; color: #34d058; margin-bottom: 0.5rem;"></i>
+                                <p style="margin: 0; font-weight: 600;">Mobility Companies</p>
                             </div>
                             <div style="text-align: center; padding: 1rem; background: var(--bg-secondary); border-radius: 8px;">
-                                <i class="fas fa-music" style="font-size: 2rem; color: #1db954; margin-bottom: 0.5rem;"></i>
-                                <p style="margin: 0; font-weight: 600;">Sony Music</p>
+                                <i class="fas fa-broadcast-tower" style="font-size: 2rem; color: #1db954; margin-bottom: 0.5rem;"></i>
+                                <p style="margin: 0; font-weight: 600;">Media Enterprises</p>
                             </div>
                         </div>
                     </article>
@@ -391,20 +433,24 @@
                     <article class="card">
                         <h3><i class="fas fa-globe"></i> International Organizations</h3>
                         <ul style="list-style: none; padding: 0;">
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> GIZ (German Development Cooperation)</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> KfW Development Bank</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> VillageReach</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> The Mawazo Institute</li>
-                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Cisco Systems</li>
-                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Logitech International</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Global Development Institutions</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> International Financial Partners</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Non-profit Organizations</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Innovation-driven Research Institutes</li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid var(--border-color);"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Global Technology Partners</li>
+                            <li style="padding: 0.5rem 0;"><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Infrastructure Equipment Providers</li>
                         </ul>
+                        
+                        <div style="margin-top: 1.5rem; padding: 1rem; background: var(--bg-primary); border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                            <p style="margin: 0; font-size: 0.9rem; font-style: italic; opacity: 0.8;"><strong>Note:</strong> Client and partner names have been generalized to respect confidentiality and partnership agreements.</p>
+                        </div>
                     </article>
                 </div>
             </div>
         </section>
 
         <!-- Call to Action -->
-        <section class="section section-with-bg" id="contact" style="background-image: linear-gradient(rgba(26, 54, 93, 0.7), rgba(26, 54, 93, 0.7)), url('photos/pexels-tara-winstead-8386364.jpg'); background-size: cover; background-position: center; background-attachment: fixed; color: white; position: relative; overflow: hidden;">
+        <section class="section" id="contact" style="background: var(--primary-color); color: white; position: relative; overflow: hidden;">
             <div class="parallax-bg"></div>
             <div class="container text-center">
                 <h2 style="color: white; margin-bottom: 1rem;">Ready to Transform Your IT Infrastructure?</h2>
