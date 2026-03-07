@@ -1,176 +1,376 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Frieze Kere Wandabwa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="static/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Frieze Wandabwa | Enterprise IT Leader</title>
+  <meta name="description" content="Learn about Frieze Kere Wandabwa — Enterprise IT Leader, Technology Strategist, and AI-driven
+innovator with 10+ years building resilient technology environments across Africa.">
+  <meta name="keywords"
+    content="Frieze Wandabwa, Frieze Kere Wandabwa, Enterprise IT Leader, Technology Strategist, Infrastructure Architect, Cybersecurity, AI Innovation, Kenya, Africa">
+  <meta name="author" content="Frieze Kere Wandabwa">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.friezewandabwa.it.com/about">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Frieze Wandabwa | Enterprise IT Leader">
+  <meta property="og:description"
+    content="Enterprise IT leader specialising in infrastructure architecture, cybersecurity governance, and AI-driven technology strategy.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.friezewandabwa.it.com">
+  <meta property="og:image" content="https://www.friezewandabwa.it.com/static/images/profile photo.webp">
+  <meta property="og:site_name" content="Frieze Wandabwa">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Frieze Wandabwa | Enterprise IT Leader">
+  <meta name="twitter:description"
+    content="Enterprise IT leader specialising in infrastructure architecture and AI-driven technology strategy.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css">
+
+
+  <!-- Schema.org Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Frieze Kere Wandabwa",
+    "alternateName": ["Frieze Wandabwa", "Frieze Kere"],
+    "url": "https://www.friezewandabwa.it.com",
+    "image": "https://www.friezewandabwa.it.com/static/images/profile photo.webp",
+    "jobTitle": "Enterprise IT Leader & Technology Strategist",
+    "description": "Enterprise IT leader specialising in infrastructure architecture, cybersecurity governance, AI-driven technology strategy, and operational excellence across Africa.",
+    "email": "friezekw@gmail.com",
+    "telephone": "+254718300236",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nairobi",
+      "addressCountry": "KE"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/frieze-wandabwa-22438178",
+      "https://github.com/friezekere"
+    ],
+    "knowsAbout": [
+      "Enterprise IT Leadership","Infrastructure Architecture","Cybersecurity Governance",
+      "AI in IT Operations","Network Engineering","Digital Transformation",
+      "Team Leadership","Vendor Management","ISO 27001","Cloud Strategy"
+    ],
+    "hasCredential": [
+      {"@type": "EducationalOccupationalCredential","name": "Cisco Certified Network Associate (CCNA)"},
+      {"@type": "EducationalOccupationalCredential","name": "ISO 27001 Compliance"},
+      {"@type": "EducationalOccupationalCredential","name": "Cybersecurity Certification"}
+    ],
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "Kenyatta University"
+    },
+    "worksFor": {
+      "@type": "Organization",
+      "name": "KOFISI Africa"
+    }
+  }
+  </script>
 </head>
+
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav-container">
-            <a href="index.html" class="logo">
-                <i class="fas fa-code"></i> Frieze Kere
-            </a>
-            
-            <ul class="nav-menu">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="about.html" class="nav-link active">About</a></li>
-                <li><a href="experience.html" class="nav-link">Experience</a></li>
-                <li><a href="projects.html" class="nav-link">Projects</a></li>
-                <li><a href="achievements.html" class="nav-link">Achievements</a></li>
-                <li><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- ── Navigation ── -->
+  <header class="header" id="site-header">
+    <nav class="nav-container" aria-label="Main navigation">
+      <a href="/" class="logo" aria-label="Frieze Wandabwa home">
+        <div class="logo-icon"><i class="fas fa-microchip"></i></div>
+        <span>Frieze Wandabwa</span>
+      </a>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <section class="section">
-            <div class="container">
-                <div class="section-header">
-                    <h1 class="section-title">About Me</h1>
-                    <p class="section-subtitle">Strategic IT Leadership That Delivers Results</p>
-                </div>
+      <ul class="nav-menu" id="nav-menu" role="list">
+        <li><a href="/" class="nav-link ">Home</a></li>
+        <li><a href="/about.html" class="nav-link active">About</a></li>
+        <li><a href="/leadership.html" class="nav-link ">Leadership</a></li>
+        <li><a href="/experience.html" class="nav-link ">Experience</a></li>
+        <li><a href="/projects.html" class="nav-link ">Projects</a></li>
+        <li><a href="/certifications.html" class="nav-link ">Certifications</a></li>
+        <li><a href="/insights.html" class="nav-link ">Insights</a></li>
+        <li><a href="/consulting.html" class="nav-link ">Consulting</a></li>
+        <li><a href="/contact.html" class="nav-link ">Contact</a></li>
+      </ul>
 
-                <!-- Hero About Section -->
-                <div class="hero-content" style="margin-bottom: 4rem;">
-                    <div class="hero-text">
-                        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">Transforming Enterprise Technology Infrastructure Across Africa</h2>
-                        <p style="font-size: 1.2rem; margin-bottom: 2rem;">
-                            I am a regional IT professional with over 8 years of experience managing IT infrastructure and support across Africa. My work spans both public and private sectors, with a proven track record of delivering mission-critical solutions for global organizations.
-                        </p>
-                        <p style="font-size: 1.1rem; color: var(--text-light);">
-                            My strength lies in aligning technology with real-world challenges to drive operational efficiency and meaningful impact. I specialize in network design, AV systems integration, vendor management, and end-user support.
-                        </p>
-                    </div>
-                    <div class="hero-image">
-                        <img src="static/images/profile photo2.jpg" 
-                             alt="Frieze Kere Wandabwa - Professional IT Leader" 
-                             class="profile-image">
-                    </div>
-                </div>
+      <div class="nav-actions">
+        <a href="/request_resume.html" class="btn btn-primary btn-sm">
+          <i class="fas fa-file-alt"></i> Request Resume
+        </a>
+        <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Open navigation menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
 
-                <!-- Skills Grid -->
-                <div class="grid-2" style="margin-bottom: 4rem;">
-                    <div class="card">
-                        <div style="background: url('static/images/pexels-pixabay-416320.jpg') center/cover; height: 200px; border-radius: 8px; margin-bottom: 1.5rem; position: relative;">
-                            <div style="background: rgba(26, 54, 93, 0.8); height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-                                <div style="text-align: center; color: white;">
-                                    <i class="fas fa-network-wired" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                                    <h3 style="color: white; margin: 0;">Enterprise Infrastructure</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <p>Led deployment of 500+ network sites across Africa, bridging the digital divide and enabling connectivity in underserved regions. Specialized in Cisco, Nokia, Huawei, and Ericsson enterprise equipment.</p>
-                        <ul>
-                            <li>Multi-site IT infrastructure management</li>
-                            <li>5G/4G LTE network implementations</li>
-                            <li>Fiber optic installations and maintenance</li>
-                            <li>VPN and WAN security configurations</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="card">
-                        <div style="background: url('static/images/pexels-fauxels-3183150.jpg') center/cover; height: 200px; border-radius: 8px; margin-bottom: 1.5rem; position: relative;">
-                            <div style="background: rgba(17, 153, 142, 0.8); height: 100%; display: flex; align-items: center; justify-content: center; border-radius: 8px;">
-                                <div style="text-align: center; color: white;">
-                                    <i class="fas fa-users" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                                    <h3 style="color: white; margin: 0;">Team Leadership</h3>
-                                </div>
-                            </div>
-                        </div>
-                        <p>Built and mentored high-performing technical teams of 15+ engineers across multiple countries. Developed SOPs and training programs that improved delivery efficiency by 40%.</p>
-                        <ul>
-                            <li>Cross-functional team leadership</li>
-                            <li>Technical mentorship and training</li>
-                            <li>Project management and delivery</li>
-                            <li>Vendor relationship management</li>
-                        </ul>
-                    </div>
-                </div>
+  <!-- ── Main Content ── -->
+  <main id="main-content">
 
-                <!-- Professional Journey -->
-                <div class="section">
-                    <h2 class="section-title">My Professional Journey</h2>
-                    <div style="background: url('static/images/pexels-scottwebb-430208.jpg') center/cover; border-radius: 12px; padding: 4rem 2rem; margin: 2rem 0; position: relative;">
-                        <div style="background: rgba(0,0,0,0.7); position: absolute; top: 0; left: 0; right: 0; bottom: 0; border-radius: 12px;"></div>
-                        <div style="position: relative; z-index: 1; color: white; text-align: center;">
-                            <h3 style="font-size: 2rem; margin-bottom: 1rem; color: white;">From Kenya to Continental Impact</h3>
-                            <p style="font-size: 1.2rem; max-width: 800px; margin: 0 auto;">
-                                Starting my career in telecommunications at Kenyatta University, I've grown from managing local IT systems to leading regional infrastructure deployments across multiple African countries, working with global organizations to bridge the digital divide.
-                            </p>
-                        </div>
-                    </div>
-                </div>
+    <section class="page-hero bg-about-hero" style="position:relative;">
+      <div class="bg-overlay"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="page-hero-label">About</div>
+        <h1 class="page-hero-title">Enterprise IT Leader &amp;<br>Technology Strategist</h1>
+        <p class="page-hero-desc">10+ years designing resilient technology environments, leading high-performance teams,
+          and driving digital transformation across Africa.</p>
+      </div>
+    </section>
 
-                <!-- Values & Approach -->
-                <div class="grid-3">
-                    <div class="card">
-                        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center;">
-                            <i class="fas fa-lightbulb" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                            <h3 style="color: white; margin: 0;">Innovation</h3>
-                        </div>
-                        <p>Constantly seeking new technologies and methodologies to solve complex infrastructure challenges and improve operational efficiency.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <div style="background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center;">
-                            <i class="fas fa-handshake" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                            <h3 style="color: white; margin: 0;">Collaboration</h3>
-                        </div>
-                        <p>Building strong partnerships with vendors, clients, and team members to deliver exceptional results and sustainable solutions.</p>
-                    </div>
-                    
-                    <div class="card">
-                        <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; padding: 2rem; border-radius: 8px; margin-bottom: 1.5rem; text-align: center;">
-                            <i class="fas fa-target" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
-                            <h3 style="color: white; margin: 0;">Excellence</h3>
-                        </div>
-                        <p>Maintaining the highest standards in every project, from initial planning to final deployment and ongoing support.</p>
-                    </div>
-                </div>
-
-                <!-- Technology Showcase -->
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin: 3rem 0; align-items: center;">
-                    <div>
-                        <img src="static/images/pexels-marcelo-moreira-988124-2186325.jpg" alt="Advanced Technology" style="width: 100%; height: 250px; object-fit: cover; border-radius: 12px; box-shadow: 0 8px 25px rgba(0,0,0,0.15);">
-                    </div>
-                    <div style="padding: 2rem;">
-                        <h3 style="color: var(--primary-color); font-size: 1.8rem; margin-bottom: 1rem;">Cutting-Edge Technology Solutions</h3>
-                        <p style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7;">Leveraging the latest in network infrastructure, cloud computing, and enterprise AV systems to deliver exceptional results for global organizations across Africa.</p>
-                    </div>
-                </div>
-
-                <!-- Call to Action -->
-                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem; border-radius: 12px; text-align: center; margin-top: 4rem;">
-                    <h2 style="color: white; margin-bottom: 1rem;">Ready to Work Together?</h2>
-                    <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.9;">
-                        Let's discuss how my expertise can help transform your IT infrastructure and drive your organization's success.
-                    </p>
-                    <div class="cta-buttons" style="justify-content: center;">
-                        <a href="contact.html" class="btn" style="background: white; color: var(--primary-color);">
-                            <i class="fas fa-envelope"></i> Get In Touch
-                        </a>
-                        <a href="projects.html" class="btn btn-secondary" style="border-color: white; color: white;">
-                            <i class="fas fa-eye"></i> View My Work
-                        </a>
-                    </div>
-                </div>
+    <section class="section bg-about-identity">
+      <div class="bg-overlay"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="grid-2" style="gap:64px;align-items:start;">
+          <div>
+            <div class="section-label">Professional Identity</div>
+            <h2 class="section-title">Who I Am</h2>
+            <p style="font-size:1.0625rem;color:var(--text-body);line-height:1.8;margin-bottom:20px;">
+              I am an Enterprise IT Leader and Technology Strategist with over a decade of experience managing
+              complex IT infrastructure, leading multi-disciplinary technical teams, and delivering high-impact
+              technology solutions for global organisations operating across Africa.
+            </p>
+            <p style="font-size:1.0625rem;color:var(--text-body);line-height:1.8;margin-bottom:20px;">
+              My career spans government regulatory agencies, pan-African network infrastructure, and premium
+              enterprise co-working environments — giving me a uniquely broad perspective on technology leadership
+              across diverse sectors and environments.
+            </p>
+            <p style="font-size:1.0625rem;color:var(--text-body);line-height:1.8;margin-bottom:32px;">
+              Currently pursuing an MSc in Artificial Intelligence, I am actively exploring how AI and automation
+              can transform IT operations and enable organisations to operate more intelligently and efficiently.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              <span class="tag tag-blue"><i class="fas fa-chess-king"></i> IT Leadership</span>
+              <span class="tag tag-teal"><i class="fas fa-network-wired"></i> Infrastructure</span>
+              <span class="tag tag-green"><i class="fas fa-robot"></i> AI Innovation</span>
+              <span class="tag tag-blue"><i class="fas fa-shield-alt"></i> Cybersecurity</span>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2024 Frieze Kere Wandabwa. All rights reserved.</p>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div class="card card-blue">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                <div class="expertise-icon expertise-icon-blue" style="flex-shrink:0;"><i
+                    class="fas fa-map-marker-alt"></i></div>
+                <div style="font-weight:700;color:var(--text-primary);">Location &amp; Availability</div>
+              </div>
+              <p style="font-size:.9rem;color:var(--text-body);margin:0;">Based in Nairobi, Kenya. Available for
+                global opportunities — remote, hybrid, or relocation for the right role.</p>
             </div>
+            <div class="card card-teal">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                <div class="expertise-icon expertise-icon-teal" style="flex-shrink:0;"><i
+                    class="fas fa-graduation-cap"></i></div>
+                <div style="font-weight:700;color:var(--text-primary);">Continuous Learning</div>
+              </div>
+              <p style="font-size:.9rem;color:var(--text-body);margin:0;">Currently pursuing an MSc in Artificial
+                Intelligence, building on BSc Telecommunications &amp; Information Technology from Kenyatta
+                University.</p>
+            </div>
+            <div class="card">
+              <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+                <div class="expertise-icon expertise-icon-green" style="flex-shrink:0;"><i class="fas fa-language"></i>
+                </div>
+                <div style="font-weight:700;color:var(--text-primary);">Languages</div>
+              </div>
+              <p style="font-size:.9rem;color:var(--text-body);margin:0;">English (Professional) · Swahili
+                (Native)</p>
+            </div>
+          </div>
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <section class="section section-alt bg-about-pillars">
+      <div class="bg-overlay"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="section-label">Five Pillars</div>
+        <h2 class="section-title" style="margin-bottom:40px;">Professional Identity</h2>
+        <div class="grid-auto">
+
+
+          <div class="card" style="text-align:center;padding:28px 20px;">
+            <div class="expertise-icon expertise-icon-blue" style="margin:0 auto 14px;"><i
+                class="fas fa-chess-king"></i></div>
+            <div style="font-weight:700;color:var(--text-primary);margin-bottom:8px;">IT Manager</div>
+            <p style="font-size:.85rem;color:var(--text-muted);line-height:1.6;margin:0;">Leading end-to-end technology
+              operations across
+              multi-site enterprise environments with full budget, vendor, and team accountability.</p>
+          </div>
+
+          <div class="card" style="text-align:center;padding:28px 20px;">
+            <div class="expertise-icon expertise-icon-teal" style="margin:0 auto 14px;"><i class="fas fa-sitemap"></i>
+            </div>
+            <div style="font-weight:700;color:var(--text-primary);margin-bottom:8px;">Infrastructure Architect</div>
+            <p style="font-size:.85rem;color:var(--text-muted);line-height:1.6;margin:0;">Designing scalable,
+              high-availability
+              network and systems infrastructure that supports business growth and operational resilience.</p>
+          </div>
+
+          <div class="card" style="text-align:center;padding:28px 20px;">
+            <div class="expertise-icon expertise-icon-purple" style="margin:0 auto 14px;"><i class="fas fa-robot"></i>
+            </div>
+            <div style="font-weight:700;color:var(--text-primary);margin-bottom:8px;">AI-Driven Innovator</div>
+            <p style="font-size:.85rem;color:var(--text-muted);line-height:1.6;margin:0;">Integrating artificial
+              intelligence and
+              automation into IT operations to improve efficiency, monitoring, and strategic decision-making.</p>
+          </div>
+
+          <div class="card" style="text-align:center;padding:28px 20px;">
+            <div class="expertise-icon expertise-icon-green" style="margin:0 auto 14px;"><i
+                class="fas fa-shield-alt"></i></div>
+            <div style="font-weight:700;color:var(--text-primary);margin-bottom:8px;">Cybersecurity Advocate</div>
+            <p style="font-size:.85rem;color:var(--text-muted);line-height:1.6;margin:0;">Implementing Zero Trust
+              principles,
+              ISO 27001 governance, and proactive security architecture across enterprise environments.</p>
+          </div>
+
+          <div class="card" style="text-align:center;padding:28px 20px;">
+            <div class="expertise-icon expertise-icon-blue" style="margin:0 auto 14px;"><i class="fas fa-handshake"></i>
+            </div>
+            <div style="font-weight:700;color:var(--text-primary);margin-bottom:8px;">Solution Provider</div>
+            <p style="font-size:.85rem;color:var(--text-muted);line-height:1.6;margin:0;">Translating complex technology
+              challenges
+              into practical, scalable solutions aligned with organisational goals and constraints.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-about-mission">
+      <div class="bg-overlay"></div>
+      <div class="container" style="position:relative;z-index:1;">
+        <div class="grid-2" style="gap:64px;align-items:center;">
+          <div class="philosophy-block">
+            <p class="philosophy-text">"I am not just an IT manager — I am a <span
+                class="philosophy-highlight">technology strategist</span> who understands that the best
+              infrastructure is invisible: it simply works, reliably, securely, and at the scale the business
+              demands."</p>
+          </div>
+          <div>
+            <div class="section-label">Personal Mission</div>
+            <h2 class="section-title">Driving Technology as a Strategic Asset</h2>
+            <p class="section-body" style="font-size:1.0625rem;line-height:1.8;margin-bottom:20px;">My
+              professional mission is simple: make technology a genuine competitive advantage for every
+              organisation I serve. This means going beyond infrastructure maintenance to actively shape
+              technology strategy, build capable teams, and advocate for innovation.</p>
+            <div style="display:flex;gap:16px;flex-wrap:wrap;">
+              <a href="/experience.html" class="btn btn-primary">My Experience <i class="fas fa-arrow-right"></i></a>
+              <a href="/contact.html" class="btn btn-outline-dark">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="footer bg-footer">
+    <div class="bg-overlay"></div>
+    <div class="container" style="position:relative;z-index:1;text-shadow:0 2px 4px rgba(0,0,0,0.9);">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand-name">Frieze Kere Wandabwa</div>
+          <div class="footer-brand-role">Enterprise IT Leader & Technology Strategist</div>
+          <p style="font-size:.85rem;color:var(--dark-text-muted);max-width:260px;line-height:1.6;margin-bottom:20px;">
+            Building resilient enterprise technology environments and leading high-performance IT teams across Africa.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/in/frieze-wandabwa-22438178" target="_blank" rel="noopener"
+              aria-label="LinkedIn">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://github.com/friezekere" target="_blank" rel="noopener" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="mailto:friezekw@gmail.com" aria-label="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+            <a href="tel:+254718300236" aria-label="Phone">
+              <i class="fas fa-phone"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <div class="footer-links">
+            <a href="/about.html">About</a>
+            <a href="/leadership.html">Leadership</a>
+            <a href="/experience.html">Experience</a>
+            <a href="/projects.html">Projects</a>
+            <a href="/certifications.html">Certifications</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Resources</div>
+          <div class="footer-links">
+            <a href="/insights.html">Insights</a>
+            <a href="/consulting.html">Consulting</a>
+            <a href="/contact.html">Contact</a>
+            <a href="/request_resume.html">Request Resume</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <a href="mailto:friezekw@gmail.com"
+              style="font-size:.875rem;color:var(--dark-text-muted);display:flex;align-items:center;gap:8px;transition:color .2s;">
+              <i class="fas fa-envelope" style="color:var(--blue);width:14px;"></i> friezekw@gmail.com
+            </a>
+            <span style="font-size:.875rem;color:var(--dark-text-muted);display:flex;align-items:center;gap:8px;">
+              <i class="fas fa-map-marker-alt" style="color:var(--teal);width:14px;"></i> Nairobi, Kenya
+            </span>
+            <span style="font-size:.875rem;color:var(--dark-text-muted);display:flex;align-items:center;gap:8px;">
+              <i class="fas fa-globe" style="color:var(--green);width:14px;"></i> Available globally
+            </span>
+            <div style="margin-top:8px;">
+              <div class="availability-badge">
+                <div class="availability-badge-dot"></div>
+                Open to Opportunities
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Frieze Kere Wandabwa. All rights reserved.</span>
+        <div class="footer-bottom-right">
+          <a href="/sitemap.html">Sitemap</a>
+          <a href="/robots.html">Robots.txt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── JavaScript ── -->
+  <script src="js/main.js"></script>
+
+
+
 </body>
+
 </html>
