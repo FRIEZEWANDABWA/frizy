@@ -1616,6 +1616,10 @@ button {
     display: flex;
   }
 
+  .nav-actions .btn {
+    display: none;
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
   }
