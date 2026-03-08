@@ -2042,3 +2042,16 @@ button {
 [data-theme="dark"] .philosophy-block * {
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 1px 2px rgba(0, 0, 0, 0.9) !important;
 }
+
+/* --- ENHANCED FOOTER VISIBILITY --- */
+.footer-brand-name { color: #ffffff !important; text-shadow: 0 2px 8px rgba(0,0,0,1) !important; font-size: 1.25rem !important; font-weight: 800 !important; }
+.footer-brand-role { color: var(--teal-light) !important; text-shadow: 0 1px 4px rgba(0,0,0,1) !important; font-size: 0.95rem !important; margin-bottom: 12px !important; }
+.footer p { color: #f8fafc !important; text-shadow: 0 1px 4px rgba(0,0,0,1) !important; font-size: 0.95rem !important; }
+.footer .footer-col-title { color: #ffffff !important; text-shadow: 0 2px 4px rgba(0,0,0,1) !important; font-size: 1.1rem !important; font-weight: 700 !important; }
+.footer .footer-links a, .footer a { color: #e2e8f0 !important; text-shadow: 0 1px 3px rgba(0,0,0,1) !important; font-size: 0.95rem !important; }
+.footer .footer-links a:hover, .footer a:hover { color: var(--teal-light) !important; }
+.footer span { color: #e2e8f0 !important; text-shadow: 0 1px 3px rgba(0,0,0,1) !important; }
+.footer-bottom { border-top: 1px solid rgba(255,255,255,0.2) !important; margin-top: 30px !important; padding-top: 20px !important; color: #f8fafc !important; }
+.footer-bottom a { color: #f8fafc !important; }
+.footer-social a { color: #ffffff !important; background: rgba(255,255,255,0.15) !important; border-color: rgba(255,255,255,0.3) !important; }
+
