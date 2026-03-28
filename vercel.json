@@ -1,6 +1,13 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/insights/resilient-infrastructure",
+      "destination": "/blog",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
