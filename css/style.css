@@ -611,6 +611,34 @@ button {
   justify-content: center;
 }
 
+/* Same cadence as home hero background slides (24s cycle, 8s stagger) */
+@keyframes heroBgFadeZoom {
+  0% {
+    opacity: 0;
+    transform: scale(1);
+  }
+
+  12% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+
+  33.33% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  46% {
+    opacity: 0;
+    transform: scale(1.07);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+
 .hero-photo-frame {
   position: relative;
   width: 380px;
@@ -627,15 +655,40 @@ button {
   z-index: 0;
 }
 
-.hero-photo {
+.hero-photo-stack {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  border: 3px solid rgba(37, 99, 235, .4);
+  background: linear-gradient(135deg, #1E2D4B, #2563EB);
+}
+
+.hero-photo-slide {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  border-radius: var(--radius-xl);
-  position: relative;
-  z-index: 1;
-  border: 3px solid rgba(37, 99, 235, .4);
+  opacity: 0;
+  pointer-events: none;
+  animation: heroBgFadeZoom 24s infinite linear;
+  will-change: transform, opacity;
+}
+
+.hero-portrait-slide-1 {
+  animation-delay: 0s;
+}
+
+.hero-portrait-slide-2 {
+  animation-delay: 8s;
+}
+
+.hero-portrait-slide-3 {
+  animation-delay: 16s;
 }
 
 .hero-photo-badge {
@@ -1755,12 +1808,16 @@ button {
 }
 
 .bg-projects {
-  background: url('../images/bg-projects.webp') center/cover no-repeat fixed;
+  background: url('../images/index-case-studies-bg.webp') center / cover no-repeat;
   position: relative;
 }
 
 .bg-philosophy {
-  background: url('../images/bg-philosophy.webp') center/cover no-repeat fixed;
+  background-color: var(--navy);
+  background-image: url('../images/index-philosophy-bg.webp');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
   position: relative;
 }
 
@@ -1979,7 +2036,6 @@ button {
   background: linear-gradient(to right, rgba(248, 250, 252, 0.95) 0%, rgba(248, 250, 252, 0.6) 40%, rgba(248, 250, 252, 0) 80%);
 }
 
-.section-alt.bg-projects .bg-overlay,
 .section-alt.bg-insights .bg-overlay,
 .section-alt.bg-about-pillars .bg-overlay,
 .section-alt.bg-lead-framework .bg-overlay,
@@ -1990,7 +2046,11 @@ button {
   background: linear-gradient(to right, rgba(241, 245, 249, 0.95) 0%, rgba(241, 245, 249, 0.6) 40%, rgba(241, 245, 249, 0) 80%);
 }
 
-.section-dark.bg-philosophy .bg-overlay,
+/* Case studies: minimal sweep — photo reads clearly behind columns */
+.section-alt.bg-projects .bg-overlay {
+  background: linear-gradient(to right, rgba(241, 245, 249, .14) 0%, rgba(241, 245, 249, .06) 30%, rgba(241, 245, 249, 0) 62%);
+}
+
 .page-hero.bg-about-hero .bg-overlay,
 .page-hero.bg-lead-hero .bg-overlay,
 .page-hero.bg-experience .bg-overlay,
@@ -2005,11 +2065,15 @@ button {
   background: linear-gradient(to right, rgba(11, 18, 32, 0.9) 0%, rgba(11, 18, 32, 0.6) 40%, rgba(11, 18, 32, 0) 80%);
 }
 
+/* How I think: softer sweep so full-frame photo (contain) stays visible */
+.section-dark.bg-philosophy .bg-overlay {
+  background: linear-gradient(to right, rgba(11, 18, 32, 0.42) 0%, rgba(11, 18, 32, 0.22) 45%, rgba(11, 18, 32, 0) 78%);
+}
+
 /* Dark mode overlays: identical pattern to home page hero */
 [data-theme="dark"] .section.bg-expertise .bg-overlay,
 [data-theme="dark"] .section.bg-credentials .bg-overlay,
 [data-theme="dark"] .section.bg-connect .bg-overlay,
-[data-theme="dark"] .section-dark.bg-philosophy .bg-overlay,
 [data-theme="dark"] .section.bg-about-mission .bg-overlay,
 [data-theme="dark"] .section.bg-about-identity .bg-overlay,
 [data-theme="dark"] .section.bg-lead-impact .bg-overlay,
@@ -2042,7 +2106,6 @@ button {
   background: linear-gradient(to right, rgba(11, 18, 32, 0.9) 0%, rgba(11, 18, 32, 0.6) 40%, rgba(11, 18, 32, 0) 80%) !important;
 }
 
-[data-theme="dark"] .section-alt.bg-projects .bg-overlay,
 [data-theme="dark"] .section-alt.bg-insights .bg-overlay,
 [data-theme="dark"] .section-alt.bg-about-pillars .bg-overlay,
 [data-theme="dark"] .section-alt.bg-lead-framework .bg-overlay,
@@ -2051,6 +2114,14 @@ button {
 [data-theme="dark"] .section-alt.bg-insight-2 .bg-overlay,
 [data-theme="dark"] .section-alt.bg-consult-3 .bg-overlay {
   background: linear-gradient(to right, rgba(19, 29, 49, 0.9) 0%, rgba(19, 29, 49, 0.6) 40%, rgba(19, 29, 49, 0) 80%) !important;
+}
+
+[data-theme="dark"] .section-alt.bg-projects .bg-overlay {
+  background: linear-gradient(to right, rgba(19, 29, 49, .22) 0%, rgba(19, 29, 49, .08) 30%, rgba(19, 29, 49, 0) 62%) !important;
+}
+
+[data-theme="dark"] .section-dark.bg-philosophy .bg-overlay {
+  background: linear-gradient(to right, rgba(11, 18, 32, 0.5) 0%, rgba(11, 18, 32, 0.26) 45%, rgba(11, 18, 32, 0) 78%) !important;
 }
 
 /* ── Footer Background Overlay matching Home Page ── */
@@ -2245,7 +2316,25 @@ button {
 }
 
 .section-about-brand {
-  background: var(--bg-surface);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-surface);
+}
+
+.section-about-brand::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, .52) 0%, rgba(248, 250, 252, .42) 45%, rgba(255, 255, 255, .55) 100%),
+    url('../images/about-brand-bg.webp') center 22% / cover no-repeat;
+}
+
+.section-about-brand .container {
+  position: relative;
+  z-index: 1;
 }
 
 .about-brand-body {
@@ -2268,6 +2357,28 @@ button {
 .about-brand-cta {
   margin-top: 1.5rem !important;
   margin-bottom: 0 !important;
+}
+
+.key-results-section {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-subtle);
+}
+
+.key-results-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(135deg, rgba(248, 250, 252, .58) 0%, rgba(241, 245, 249, .48) 50%, rgba(248, 250, 252, .55) 100%),
+    url('../images/key-results-bg.webp') center / cover no-repeat;
+}
+
+.key-results-section .container {
+  position: relative;
+  z-index: 1;
 }
 
 .key-results-section .key-results-list {
@@ -2302,6 +2413,41 @@ button {
 
 .case-studies-grid {
   align-items: stretch;
+}
+
+.section-alt.bg-projects .project-card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.section-alt.bg-projects .project-card:hover {
+  box-shadow: none;
+  transform: none;
+  border: none;
+}
+
+[data-theme="dark"] .section-alt.bg-projects .project-card {
+  background: transparent;
+  border: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.section-alt.bg-projects .project-card-header,
+.section-alt.bg-projects .project-card-footer {
+  border-color: rgba(0, 0, 0, .08);
+}
+
+[data-theme="dark"] .section-alt.bg-projects .project-card-header,
+[data-theme="dark"] .section-alt.bg-projects .project-card-footer {
+  border-color: rgba(255, 255, 255, .1);
+}
+
+[data-theme="dark"] .section-alt.bg-projects .project-card * {
+  text-shadow: none !important;
 }
 
 .case-block {
@@ -2420,7 +2566,37 @@ button {
 }
 
 [data-theme="dark"] .section-about-brand {
-  background: var(--bg-surface);
+  background-color: var(--navy-mid);
+}
+
+[data-theme="dark"] .section-about-brand::before {
+  background:
+    linear-gradient(135deg, rgba(11, 18, 32, .72) 0%, rgba(15, 23, 42, .68) 100%),
+    url('../images/about-brand-bg.webp') center 22% / cover no-repeat;
+}
+
+[data-theme="dark"] .key-results-section {
+  background-color: var(--navy);
+}
+
+[data-theme="dark"] .key-results-section::before {
+  background:
+    linear-gradient(135deg, rgba(11, 18, 32, .7) 0%, rgba(15, 23, 42, .65) 100%),
+    url('../images/key-results-bg.webp') center / cover no-repeat;
+}
+
+[data-theme="dark"] .section-testimonials::before {
+  background-image:
+    linear-gradient(135deg, rgba(11, 18, 32, .28) 0%, rgba(15, 23, 42, .22) 100%),
+    url('../images/index-testimonials-bg.webp');
+  background-size: cover, cover;
+  /* Anchor photo to top so faces aren’t cropped out by cover + low % */
+  background-position: center, center top;
+  background-repeat: no-repeat;
+}
+
+[data-theme="dark"] .section-testimonials {
+  background-color: var(--navy);
 }
 
 [data-theme="dark"] .section-brand-visuals {
@@ -2459,13 +2635,52 @@ button {
 }
 
 .section-testimonials {
-  background: var(--bg-surface);
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-surface);
+}
+
+.section-testimonials::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(135deg, rgba(248, 250, 252, .22) 0%, rgba(241, 245, 249, .14) 50%, rgba(248, 250, 252, .2) 100%),
+    url('../images/index-testimonials-bg.webp');
+  background-size: cover, cover;
+  background-position: center, center top;
+  background-repeat: no-repeat;
+}
+
+.section-testimonials .container {
+  position: relative;
+  z-index: 1;
 }
 
 .testimonial-card {
   max-width: 40rem;
   margin-top: 8px;
   padding: 28px 32px;
+}
+
+/* Quote sits directly on the section photo — no panel, blur, or frame */
+.section-testimonials .testimonial-card.card {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.section-testimonials .testimonial-card.card:hover {
+  box-shadow: none;
+  transform: none;
+  border: none;
+}
+
+[data-theme="dark"] .section-testimonials .testimonial-card.card {
+  background: transparent;
+  border: none;
 }
 
 .testimonial-quote {

@@ -248,13 +248,22 @@
                         </div>
                     </div>
 
-                    <!-- Right: Photo -->
+                    <!-- Right: Photo (3-layer slideshow, same cadence as .hero-bg-slide) -->
                     <div class="hero-image-wrap">
-                        <div class="hero-photo-frame">
-                            <img src="images/1.jpg"
-                                alt="Frieze Kere Wandabwa — Enterprise IT Leader and Technology Strategist"
-                                class="hero-photo" loading="eager"
-                                onerror="this.style.background='linear-gradient(135deg,#1E2D4B,#2563EB)';this.alt='';">
+                        <div class="hero-photo-frame" role="img"
+                            aria-label="Frieze Kere Wandabwa — Enterprise IT Leader and Technology Strategist">
+                            <div class="hero-photo-stack">
+                                <img src="images/hero-portrait-1.webp" alt="" width="380" height="380"
+                                    class="hero-photo-slide hero-portrait-slide-1" loading="eager" fetchpriority="high"
+                                    decoding="async"
+                                    sizes="(max-width: 480px) 220px, (max-width: 1024px) 280px, 380px">
+                                <img src="images/hero-portrait-2.webp" alt="" width="380" height="380"
+                                    class="hero-photo-slide hero-portrait-slide-2" loading="eager" decoding="async"
+                                    sizes="(max-width: 480px) 220px, (max-width: 1024px) 280px, 380px">
+                                <img src="images/hero-portrait-3.webp" alt="" width="380" height="380"
+                                    class="hero-photo-slide hero-portrait-slide-3" loading="eager" decoding="async"
+                                    sizes="(max-width: 480px) 220px, (max-width: 1024px) 280px, 380px">
+                            </div>
                             <div class="hero-photo-badge">
                                 <div class="hero-photo-badge-dot"></div>
                                 <span>Open to Opportunities</span>

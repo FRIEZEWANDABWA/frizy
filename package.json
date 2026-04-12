@@ -1,0 +1,12 @@
+{
+  "name": "frizy-site-tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:hero-portraits": "node scripts/build-hero-portraits.mjs",
+    "build:section-bgs": "node scripts/build-section-backgrounds.mjs"
+  },
+  "devDependencies": {
+    "sharp": "^0.33.5"
+  }
+}

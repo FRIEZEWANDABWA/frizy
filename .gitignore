@@ -14,6 +14,9 @@ venv.bak/
 instance/
 .webassets-cache
 
+# Node (image tooling)
+node_modules/
+
 # IDE
 .vscode/
 .idea/
