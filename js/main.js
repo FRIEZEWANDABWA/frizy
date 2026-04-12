@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // ── Scroll-reveal animation ─────────────────────────
     const revealEls = document.querySelectorAll(
-        '.card, .expertise-card, .project-card, .cert-badge, .insight-card, .service-card, .metric-item, .timeline-item'
+        '.card, .expertise-card, .project-card, .cert-badge, .insight-card, .service-card, .metric-item, .timeline-item, .testimonial-card'
     );
 
     if ('IntersectionObserver' in window && revealEls.length) {
@@ -105,6 +105,18 @@ document.addEventListener('DOMContentLoaded', function () {
         } else if (href && href !== '/' && currentPath.startsWith(href)) {
             link.classList.add('active');
         }
+    });
+
+    document.querySelectorAll('.nav-details').forEach((detail) => {
+        if (detail.querySelector('.nav-submenu .nav-link.active')) {
+            detail.setAttribute('open', '');
+        }
+    });
+
+    document.addEventListener('click', function (e) {
+        document.querySelectorAll('.nav-details[open]').forEach((detail) => {
+            if (!detail.contains(e.target)) detail.removeAttribute('open');
+        });
     });
 
     // ── Smooth anchor scrolling ─────────────────────────
@@ -240,8 +252,8 @@ document.addEventListener('DOMContentLoaded', function () {
         if (q.includes('education') || q.includes('cert')) return "Frieze holds a CCNA, ISO 27001 Compliance, Cybersecurity, and 5G Technologies certifications, and is currently pursuing an MSc in Artificial Intelligence at Kenyatta University.";
         if (q.includes('who are you') || q.includes('frieze ai')) return "I am Frieze AI, a digital assistant built to guide you through Frieze Wandabwa's portfolio and experience!";
         if (q.includes('about')) return "Frieze Kere Wandabwa is an Enterprise IT leader specialising in infrastructure architecture, cybersecurity governance, and AI-driven technology strategy across Africa. Based in Nairobi, Kenya.";
-        if (q.includes('resume') || q.includes('cv')) return "You can securely request and download Frieze's resume exactly by clicking the 'Request Resume' button in the main navigation menu above.";
-        return "That's an excellent question! For more detailed discussions, it's best to connect with Frieze via LinkedIn or by requesting his full resume via the 'Request Resume' button.";
+        if (q.includes('resume') || q.includes('cv')) return "Use Download CV in the navigation bar to get the PDF in one click.";
+        return "For a detailed conversation, use Contact or LinkedIn from the site header.";
     }
 
     function handleSend() {

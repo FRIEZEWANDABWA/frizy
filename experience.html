@@ -28,7 +28,10 @@ network deployment, regulatory compliance, and aviation technology.">
   <meta name="twitter:description"
     content="Enterprise IT leader specialising in infrastructure architecture and AI-driven technology strategy.">
 
-  <!-- Favicon -->
+  <!-- Brand icons + early logo fetch (tab / home screen) -->
+  <link rel="preload" href="/images/profile%20photo.webp" as="image" fetchpriority="high">
+  <link rel="icon" href="/images/profile%20photo.webp" type="image/webp">
+  <link rel="apple-touch-icon" href="/images/profile%20photo.webp">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
   <!-- Fonts -->
@@ -53,7 +56,7 @@ network deployment, regulatory compliance, and aviation technology.">
     "name": "Frieze Kere Wandabwa",
     "alternateName": ["Frieze Wandabwa", "Frieze Kere"],
     "url": "https://www.friezewandabwa.it.com",
-    "image": "https://www.friezewandabwa.it.com/static/images/profile photo.webp",
+    "image": "https://www.friezewandabwa.it.com/images/profile%20photo.webp",
     "jobTitle": "Enterprise IT Leader & Technology Strategist",
     "description": "Enterprise IT leader specialising in infrastructure architecture, cybersecurity governance, AI-driven technology strategy, and operational excellence across Africa.",
     "email": "friezekw@gmail.com",
@@ -94,7 +97,7 @@ network deployment, regulatory compliance, and aviation technology.">
   <header class="header" id="site-header">
     <nav class="nav-container" aria-label="Main navigation">
       <a href="/" class="logo" aria-label="Frieze Wandabwa home">
-        <img src="/images/profile%20photo.webp" alt="Frieze Wandabwa" class="logo-icon" style="padding:0;object-fit:cover;">
+        <img src="/images/profile%20photo.webp" alt="Frieze Wandabwa" class="logo-icon" fetchpriority="high" decoding="async" style="padding:0;object-fit:cover;">
         <span>Frieze Wandabwa</span>
       </a>
 
@@ -103,16 +106,22 @@ network deployment, regulatory compliance, and aviation technology.">
         <li><a href="/about.html" class="nav-link ">About</a></li>
         <li><a href="/leadership.html" class="nav-link ">Leadership</a></li>
         <li><a href="/experience.html" class="nav-link active">Experience</a></li>
-        <li><a href="/projects.html" class="nav-link ">Projects</a></li>
-        <li><a href="/certifications.html" class="nav-link ">Certifications</a></li>
-        <li><a href="/insights.html" class="nav-link ">Insights</a></li>
-        <li><a href="/consulting.html" class="nav-link ">Consulting</a></li>
+        <li><a href="/projects.html" class="nav-link ">Case studies</a></li>
+        <li class="nav-item-dropdown">
+          <details class="nav-details">
+            <summary class="nav-summary"><span class="nav-summary-label nav-link">More</span><i class="fas fa-chevron-down nav-chevron" aria-hidden="true"></i></summary>
+            <ul class="nav-submenu" role="list">
+              <li><a href="/certifications.html" class="nav-link ">Certifications</a></li>
+              <li><a href="/insights.html" class="nav-link ">Insights</a></li>
+              <li><a href="/consulting.html" class="nav-link ">Consulting</a></li>
+            </ul>
+          </details>
+        </li>
         <li><a href="/contact.html" class="nav-link ">Contact</a></li>
       </ul>
-
       <div class="nav-actions">
-        <a href="/request_resume.html" class="btn btn-primary btn-sm">
-          <i class="fas fa-file-alt"></i> Request Resume
+        <a href="/Frieze_Kere_Wandabwa_CV.pdf" download class="btn btn-primary btn-sm">
+          <i class="fas fa-file-alt"></i> Download CV
         </a>
         <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle theme">
           <i class="fas fa-moon"></i>
@@ -325,8 +334,8 @@ network deployment, regulatory compliance, and aviation technology.">
               </div>
 
             </div>
-            <a href="/request_resume.html" class="btn btn-primary" style="justify-content:center;">
-              <i class="fas fa-file-alt"></i> Request Full Resume
+            <a href="/Frieze_Kere_Wandabwa_CV.pdf" download class="btn btn-primary" style="justify-content:center;">
+              <i class="fas fa-download"></i> Download CV
             </a>
             <a href="/consulting.html" class="btn btn-outline-dark" style="justify-content:center;">
               <i class="fas fa-handshake"></i> Consulting Services
@@ -372,7 +381,7 @@ network deployment, regulatory compliance, and aviation technology.">
             <a href="/about.html">About</a>
             <a href="/leadership.html">Leadership</a>
             <a href="/experience.html">Experience</a>
-            <a href="/projects.html">Projects</a>
+            <a href="/projects.html">Case studies</a>
             <a href="/certifications.html">Certifications</a>
           </div>
         </div>
@@ -383,7 +392,7 @@ network deployment, regulatory compliance, and aviation technology.">
             <a href="/insights.html">Insights</a>
             <a href="/consulting.html">Consulting</a>
             <a href="/contact.html">Contact</a>
-            <a href="/request_resume.html">Request Resume</a>
+            <a href="/Frieze_Kere_Wandabwa_CV.pdf" download>Download CV</a>
           </div>
         </div>
 
