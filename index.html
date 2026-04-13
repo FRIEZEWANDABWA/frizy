@@ -309,8 +309,8 @@
         </section>
 
         <!-- ══ LEADERSHIP METRICS ════════════════════════════════ -->
-        <div class="metrics-strip"
-            style="position:relative;background:url('images/security-bg.webp') left 35%/cover no-repeat;border:none;">
+        <div class="metrics-strip metrics-strip-bg"
+            style="position:relative;background:url('images/security-bg.webp') left 35%/cover no-repeat scroll;border:none;">
             <div
                 style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right, rgba(11, 18, 32, 0.2) 0%, rgba(11, 18, 32, 0.9) 60%);z-index:0;pointer-events:none;">
             </div>
@@ -361,6 +361,7 @@
                 <div style="margin-bottom:48px;">
                     <div class="section-label">Case studies</div>
                     <h2 class="section-title">KOFISI · Telesys · AI</h2>
+                    <p class="section-body case-studies-intro">What changed in three representative programs: the constraint, the approach, and the measurable outcome.</p>
                 </div>
 
                 <div class="grid-3 case-studies-grid">
@@ -371,24 +372,24 @@
                             </div>
                             <div>
                                 <div class="project-tag">KOFISI</div>
-                                <div class="project-title">Multi-site infrastructure transformation</div>
+                                <div class="project-title">Multi-site infrastructure alignment</div>
                             </div>
                         </div>
                         <div class="project-card-body">
                             <div class="case-block">
                                 <div class="case-label">Challenge</div>
-                                <p class="case-text">Managing IT across 15+ enterprise locations (KOFISI) with inconsistent performance.</p>
+                                <p class="case-text">Fifteen-plus enterprise locations (KOFISI) ran on different mixes of gear and vendors, so performance was uneven and incidents were hard to catch before users felt them.</p>
                             </div>
                             <div class="case-block">
                                 <div class="case-label">Solution</div>
-                                <p class="case-text">Centralized monitoring, hybrid cloud, and SD-WAN.</p>
+                                <p class="case-text">Introduced centralized monitoring, a consistent hybrid-cloud footprint on Azure and AWS, and SD-WAN so traffic and security policies could be governed from one design, not fifteen variations.</p>
                             </div>
                             <div class="case-block">
                                 <div class="case-label">Result</div>
                                 <ul class="case-result-list">
                                     <li>99.9% uptime achieved</li>
-                                    <li>Improved system reliability</li>
-                                    <li>Scalable infrastructure</li>
+                                    <li>More predictable reliability and faster recovery</li>
+                                    <li>Infrastructure that scales with new sites and services</li>
                                 </ul>
                             </div>
                         </div>
@@ -405,24 +406,24 @@
                             </div>
                             <div>
                                 <div class="project-tag">Telesys</div>
-                                <div class="project-title">Regional network deployment</div>
+                                <div class="project-title">Regional network rollout at scale</div>
                             </div>
                         </div>
                         <div class="project-card-body">
                             <div class="case-block">
                                 <div class="case-label">Challenge</div>
-                                <p class="case-text">Large-scale infrastructure rollout across multiple regions.</p>
+                                <p class="case-text">A multi-region program had to bring a large footprint online without drifting designs, slipping handoffs between vendors, or repeating the same defects site after site.</p>
                             </div>
                             <div class="case-block">
                                 <div class="case-label">Solution</div>
-                                <p class="case-text">500+ network deployments (Telesys) with vendor coordination.</p>
+                                <p class="case-text">Delivered 500+ network deployments (Telesys) behind shared standards, documented acceptance criteria, and coordinated field and vendor work so each wave built on the last.</p>
                             </div>
                             <div class="case-block">
                                 <div class="case-label">Result</div>
                                 <ul class="case-result-list">
-                                    <li>Expanded connectivity</li>
-                                    <li>Improved service delivery</li>
-                                    <li>Reduced downtime</li>
+                                    <li>Wider, more dependable connectivity across regions</li>
+                                    <li>Fewer repeat issues and cleaner service delivery</li>
+                                    <li>Less unplanned downtime as the estate matured</li>
                                 </ul>
                             </div>
                         </div>
@@ -439,23 +440,23 @@
                             </div>
                             <div>
                                 <div class="project-tag">AI</div>
-                                <div class="project-title">AI in real-world environments</div>
+                                <div class="project-title">AI that survives real operations</div>
                             </div>
                         </div>
                         <div class="project-card-body">
                             <div class="case-block">
                                 <div class="case-label">Challenge</div>
-                                <p class="case-text">AI models failing with real farm data.</p>
+                                <p class="case-text">Models that looked strong in the lab failed in production when they met noisy, incomplete farm and operations data—exactly the conditions the business actually generates.</p>
                             </div>
                             <div class="case-block">
                                 <div class="case-label">Solution</div>
-                                <p class="case-text">Focused on input quality and usability.</p>
+                                <p class="case-text">Shifted effort upstream: cleaner inputs, clearer labeling, and interfaces operators could sustain so the data pipeline matched how the work really gets done.</p>
                             </div>
                             <div class="case-block">
                                 <div class="case-label">Result</div>
                                 <ul class="case-result-list">
-                                    <li>Improved accuracy</li>
-                                    <li>Practical deployment insights</li>
+                                    <li>Better accuracy where it mattered—in live workflows</li>
+                                    <li>Practical deployment patterns for the next use cases</li>
                                 </ul>
                             </div>
                         </div>
@@ -476,15 +477,91 @@
         <!-- ══ TESTIMONIALS ═════════════════════════════════════ -->
         <section class="section section-testimonials">
             <div class="container">
-                <div class="section-label">Testimonials</div>
-                <h2 class="section-title">What colleagues say</h2>
-                <figure class="testimonial-card card">
-                    <blockquote class="testimonial-quote">
-                        "Frieze consistently delivers reliable infrastructure across complex environments."
-                    </blockquote>
-                    <figcaption class="testimonial-cite">— Vincent Chilo</figcaption>
-                    <p class="testimonial-note">Pulled from LinkedIn recommendations; happy to provide references on request.</p>
-                </figure>
+                <div class="testimonials-split">
+                    <div class="testimonials-copy">
+                        <div class="section-label">Testimonials</div>
+                        <h2 class="section-title">What colleagues say</h2>
+                        <div id="testimonial-carousel" class="testimonial-carousel testimonial-card card"
+                            aria-roledescription="carousel" aria-label="Colleague testimonials">
+                            <div class="testimonial-carousel-viewport" aria-live="polite">
+                                <div class="testimonial-carousel-track">
+                                    <div class="testimonial-panel" aria-hidden="false">
+                                        <figure class="testimonial-panel-item">
+                                            <blockquote class="testimonial-quote">
+                                                &ldquo;Frieze is someone you can trust with critical systems. His professionalism,
+                                                technical depth, and understanding of business needs make him a valuable asset to
+                                                any organization.&rdquo;
+                                            </blockquote>
+                                            <figcaption class="testimonial-cite">
+                                                <span class="testimonial-cite-name">Vincent Chilo</span>
+                                                <span class="testimonial-cite-role">Events Manager, Radisson Blu</span>
+                                            </figcaption>
+                                        </figure>
+                                        <figure class="testimonial-panel-item">
+                                            <blockquote class="testimonial-quote">
+                                                &ldquo;Frieze played a critical role in ensuring stable IT operations across multiple
+                                                locations. His ability to design and maintain reliable infrastructure significantly
+                                                improved uptime and reduced disruptions across the organization.&rdquo;
+                                            </blockquote>
+                                            <figcaption class="testimonial-cite">
+                                                <span class="testimonial-cite-name">Sharon Kalegi</span>
+                                                <span class="testimonial-cite-role">Operations Manager, KOFISI Africa</span>
+                                            </figcaption>
+                                        </figure>
+                                        <figure class="testimonial-panel-item">
+                                            <blockquote class="testimonial-quote">
+                                                &ldquo;What stands out about Frieze is his ownership. He doesn&rsquo;t just manage IT,
+                                                he takes full responsibility for ensuring systems support business operations
+                                                effectively. He consistently delivers solutions that align with real operational
+                                                needs.&rdquo;
+                                            </blockquote>
+                                            <figcaption class="testimonial-cite">
+                                                <span class="testimonial-cite-name">Paul Lumara</span>
+                                                <span class="testimonial-cite-role">IT Director, Telesys Solutions Limited</span>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                    <div class="testimonial-panel" aria-hidden="true">
+                                        <figure class="testimonial-panel-item">
+                                            <blockquote class="testimonial-quote">
+                                                &ldquo;In high-pressure situations, Frieze remains calm and focused. He has a strong
+                                                ability to quickly identify issues and implement solutions that minimize impact on
+                                                operations.&rdquo;
+                                            </blockquote>
+                                            <figcaption class="testimonial-cite">
+                                                <span class="testimonial-cite-name">Shiroh Baragu</span>
+                                                <span class="testimonial-cite-role">Events Manager, KOFISI Africa</span>
+                                            </figcaption>
+                                        </figure>
+                                        <figure class="testimonial-panel-item">
+                                            <blockquote class="testimonial-quote">
+                                                &ldquo;Frieze successfully managed IT infrastructure supporting over 2,000 users across
+                                                multiple locations, consistently maintaining high availability and system
+                                                performance.&rdquo;
+                                            </blockquote>
+                                            <figcaption class="testimonial-cite">
+                                                <span class="testimonial-cite-name">David Mbatia</span>
+                                                <span class="testimonial-cite-role">Facility Manager, KOFISI Africa</span>
+                                            </figcaption>
+                                        </figure>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial-carousel-dots" role="group" aria-label="Testimonial groups">
+                                <button type="button" class="testimonial-carousel-dot is-active"
+                                    aria-label="Show first three testimonials" aria-selected="true" data-panel="0"></button>
+                                <button type="button" class="testimonial-carousel-dot"
+                                    aria-label="Show last two testimonials" aria-selected="false" data-panel="1"></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonials-visual">
+                        <div class="testimonials-photo-frame">
+                            <img src="images/index-testimonials-bg.webp" alt="" width="960" height="1200"
+                                loading="lazy" decoding="async" fetchpriority="low">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -620,62 +697,28 @@
                             class="fas fa-arrow-right"></i></a>
                 </div>
 
-                <div class="grid-3">
-                    <div class="insight-card">
-                        <div class="insight-banner" style="background:linear-gradient(90deg,var(--blue),#6366F1);"></div>
-                        <div class="insight-body">
-                            <div class="insight-category">LinkedIn · AI</div>
-                            <div class="insight-title">AI and real farm data</div>
-                            <p class="insight-excerpt">What broke in the model, what we changed in inputs and workflow,
-                                and what actually shipped.</p>
-                            <div class="insight-meta">
-                                <span><i class="fab fa-linkedin-in"></i> Post</span>
-                            </div>
-                        </div>
-                        <div class="insight-footer">
-                            <a href="https://www.linkedin.com/in/frieze-wandabwa-224383178/recent-activity/all/"
-                                class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener noreferrer">View on
-                                LinkedIn <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                <div id="linkedin-posts-carousel" class="linkedin-posts-carousel" aria-roledescription="carousel"
+                    aria-label="Featured LinkedIn posts">
+                    <div class="linkedin-posts-viewport">
+                        <div class="linkedin-posts-track" role="list"></div>
                     </div>
-
-                    <div class="insight-card">
-                        <div class="insight-banner" style="background:linear-gradient(90deg,var(--teal),var(--green));">
-                        </div>
-                        <div class="insight-body">
-                            <div class="insight-category">LinkedIn · Infrastructure</div>
-                            <div class="insight-title">Scaling multi-site operations</div>
-                            <p class="insight-excerpt">Monitoring, SD-WAN, and hybrid cloud: what mattered when locations
-                                and traffic grew.</p>
-                            <div class="insight-meta">
-                                <span><i class="fab fa-linkedin-in"></i> Post</span>
-                            </div>
-                        </div>
-                        <div class="insight-footer">
-                            <a href="https://www.linkedin.com/in/frieze-wandabwa-224383178/recent-activity/all/"
-                                class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener noreferrer">View on
-                                LinkedIn <i class="fas fa-arrow-right"></i></a>
-                        </div>
+                    <div class="linkedin-posts-controls">
+                        <button type="button" class="linkedin-posts-nav linkedin-posts-prev" aria-label="Previous post">
+                            <i class="fas fa-chevron-left" aria-hidden="true"></i>
+                        </button>
+                        <div class="linkedin-posts-dots" role="tablist" aria-label="Choose post"></div>
+                        <button type="button" class="linkedin-posts-nav linkedin-posts-next" aria-label="Next post">
+                            <i class="fas fa-chevron-right" aria-hidden="true"></i>
+                        </button>
                     </div>
-
-                    <div class="insight-card">
-                        <div class="insight-banner" style="background:linear-gradient(90deg,var(--blue),#8B5CF6);">
-                        </div>
-                        <div class="insight-body">
-                            <div class="insight-category">LinkedIn · Leadership</div>
-                            <div class="insight-title">Leading IT through change</div>
-                            <p class="insight-excerpt">Hiring, vendors, incidents, and roadmaps — how I prioritise when
-                                everything is urgent.</p>
-                            <div class="insight-meta">
-                                <span><i class="fab fa-linkedin-in"></i> Post</span>
-                            </div>
-                        </div>
-                        <div class="insight-footer">
-                            <a href="https://www.linkedin.com/in/frieze-wandabwa-224383178/recent-activity/all/"
-                                class="btn btn-outline-dark btn-sm" target="_blank" rel="noopener noreferrer">View on
-                                LinkedIn <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </div>
+                    <p class="linkedin-posts-hint">Posts load from <code>data/linkedin-posts.json</code> (three at a time
+                        on wide screens, one per slide on phones). Add an entry when you publish — true auto-sync needs
+                        LinkedIn&rsquo;s API, not available on a static site alone.</p>
+                    <noscript>
+                        <p class="linkedin-posts-noscript"><a
+                                href="https://www.linkedin.com/in/frieze-wandabwa-224383178/recent-activity/all/"
+                                target="_blank" rel="noopener noreferrer">View recent activity on LinkedIn</a></p>
+                    </noscript>
                 </div>
             </div>
         </section>
