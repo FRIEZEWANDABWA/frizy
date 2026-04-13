@@ -3,10 +3,15 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev": "serve . -l 3456",
     "build:hero-portraits": "node scripts/build-hero-portraits.mjs",
-    "build:section-bgs": "node scripts/build-section-backgrounds.mjs"
+    "build:section-bgs": "node scripts/build-section-backgrounds.mjs",
+    "build:case-ai-cc": "node scripts/build-case-ai-cc.mjs",
+    "build:profile-photo": "node scripts/build-profile-photo.mjs",
+    "optimize:images": "node scripts/optimize-raster-assets.mjs"
   },
   "devDependencies": {
-    "sharp": "^0.33.5"
+    "sharp": "^0.33.5",
+    "serve": "^14.2.4"
   }
 }

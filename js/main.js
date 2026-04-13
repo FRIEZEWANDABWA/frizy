@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }, 4500);
     };
 
-    // ── Testimonials carousel (home): panel 1 = 3 quotes, panel 2 = 2 quotes ──
+    // ── Testimonials carousel (home): panel 1 = 3 quotes, panel 2 = 3 quotes ──
     (function initTestimonialCarousel() {
         const root = document.getElementById('testimonial-carousel');
         if (!root) return;
@@ -248,9 +248,12 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!track || !dotsHost || !prevBtn || !nextBtn || !viewport) return;
 
         const grads = [
-            'linear-gradient(90deg,var(--blue),#6366F1)',
             'linear-gradient(90deg,var(--teal),var(--green))',
-            'linear-gradient(90deg,var(--blue),#8B5CF6)'
+            'linear-gradient(90deg,var(--blue),#8B5CF6)',
+            'linear-gradient(90deg,#0EA5E9,var(--blue))',
+            'linear-gradient(90deg,var(--blue),#6366F1)',
+            'linear-gradient(90deg,#F97316,#EAB308)',
+            'linear-gradient(90deg,#EC4899,var(--blue))'
         ];
 
         let postsRaw = [];
@@ -471,7 +474,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     })();
 
-    // ── Frieze AI Chatbot ────────────────────────────────
+    // ── Frieze AI Chatbot (not on Leadership or Case studies pages) ────────
+    const path = window.location.pathname || '';
+    const isLeadershipPage = /leadership(?:\.html)?$/i.test(path) || path.includes('/leadership');
+    const isCaseStudiesPage = /projects(?:\.html)?$/i.test(path) || path.includes('/projects');
+    if (!isLeadershipPage && !isCaseStudiesPage) {
     const botHtml = `
     <div id="frieze-bot-container">
         <button id="frieze-bot-toggle" aria-label="Open Frieze AI Chat">
@@ -480,7 +487,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div id="frieze-bot-window" class="hidden">
             <div class="frieze-bot-header">
                 <div style="display:flex;align-items:center;gap:10px;">
-                    <img src="/images/profile%20photo.webp" alt="Frieze" style="width:30px;height:30px;border-radius:50%;object-fit:cover;">
+                    <img src="/images/profile-photo.webp" alt="Frieze" style="width:30px;height:30px;border-radius:50%;object-fit:cover;">
                     <div>
                         <strong>Frieze AI</strong><br>
                         <small>Online</small>
@@ -570,6 +577,7 @@ document.addEventListener('DOMContentLoaded', function () {
     botInput.addEventListener('keypress', (e) => {
         if(e.key === 'Enter') handleSend();
     });
+    }
     }
 
 });
