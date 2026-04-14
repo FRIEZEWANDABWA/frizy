@@ -21,6 +21,11 @@ const caseNames = new Set([
   'case-ai-cc.webp',
 ]);
 
+/** Full-bleed hero backgrounds: cap width for fast LCP, keep quality */
+const heroBgNames = new Set(['hero-bg-slide-1.webp', 'hero-bg-slide-2.webp', 'bg3.webp']);
+const HERO_BG_MAX_W = 2000;
+const HERO_BG_QUALITY = 84;
+
 /** Keep crisp: regenerated from source; skip bulk pass */
 const SKIP_OPTIMIZE = new Set(['profile-photo.webp']);
 
@@ -34,8 +39,16 @@ async function optimizeFile(file) {
   if (SKIP_OPTIMIZE.has(file)) return { file, skipped: true, reason: 'skip_list' };
   if (stat.size < MIN_BYTES_TO_TOUCH) return { file, skipped: true, reason: 'small' };
 
-  const maxW = caseNames.has(file) ? CASE_MAX_W : DEFAULT_MAX_W;
-  const quality = caseNames.has(file) ? CASE_QUALITY : QUALITY;
+  const maxW = heroBgNames.has(file)
+    ? HERO_BG_MAX_W
+    : caseNames.has(file)
+      ? CASE_MAX_W
+      : DEFAULT_MAX_W;
+  const quality = heroBgNames.has(file)
+    ? HERO_BG_QUALITY
+    : caseNames.has(file)
+      ? CASE_QUALITY
+      : QUALITY;
 
   const raw = fs.readFileSync(abs);
   let pipeline = sharp(raw).rotate();

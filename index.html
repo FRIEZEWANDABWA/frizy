@@ -29,6 +29,9 @@
 
     <!-- Brand icons + early logo fetch (tab / home screen) -->
     <link rel="preload" href="/images/profile-photo.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="/images/hero-bg-slide-1.webp" as="image" fetchpriority="high">
+    <link rel="preload" href="/images/hero-bg-slide-2.webp" as="image">
+    <link rel="preload" href="/images/bg3.webp" as="image">
     <link rel="icon" href="/images/profile-photo.webp" type="image/webp">
     <link rel="apple-touch-icon" href="/images/profile-photo.webp">
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
@@ -148,24 +151,24 @@
                         transform: scale(1);
                     }
 
-                    12% {
+                    14% {
                         opacity: 1;
-                        transform: scale(1.02);
+                        transform: scale(1.01);
                     }
 
-                    33.33% {
+                    36% {
                         opacity: 1;
-                        transform: scale(1.05);
+                        transform: scale(1.03);
                     }
 
-                    46% {
+                    48% {
                         opacity: 0;
-                        transform: scale(1.07);
+                        transform: scale(1.035);
                     }
 
                     100% {
                         opacity: 0;
-                        transform: scale(1.12);
+                        transform: scale(1.035);
                     }
                 }
 
@@ -178,17 +181,26 @@
                     opacity: 0;
                     z-index: 0;
                     pointer-events: none;
-                    animation: heroBgFadeZoom 24s infinite linear;
+                    animation: heroBgFadeZoom 24s infinite ease-in-out;
                     will-change: transform, opacity;
                 }
 
+                @media (prefers-reduced-motion: reduce) {
+                    .hero-bg-slide {
+                        animation-duration: 36s;
+                        animation-timing-function: ease;
+                    }
+                }
+
                 .hero-slide-1 {
-                    background: url('images/profile-photo.webp') 10% 20%/cover no-repeat;
+                    /* jj: Sharp attention crop + fine-tune vertical (nudge from 46% → 48%) */
+                    background: url('images/hero-bg-slide-1.webp') center 48% / cover no-repeat;
                     animation-delay: 0s;
                 }
 
                 .hero-slide-2 {
-                    background: url('images/bg2.webp') center 20%/cover no-repeat;
+                    /* Source: ss.* → hero-bg-slide-2.webp (build-hero-background-slides.mjs); tune % if framing shifts */
+                    background: url('images/hero-bg-slide-2.webp') center 36% / cover no-repeat;
                     animation-delay: 8s;
                 }
 
@@ -202,7 +214,7 @@
             <div class="hero-bg-slide hero-slide-3"></div>
             <!-- Gradient overlay for text readability -->
             <div
-                style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right, rgba(11, 18, 32, 0.9) 0%, rgba(11, 18, 32, 0.6) 40%, rgba(11, 18, 32, 0) 80%);z-index:0;pointer-events:none;">
+                style="position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to right, rgba(11, 18, 32, 0.62) 0%, rgba(11, 18, 32, 0.52) 26%, rgba(11, 18, 32, 0.38) 48%, rgba(11, 18, 32, 0) 78%);z-index:0;pointer-events:none;">
             </div>
 
             <div class="container" style="position:relative;z-index:1;">

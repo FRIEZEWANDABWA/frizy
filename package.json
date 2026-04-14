@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "serve . -l 3456",
     "build:hero-portraits": "node scripts/build-hero-portraits.mjs",
+    "build:hero-bg-slides": "node scripts/build-hero-background-slides.mjs",
     "build:section-bgs": "node scripts/build-section-backgrounds.mjs",
     "build:case-ai-cc": "node scripts/build-case-ai-cc.mjs",
     "build:profile-photo": "node scripts/build-profile-photo.mjs",
