@@ -8,6 +8,8 @@
     "build:hero-bg-slides": "node scripts/build-hero-background-slides.mjs",
     "build:section-bgs": "node scripts/build-section-backgrounds.mjs",
     "build:faq-bg": "node scripts/build-faq-background.mjs",
+    "build:projects-stack-bg": "node scripts/build-projects-stack-bg.mjs",
+    "build:insights-stack-bg": "node scripts/build-insights-stack-bg.mjs",
     "build:case-ai-cc": "node scripts/build-case-ai-cc.mjs",
     "build:profile-photo": "node scripts/build-profile-photo.mjs",
     "optimize:images": "node scripts/optimize-raster-assets.mjs"
