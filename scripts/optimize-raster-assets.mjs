@@ -26,6 +26,11 @@ const heroBgNames = new Set(['hero-bg-slide-1.webp', 'hero-bg-slide-2.webp', 'bg
 const HERO_BG_MAX_W = 2000;
 const HERO_BG_QUALITY = 84;
 
+/** FAQ full-bleed photo — keep high quality after resize */
+const faqBgNames = new Set(['faq-bg.webp']);
+const FAQ_BG_MAX_W = 2400;
+const FAQ_BG_QUALITY = 88;
+
 /** Keep crisp: regenerated from source; skip bulk pass */
 const SKIP_OPTIMIZE = new Set(['profile-photo.webp']);
 
@@ -41,14 +46,18 @@ async function optimizeFile(file) {
 
   const maxW = heroBgNames.has(file)
     ? HERO_BG_MAX_W
-    : caseNames.has(file)
-      ? CASE_MAX_W
-      : DEFAULT_MAX_W;
+    : faqBgNames.has(file)
+      ? FAQ_BG_MAX_W
+      : caseNames.has(file)
+        ? CASE_MAX_W
+        : DEFAULT_MAX_W;
   const quality = heroBgNames.has(file)
     ? HERO_BG_QUALITY
-    : caseNames.has(file)
-      ? CASE_QUALITY
-      : QUALITY;
+    : faqBgNames.has(file)
+      ? FAQ_BG_QUALITY
+      : caseNames.has(file)
+        ? CASE_QUALITY
+        : QUALITY;
 
   const raw = fs.readFileSync(abs);
   let pipeline = sharp(raw).rotate();
