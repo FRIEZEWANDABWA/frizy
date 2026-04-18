@@ -741,6 +741,44 @@ button {
   text-wrap: balance;
 }
 
+.hero-photo-badge-text--compact {
+  display: none;
+}
+
+/* Phone / narrow: badge below portrait (no overlap on face); shorter label */
+@media (max-width: 900px) {
+  .hero-image-wrap {
+    margin-bottom: clamp(3.25rem, 11vw, 4.25rem);
+  }
+
+  .hero-photo-badge {
+    top: calc(100% + 12px);
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 8px 12px;
+    max-width: min(94vw, 17.5rem);
+  }
+
+  .hero-photo-badge-text--full {
+    display: none;
+  }
+
+  .hero-photo-badge-text--compact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .hero-photo-badge-text--compact .hero-photo-badge-line {
+    font-size: 0.64rem;
+    line-height: 1.25;
+    text-wrap: balance;
+  }
+}
+
 /* ── Metrics Strip ─────────────────────────────────────── */
 .metrics-strip {
   background: var(--navy-mid);
