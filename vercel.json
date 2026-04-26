@@ -4,7 +4,27 @@
   "redirects": [
     {
       "source": "/insights/resilient-infrastructure",
-      "destination": "/blog",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/achievements",
+      "destination": "/certifications",
+      "permanent": true
+    },
+    {
+      "source": "/blog",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/services",
+      "destination": "/consulting",
+      "permanent": true
+    },
+    {
+      "source": "/resume",
+      "destination": "/Frieze_Kere_Wandabwa_CV.pdf",
       "permanent": true
     }
   ],
