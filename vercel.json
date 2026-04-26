@@ -1,4 +1,4 @@
-{
+﻿{
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
@@ -24,7 +24,7 @@
     },
     {
       "source": "/resume",
-      "destination": "/Frieze_Kere_Wandabwa_CV.pdf",
+      "destination": "/Frieze_Wandabwa_CV.pdf",
       "permanent": true
     }
   ],
