@@ -8,7 +8,17 @@
       "permanent": true
     },
     {
+      "source": "/resilient-infrastructure",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
       "source": "/achievements",
+      "destination": "/certifications",
+      "permanent": true
+    },
+    {
+      "source": "/achievements.html",
       "destination": "/certifications",
       "permanent": true
     },
@@ -18,13 +28,98 @@
       "permanent": true
     },
     {
+      "source": "/blog.html",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
       "source": "/services",
+      "destination": "/consulting",
+      "permanent": true
+    },
+    {
+      "source": "/services.html",
       "destination": "/consulting",
       "permanent": true
     },
     {
       "source": "/resume",
       "destination": "/Frieze_Wandabwa_CV.pdf",
+      "permanent": true
+    },
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/leadership.html",
+      "destination": "/leadership",
+      "permanent": true
+    },
+    {
+      "source": "/experience.html",
+      "destination": "/experience",
+      "permanent": true
+    },
+    {
+      "source": "/projects.html",
+      "destination": "/projects",
+      "permanent": true
+    },
+    {
+      "source": "/certifications.html",
+      "destination": "/certifications",
+      "permanent": true
+    },
+    {
+      "source": "/insights.html",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/consulting.html",
+      "destination": "/consulting",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/request_resume.html",
+      "destination": "/request_resume",
+      "permanent": true
+    },
+    {
+      "source": "/5g-connectivity.html",
+      "destination": "/5g-connectivity",
+      "permanent": true
+    },
+    {
+      "source": "/ai-enterprise-it.html",
+      "destination": "/ai-enterprise-it",
+      "permanent": true
+    },
+    {
+      "source": "/cybersecurity-strategy.html",
+      "destination": "/cybersecurity-strategy",
+      "permanent": true
+    },
+    {
+      "source": "/digital-transformation.html",
+      "destination": "/digital-transformation",
+      "permanent": true
+    },
+    {
+      "source": "/it-leadership.html",
+      "destination": "/it-leadership",
       "permanent": true
     }
   ],
